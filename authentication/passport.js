@@ -1,9 +1,11 @@
 const passport = require("passport");
+const LocalStrategy = require("passport-local").Strategy;
 const passportJWT = require("passport-jwt");
 const JWTStrategy = passportJWT.Strategy;
 const ExtractJWT = passportJWT.ExtractJwt;
-const LocalStrategy = require("passport-local").Strategy;
 const db = require("../models");
+
+// local strategy
 passport.use(
   new LocalStrategy(
     {
@@ -24,12 +26,11 @@ passport.use(
   )
 );
 
-//token Strategy
-
+// token strategy
 passport.use(
   new JWTStrategy(
     {
-      //{authorization:"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZjU3ZGU1MWE3MGE1YTE4YjRiNTVlYjUiLCJlbWFpbCI6ImJlbm55QGVnZ3NuYmVubnkuY29tIiwicGFzc3dvcmQiOiIxMjM0cGFzc3dvcmQiLCJfX3YiOjAsImlhdCI6MTU5OTU5NTIzOH0.INxBq7EAB-612AOj5u_OYaqoKH-gDSEtpLZwei-yRvI"}
+      // { Authorization: "Bearer u984u0598q983uoijdfkljsadn.9183498uhfiujkaudhfia.q01938i92iisdjhfkjh"}
       jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
       secretOrKey: "superSecret",
     },
