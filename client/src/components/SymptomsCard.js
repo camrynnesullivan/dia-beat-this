@@ -10,6 +10,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import Typography from "@material-ui/core/Typography";
 
+import { symptomsLBS, symptomsHBS } from "../../src/research"
+
 const useStyles = makeStyles({
   root: {
     minWidth: 400
@@ -25,14 +27,16 @@ export default function SymptomsCard() {
       <CardActionArea>
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            Symptomps to watch out for.
+            {symptomsLBS.title}
           </Typography>
           <Typography gutterBottom variant="h5" component="h2"></Typography>
           <Typography
             variant="body2"
             color="textSecondary"
             component="p"
-          ></Typography>
+          >
+            {symptomsLBS.subtitle}
+          </Typography>
         </CardContent>
       </CardActionArea>
     </Card>
