@@ -1,5 +1,20 @@
 // This is where we will export all of the research on type 2 diabetes.  We can style it in the files where we import it.
 
+const normalLevels = {
+    "Before a meal": "80 mg/dL to 130 mg/dL",
+    "After a meal": "130 mg/dL to 180 mg/dL"
+};
+
+const lowLevels = {
+    "Before a meal": "<80 mg/dL",
+    "After a meal": "<130 mg/dL"
+};
+
+const highLevels = {
+    "Before a meal": ">130 mg/dL",
+    "After a meal": ">180 mg/dL"
+};
+
 const causesHBS = {
     title: "Causes of High Blood Sugar",
     subtitle: "Keep track of when you have high and low blood sugar, and tell your doctor.  It may be a sign your treatment needs to change.",
@@ -52,9 +67,28 @@ const symptomsLBS = {
     ]
 }
 
-const treatingHBS = {}
+const treatingHBS = {
+    title: "How to Lower Your Blood Sugar",
+    subtitle: "High blood sugar, also known as 'hyperglycemia', can be lowered by doing some of these steps",
+    todos: {
+        1: "Insulin: Take your insulin to reduce your blood sugar levels.  Be careful, as insulin can take 4 hours to be fully absorbed.",
+        2: "Walking: Exercise can help to lower blood sugar and walking is a good way of achieve this.",
+        3: "Drink Water: When your blood sugar levels are running high, your body will try to flush excess sugar our of your blood through the urine.  Drinking water helps!"
+    },
+    warning: "Always consult with your doctor when your blood sugar levels fluctuate."
+}
 
-const treatingLBS = {}
+const treatingLBS = {
+    title: "How to Raise Your Blood Sugar",
+    subtitle: "Low blood sugar, also known as 'hypoglycemia', can be raised by doing some of these steps",
+    todos: {
+        1: "The 15-15 Rule: Have 15 grams of carbohydrates to raise your blood sugar and check it after 15 minutes.  If it's still below 70 mg/dL, have another serving.",
+        2: "Take 4 glucose tablets.",
+        3: "Drink 4 ounces of regular soda, not diet soda.",
+        4: "Eat 4 pieces of hard candy."
+    },
+    warning: "Always consult with your doctor when your blood sugar levels fluctuate."
+}
 
 const complications = {
     title: "Complications of Type 2 Diabetes",
@@ -189,7 +223,8 @@ const sources = {
     "'Today, my type 2 diabetes...' Guide": "PatientPoint",
     "National Kidney Foundation": "https://www.kidney.org",
     "National Eye Institute": "https://www.nei.nih.gov",
-    "University of Michigan School of Dentistry": "https://www.dent.umich.edu"
+    "University of Michigan School of Dentistry": "https://www.dent.umich.edu",
+    "Diabetes.co.uk": "https://www.diabetes.co.uk"
 }
 
-export { causesHBS, causesLBS, symptomsHBS, symptomsLBS, treatingHBS, treatingLBS, complications, careSchedule, sources };
+export { normalLevels, lowLevels, highLevels, causesHBS, causesLBS, symptomsHBS, symptomsLBS, treatingHBS, treatingLBS, complications, careSchedule, sources };
