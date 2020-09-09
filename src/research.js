@@ -1,5 +1,8 @@
 // This is where we will export all of the research on type 2 diabetes.  We can style it in the files where we import it.
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMeh } from '@fortawesome/free-solid-svg-icons'
+
 const normalLevels = {
     "Before a meal": "80 mg/dL to 130 mg/dL",
     "After a meal": "130 mg/dL to 180 mg/dL"
@@ -43,10 +46,15 @@ const symptomsHBS = {
     title: "Signs of High Blood Sugar",
     subtitle: "Diabetes causes your blood sugar to be too high, but once you start treatment, it can also get too low.  Work with your doctor so that you know the signs and how to treat them.",
     signs: [
+        // <FontAwesomeIcon icon={faMeh} pull="left"/>
         "Headaches",
+        // faEyeSlash
         "Blurred vision",
+        // faGlassWhiskey
         "Being thirsty",
+        // faBed
         "Feeling tired",
+        // faToilet
         "Urinating more often"
     ]
 }
@@ -56,13 +64,21 @@ const symptomsLBS = {
     subtitle: "Diabetes causes your blood sugar to be too high, but once you start treatment, it can also get too low.  Work with your doctor so that you know the signs and how to treat them.",
     signs:[
         "Confusion",
+        // 
         "Lightheadedness or dizziness",
+        // faLowVision
         "Blurred vision",
+        // faPizzaSlice
         "Hunger or nausea",
+        // faHeartbeat
         "Fast heartbeat",
+        // faTemperatureLow
         "Shakiness, sweating, or chills",
+        // faBed
         "Feeling tired",
+        // faAngry
         "Being irritable or impatient",
+        // faTired
         "Feeling nervous or anxious"
     ]
 }
