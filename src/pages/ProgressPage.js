@@ -1,8 +1,8 @@
 import React from "react"
 import BloodSugarCard from "../components/BloodSugarCard"
-import ChartCard from "../components/BloodSugarCard"
-import FoodSuggestedCard from "../components/BloodSugarCard"
-import SymptomsCard from "../components/BloodSugarCard"
+import ChartCard from "../components/ChartCard"
+import FoodSuggestedCard from "../components/FoodSuggestedCard"
+import SymptomsCard from "../components/SymptomsCard"
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 
