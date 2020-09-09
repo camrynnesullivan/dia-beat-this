@@ -26,10 +26,13 @@ export default function BloodSugarCard() {
           <Typography gutterBottom variant="h5" component="h2">
             Current Blood Sugar:
           </Typography>
-          
+    
           <Typography gutterBottom variant="h5" component="h2">
           <FontAwesomeIcon icon={faTint} pull="left" color="red" size="lg"/>
             {140} mg/dL
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+            Fasted / Just ate
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
             This level looks good!
