@@ -1,12 +1,12 @@
 import React from "react"
 import Container from "@material-ui/core/Container"
-import Card from "../components/Card"
+import BloodSugarCard from "../components/BloodSugarCard"
 
 function ProgressPage(props) {
 
 
   return <Container maxWidth="sm" fixed>
-  <Card />
+  <BloodSugarCard />
   </Container>
 }
 
