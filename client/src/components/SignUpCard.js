@@ -5,6 +5,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 
@@ -73,6 +74,19 @@ export default function InputWithIcon() {
           </Grid>
         </Grid>
       </div>
+      <Button variant="contained">Default</Button>
+<Button variant="contained" color="primary">
+  Primary
+</Button>
+<Button variant="contained" color="secondary">
+  Secondary
+</Button>
+<Button variant="contained" disabled>
+  Disabled
+</Button>
+<Button variant="contained" color="primary" href="#contained-buttons">
+  Link
+</Button>
     </div>
   );
 }

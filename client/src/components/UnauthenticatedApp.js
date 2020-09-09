@@ -2,7 +2,7 @@ import React, {useRef} from "react";
 import { useGlobalContext } from "../context/GlobalContext";
 import { LOGIN } from "../context/actions";
 import axios from "axios";
-import SignUpCard from "./SignUpCard"
+// import SignUpCard from "./SignUpCard"
 
 const UnauthenticatedApp = () => {
   const [state,dispatch] = useGlobalContext();
