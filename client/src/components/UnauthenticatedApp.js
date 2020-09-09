@@ -1,53 +1,52 @@
-import React, {useRef} from "react";
+import React, { useRef } from "react";
 import { useGlobalContext } from "../context/GlobalContext";
 import { LOGIN } from "../context/actions";
 import axios from "axios";
 
 const UnauthenticatedApp = () => {
-  const [state,dispatch] = useGlobalContext();
+  const [state, dispatch] = useGlobalContext();
 
   const emailRef = useRef();
   const passwordRef = useRef();
   const regEmailRef = useRef();
   const regPasswordRef = useRef();
 
-  const doLogin = async() => {
+  const doLogin = async () => {
     const { data } = await axios.post("/auth/login", {
       email: emailRef.current.value,
-      password: passwordRef.current.value
+      password: passwordRef.current.value,
     });
 
     console.log(data);
     dispatch({
       type: LOGIN,
-      user: data
-    })
-  }
+      user: data,
+    });
+  };
 
-  const doSignup = async() => {
+  const doSignup = async () => {
     const { data } = await axios.post("/auth/register", {
       email: regEmailRef.current.value,
-      password: regPasswordRef.current.value
+      password: regPasswordRef.current.value,
     });
 
     console.log(data);
 
     // dispatch({
     //   type: LOGIN,
-    //   user: data
-    // })
-  }
-
+    //   user: data,
+    // });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     doLogin();
-  }
+  };
 
   const handleSignup = (e) => {
     e.preventDefault();
     doSignup();
-  }
+  };
 
   return (
     <div>
@@ -64,7 +63,7 @@ const UnauthenticatedApp = () => {
         <button type="submit">Submit</button>
       </form>
     </div>
-  )
-}
+  );
+};
 
 export default UnauthenticatedApp;

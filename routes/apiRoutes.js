@@ -3,6 +3,7 @@ const userController = require("../controllers/userController");
 
 //routes that we want to protect
 Router.get("/welcome", (req, res) => {
+  console.log("It worked");
   res.send("Welcome to DiaBeatThis!");
 });
 
