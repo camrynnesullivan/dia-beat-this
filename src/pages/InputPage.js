@@ -3,6 +3,12 @@ import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import Card from "@material-ui/core/MenuItem"
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
+
 
 const currencies = [
   {
@@ -27,9 +33,14 @@ const useStyles = makeStyles((theme) => ({
 function InputPage(props) {
   const classes = useStyles();
   const [currency, setCurrency] = React.useState('EUR');
+  const [value, setValue] = React.useState('female');
+
+  // const handleChange = (event) => {
+  //   setCurrency(event.target.value);
+  // };
 
   const handleChange = (event) => {
-    setCurrency(event.target.value);
+    setValue(event.target.value);
   };
 
   return (
@@ -53,6 +64,13 @@ function InputPage(props) {
           ))}
         </TextField>
       </div>
+      <FormControl component="fieldset">
+  <FormLabel component="legend">What would you like to track?</FormLabel>
+  <RadioGroup aria-label="gender" name="gender1" value={value} onChange={handleChange}>
+    <FormControlLabel value="food" control={<Radio />} label="Food" />
+    <FormControlLabel value="bloodSugar" control={<Radio />} label="Blood Sugar" />
+  </RadioGroup>
+</FormControl>
     </form>
   );
 }
