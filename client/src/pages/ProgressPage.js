@@ -3,7 +3,7 @@ import BloodSugarCard from "../components/BloodSugarCard"
 import ChartCard from "../components/ChartCard"
 import FoodSuggestedCard from "../components/FoodSuggestedCard"
 import SymptomsCard from "../components/SymptomsCard"
-import Grid from '@material-ui/core/Grid';
+import CardGrid from "../components/CardGrid"
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({

@@ -2,6 +2,7 @@ import React, {useRef} from "react";
 import { useGlobalContext } from "../context/GlobalContext";
 import { LOGIN } from "../context/actions";
 import axios from "axios";
+import SignUpCard from "./SignUpCard"
 
 const UnauthenticatedApp = () => {
   const [state,dispatch] = useGlobalContext();
@@ -63,6 +64,7 @@ const UnauthenticatedApp = () => {
         <input type="text" placeholder="password" ref={regPasswordRef} />
         <button type="submit">Submit</button>
       </form>
+      {/* <SignUpCard /> */}
     </div>
   )
 }
