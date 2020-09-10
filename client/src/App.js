@@ -9,10 +9,6 @@ function App() {
 
   return (
     <div className="App">
-<<<<<<< HEAD
-=======
-      <ProgressPage />
->>>>>>> 015b380778092f79a5a5275d9e2fa3476d1e3e5e
       {/* {state.user.token ? <AuthenticatedApp /> : <UnauthenticatedApp />} */}
     </div>
   );
