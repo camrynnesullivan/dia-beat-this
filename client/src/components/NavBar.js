@@ -36,7 +36,6 @@ const NavBar = props => {
   const [anchorEl, setAnchorEl] = React.useState("/");
   const open = Boolean(anchorEl);
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
 
   const handleMenu = event => {
     setAnchorEl(event.currentTarget);

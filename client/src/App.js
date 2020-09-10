@@ -9,7 +9,8 @@ function App() {
 
   return (
     <div className="App">
-      {state.user.token ? <AuthenticatedApp /> : <UnauthenticatedApp />}
+      {/* {state.user.token ? <AuthenticatedApp /> : <UnauthenticatedApp />} */}
+      <AuthenticatedApp/>
     </div>
   );
 }

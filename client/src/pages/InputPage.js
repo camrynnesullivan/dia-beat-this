@@ -32,9 +32,21 @@ function InputPage(props) {
   const [inputChoice, setInputChoice] = useState(null);
 
 const handleTrackButton = (e) => {
-    console.log(e.target.value)
+    console.log(e)
   }
 
+  const buttonOptions = [
+    {
+      buttonName: "Food",
+      buttonChoice: "Food",
+      color: "primary"
+    },
+    {
+      buttonName: "Blood Sugar",
+      buttonChoice: "BloodSugar",
+      color: "secondary"
+    },
+  ];
 
   return (
       <div>
@@ -48,8 +60,16 @@ const handleTrackButton = (e) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button variant="contained" size="small" color="secondary" onClick={handleTrackButton}>Track Food</Button>
-        <Button variant="contained" size="small" color="primary" onClick={handleTrackButton}>Track Blood Sugar</Button>
+                {buttonOptions.map(button => {
+                  const { buttonName, buttonChoice, color } = button;
+                  return (
+                    <Button variant="contained" size="small" color={color} onClick={() => handleTrackButton(buttonChoice)}>
+                      Track {buttonName}
+                    </Button>
+                  );
+                })}
+        {/* <Button  color="secondary" onClick={handleTrackButton}>Track Food</Button>
+        <Button variant="contained" size="small" color="primary" onClick={handleTrackButton}>Track Blood Sugar</Button> */}
       </CardActions>
         </Card>
         { inputChoice === "Food" && (<InputFoodCard />)}
