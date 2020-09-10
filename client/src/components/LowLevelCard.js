@@ -47,7 +47,7 @@ export default function LowLevelCard() {
               <ListItem>15 grapes</ListItem>
             </List>
           </Typography>
-          <div>
+          {/* <div>
             <div className="symptoms-list-main-div">
               <ul className="fa-ul">
                 {treatingLBS.todos.map((todos) => {
@@ -55,8 +55,7 @@ export default function LowLevelCard() {
                 })}
               </ul>
             </div>
-          </div>
-          )
+          </div> */}
         </CardContent>
       </CardActionArea>
     </Card>
