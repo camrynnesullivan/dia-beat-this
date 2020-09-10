@@ -18,7 +18,6 @@ const UnauthenticatedApp = () => {
       email: emailRef.current.value,
       password: passwordRef.current.value
     });
-
     console.log(data);
     dispatch({
       type: LOGIN,
@@ -33,7 +32,6 @@ const UnauthenticatedApp = () => {
     });
 
     console.log(data);
-
     // dispatch({
     //   type: LOGIN,
     //   user: data
@@ -53,7 +51,7 @@ const UnauthenticatedApp = () => {
 
   return (
     <div>
-      <p>Please enter your information to login:</p>
+      {/* <p>Please enter your information to login:</p>
       <form onSubmit={handleSubmit}>
         <input type="text" placeholder="email" ref={emailRef} />
         <input type="text" placeholder="password" ref={passwordRef} />
@@ -64,7 +62,7 @@ const UnauthenticatedApp = () => {
         <input type="text" placeholder="email" ref={regEmailRef} />
         <input type="text" placeholder="password" ref={regPasswordRef} />
         <button type="submit">Submit</button>
-      </form>
+      </form> */}
       <SignInCard header="Sign In" handle={handleSubmit} emailRef={emailRef} passwordRef={passwordRef}/>
       <SignUpCard header="Sign Up" handle={handleSignup} regEmailRef={regEmailRef} regPasswordRef={regPasswordRef}/>
     </div>
