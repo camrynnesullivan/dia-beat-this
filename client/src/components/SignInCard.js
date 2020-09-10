@@ -24,7 +24,7 @@ export default function SignInCard(props) {
   const classes = useStyles();
 
   return (
-<AuthCardGrid header={props.header}>
+<AuthCardGrid header={props.header} handle={props.handle}>
       <TextField
             variant="outlined"
             margin="normal"
