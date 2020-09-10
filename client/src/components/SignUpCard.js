@@ -72,7 +72,7 @@ export default function SignUpCard(props) {
           <Grid item>
           <Button
             variant="contained"
-            color="secondary"
+            color="default"
             className={classes.submit}
             onClick={props.handleToggle}
           >
