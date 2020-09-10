@@ -34,6 +34,7 @@ const NavBar = props => {
   const { history } = props;
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState("/");
+  const [headerTitle, setHeaderTitle] = React.useState("");
   const open = Boolean(anchorEl);
   const theme = useTheme();
 
@@ -41,8 +42,9 @@ const NavBar = props => {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleMenuClick = pageURL => {
+  const handleMenuClick = (menuTitle, pageURL) => {
     history.push(pageURL);
+    setHeaderTitle(menuTitle)
     setAnchorEl(null);
   };
 
@@ -58,7 +60,7 @@ const NavBar = props => {
       pageURL: "/"
     },
     {
-      menuTitle: "Input Page",
+      menuTitle: "Input",
       pageURL: "/input"
     },
     {
@@ -72,7 +74,7 @@ const NavBar = props => {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
-            DiaBeatThis!
+            {headerTitle}
           </Typography>
             <>
               <IconButton
@@ -102,7 +104,7 @@ const NavBar = props => {
                 {menuItems.map(menuItem => {
                   const { menuTitle, pageURL } = menuItem;
                   return (
-                    <MenuItem onClick={() => handleMenuClick(pageURL)}>
+                    <MenuItem onClick={() => handleMenuClick(menuTitle, pageURL)}>
                       {menuTitle}
                     </MenuItem>
                   );
