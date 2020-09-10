@@ -53,21 +53,31 @@ export default function SignInCard(props) {
             control={<Checkbox value="remember" color="primary" />}
             label="Remember me"
           />
+          <Grid
+          container
+          direction="row"
+          justify="center"
+          alignItems="center"
+          spacing={3}>
+            <Grid item>
           <Button
             type="submit"
-            fullWidth
             variant="contained"
             color="primary"
             className={classes.submit}
           >
             Sign In
           </Button>
-          <Grid container>
-            <Grid item>
-              <Link href="#" variant="body2">
-                {"Don't have an account? Sign Up"}
-              </Link>
-            </Grid>
+          </Grid>
+          <Grid item>
+          <Button
+            variant="contained"
+            color="secondary"
+            className={classes.submit}
+          >
+            SignUp
+          </Button>
+          </Grid>
           </Grid>
 </AuthCardGrid>
 )
