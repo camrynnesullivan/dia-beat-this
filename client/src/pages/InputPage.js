@@ -31,6 +31,11 @@ function InputPage(props) {
   const classes = useStyles();
   const [inputChoice, setInputChoice] = useState(null);
 
+const handleTrackButton = (e) => {
+    console.log(e.target.value)
+  }
+
+
   return (
       <div>
         <Card>
@@ -43,8 +48,8 @@ function InputPage(props) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" color="secondary">Track Food</Button>
-        <Button size="small" color="primary">Track Blood Sugar</Button>
+        <Button size="small" color="secondary" onClick={handleTrackButton}>Track Food</Button>
+        <Button size="small" color="primary" onClick={handleTrackButton}>Track Blood Sugar</Button>
       </CardActions>
         </Card>
         { inputChoice === "Food" && (<InputFoodCard />)}
