@@ -1,5 +1,4 @@
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { fab } from "@fortawesome/free-brands-svg-icons";
 import {
   faTint,
   faMeh,
@@ -14,11 +13,10 @@ import {
   faPizzaSlice,
   faLowVision,
   faQuestion,
-  faCarrot,
+  faUserMd,
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(
-  fab,
   faTint,
   faMeh,
   faEyeSlash,
@@ -32,5 +30,5 @@ library.add(
   faPizzaSlice,
   faLowVision,
   faQuestion,
-  faCarrot
+  faUserMd
 );
