@@ -5,6 +5,7 @@ import ChartCard from "../components/ChartCard";
 import CardGrid from "../components/CardGrid";
 import LowLevelCard from "../components/LowLevelCard";
 import NormalLevelCard from "../components/NormalLevelCard";
+
 function ProgressPage(props) {
   return (
     <CardGrid>
