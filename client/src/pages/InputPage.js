@@ -48,8 +48,8 @@ const handleTrackButton = (e) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" color="secondary" onClick={handleTrackButton}>Track Food</Button>
-        <Button size="small" color="primary" onClick={handleTrackButton}>Track Blood Sugar</Button>
+        <Button variant="contained" size="small" color="secondary" onClick={handleTrackButton}>Track Food</Button>
+        <Button variant="contained" size="small" color="primary" onClick={handleTrackButton}>Track Blood Sugar</Button>
       </CardActions>
         </Card>
         { inputChoice === "Food" && (<InputFoodCard />)}
