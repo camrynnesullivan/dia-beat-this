@@ -1,10 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import Link from '@material-ui/core/Link';
+import HeroImage from "../images/blood_sugar.jpg"
 
 const useStyles = makeStyles((theme) => ({
   hero: {
@@ -13,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.common.white,
     marginTop: 10,
     marginBottom: 10,
-    backgroundImage: 'url(https://source.unsplash.com/random)',
+    backgroundImage: "url(https://media.istockphoto.com/photos/love-concept-exclamation-point-inside-of-a-red-folding-heart-shape-on-picture-id1188529144?k=6&m=1188529144&s=170667a&w=0&h=yrmZpR7azbHTDHYYJ7KCFljqQ4Aa7JS0obiqFnQ8NrE=)",
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
@@ -57,7 +56,3 @@ export default function Hero(props) {
     </Paper>
   );
 }
-
-Hero.propTypes = {
-  post: PropTypes.object,
-};
