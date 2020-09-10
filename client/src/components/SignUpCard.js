@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignInCard(props) {
+export default function SignUpCard(props) {
   const classes = useStyles();
 
   return (
@@ -29,8 +29,8 @@ export default function SignInCard(props) {
         justify="center"
         alignItems="flex-start"
       >
-      <Typography variant="h4">Sign In</Typography>
-      <form className={classes.form} onSubmit={props.handleSubmit}>
+      <Typography variant="h4">Sign Up</Typography>
+      <form className={classes.form} onSubmit={props.handleSignup}>
           <TextField
             variant="outlined"
             margin="normal"
@@ -40,13 +40,13 @@ export default function SignInCard(props) {
             label="Username"
             name="username"
             autoComplete="username"
-            inputRef={emailRef}
+            inputRef={regEmailRef}
             autoFocus
           />
           <TextField
             variant="outlined"
             margin="normal"
-            inputRef={passwordRef}
+            inputRef={regPasswordRef}
             required
             fullWidth
             name="password"
@@ -63,7 +63,7 @@ export default function SignInCard(props) {
             type="submit"
             fullWidth
             variant="contained"
-            color="primary"
+            color="secondary"
             className={classes.submit}
           >
             Sign In

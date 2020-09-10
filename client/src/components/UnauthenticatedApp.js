@@ -64,7 +64,8 @@ const UnauthenticatedApp = () => {
         <input type="text" placeholder="password" ref={regPasswordRef} />
         <button type="submit">Submit</button>
       </form>
-      {/* <SignInCard handleSubmit={handleSubmit}/> */}
+      <SignInCard handleSubmit={handleSubmit} emailRef={emailRef} passwordRef={passwordRef}/>
+      <SignInCard handleSignup={handleSignup} regEmailRef={regEmailRef} regPasswordRef={regPasswordRef}/>
     </div>
   )
 }
