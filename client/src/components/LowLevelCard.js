@@ -6,9 +6,10 @@ import CardContent from "@material-ui/core/CardContent";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Typography from "@material-ui/core/Typography";
 import { LBSTodo } from "./LowSugarTodo";
+
 const useStyles = makeStyles({
   root: {
-    minWidth: 400,
+    width: 450
   },
   media: {
     height: 140,

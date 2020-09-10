@@ -7,11 +7,11 @@ import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import careSchedule from "../research"
+import { careSchedule } from "../research"
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: '100%',
+    width: 450
   },
   heading: {
     fontSize: theme.typography.pxToRem(15),
@@ -44,29 +44,111 @@ export default function CareScheduleAccordion() {
           <Typography className={classes.heading}>Every Day</Typography>
           <Typography className={classes.secondaryHeading}>See details</Typography>
         </AccordionSummary>
-            <AccordionDetails>
+        <AccordionDetails>
+            {/* =====================================NESTED===================================== */}
+            <div>
+                {/* check blood sugar ========================================================== */}
                 <Accordion>
-                <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-label="Expand"
-                aria-controls="additional-actions1-content"
-                id="additional-actions1-header"
-                >
-                <FormControlLabel
-                    aria-label="Acknowledge"
-                    onClick={(event) => event.stopPropagation()}
-                    onFocus={(event) => event.stopPropagation()}
-                    control={<Checkbox />}
-                    label="I acknowledge that I should stop the click event propagation"
-                />
-                </AccordionSummary>
-                <AccordionDetails>
-                <Typography color="textSecondary">
-                    The click event of the nested action will propagate up and expand the accordion unless
-                    you explicitly stop it.
-                </Typography>
-                </AccordionDetails>
-            </Accordion>
+                    <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-label="Expand"
+                    aria-controls="additional-actions1-content"
+                    id="additional-actions1-header"
+                    >
+                    <FormControlLabel
+                        aria-label="Acknowledge"
+                        onClick={(event) => event.stopPropagation()}
+                        onFocus={(event) => event.stopPropagation()}
+                        control={<Checkbox />}
+                        label={careSchedule.daily[0].title}
+                    />
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <Typography color="textSecondary">{careSchedule.daily[0].description}</Typography>
+                    </AccordionDetails>
+                </Accordion>
+                {/* check feet ================================================================== */}
+                <Accordion>
+                    <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-label="Expand"
+                    aria-controls="additional-actions1-content"
+                    id="additional-actions1-header"
+                    >
+                    <FormControlLabel
+                        aria-label="Acknowledge"
+                        onClick={(event) => event.stopPropagation()}
+                        onFocus={(event) => event.stopPropagation()}
+                        control={<Checkbox />}
+                        label={careSchedule.daily[1].title}
+                    />
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <Typography color="textSecondary">{careSchedule.daily[1].description}</Typography>
+                    </AccordionDetails>
+                </Accordion>
+                {/* take meds ==================================================================== */}
+                <Accordion>
+                    <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-label="Expand"
+                    aria-controls="additional-actions1-content"
+                    id="additional-actions1-header"
+                    >
+                    <FormControlLabel
+                        aria-label="Acknowledge"
+                        onClick={(event) => event.stopPropagation()}
+                        onFocus={(event) => event.stopPropagation()}
+                        control={<Checkbox />}
+                        label={careSchedule.daily[2].title}
+                    />
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <Typography color="textSecondary">{careSchedule.daily[2].description}</Typography>
+                    </AccordionDetails>
+                </Accordion>
+                {/* exercise ======================================================================== */}
+                <Accordion>
+                    <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-label="Expand"
+                    aria-controls="additional-actions1-content"
+                    id="additional-actions1-header"
+                    >
+                    <FormControlLabel
+                        aria-label="Acknowledge"
+                        onClick={(event) => event.stopPropagation()}
+                        onFocus={(event) => event.stopPropagation()}
+                        control={<Checkbox />}
+                        label={careSchedule.daily[3].title}
+                    />
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <Typography color="textSecondary">{careSchedule.daily[3].description}</Typography>
+                    </AccordionDetails>
+                </Accordion>
+                {/* eat healthy ======================================================================= */}
+                <Accordion>
+                    <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-label="Expand"
+                    aria-controls="additional-actions1-content"
+                    id="additional-actions1-header"
+                    >
+                    <FormControlLabel
+                        aria-label="Acknowledge"
+                        onClick={(event) => event.stopPropagation()}
+                        onFocus={(event) => event.stopPropagation()}
+                        control={<Checkbox />}
+                        label={careSchedule.daily[4].title}
+                    />
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <Typography color="textSecondary">{careSchedule.daily[4].description}</Typography>
+                    </AccordionDetails>
+                </Accordion>
+            </div>
+            {/* =====================================NESTED===================================== */}
         </AccordionDetails>
       </Accordion>
       {/* Every 3 Months */}
@@ -80,10 +162,50 @@ export default function CareScheduleAccordion() {
           <Typography className={classes.secondaryHeading}>See details</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            Donec placerat, lectus sed mattis semper, neque lectus feugiat lectus, varius pulvinar
-            diam eros in elit. Pellentesque convallis laoreet laoreet.
-          </Typography>
+            {/* =====================================NESTED===================================== */}
+            <div>
+                {/* A1C ========================================================== */}
+                <Accordion>
+                    <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-label="Expand"
+                    aria-controls="additional-actions1-content"
+                    id="additional-actions1-header"
+                    >
+                    <FormControlLabel
+                        aria-label="Acknowledge"
+                        onClick={(event) => event.stopPropagation()}
+                        onFocus={(event) => event.stopPropagation()}
+                        control={<Checkbox />}
+                        label={careSchedule.threeMos[0].title}
+                    />
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <Typography color="textSecondary">{careSchedule.threeMos[0].description}</Typography>
+                    </AccordionDetails>
+                </Accordion>
+                {/* visit doctor ================================================================== */}
+                <Accordion>
+                    <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-label="Expand"
+                    aria-controls="additional-actions1-content"
+                    id="additional-actions1-header"
+                    >
+                    <FormControlLabel
+                        aria-label="Acknowledge"
+                        onClick={(event) => event.stopPropagation()}
+                        onFocus={(event) => event.stopPropagation()}
+                        control={<Checkbox />}
+                        label={careSchedule.threeMos[1].title}
+                    />
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <Typography color="textSecondary">{careSchedule.threeMos[1].description}</Typography>
+                    </AccordionDetails>
+                </Accordion>
+            </div>
+            {/* =====================================NESTED===================================== */}
         </AccordionDetails>
       </Accordion>
       {/* Every 6 Months */}
@@ -97,10 +219,70 @@ export default function CareScheduleAccordion() {
           <Typography className={classes.secondaryHeading}>See details</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas eros,
-            vitae egestas augue. Duis vel est augue.
-          </Typography>
+            {/* =====================================NESTED===================================== */}
+            <div>
+                {/* dental exam ========================================================== */}
+                <Accordion>
+                    <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-label="Expand"
+                    aria-controls="additional-actions1-content"
+                    id="additional-actions1-header"
+                    >
+                    <FormControlLabel
+                        aria-label="Acknowledge"
+                        onClick={(event) => event.stopPropagation()}
+                        onFocus={(event) => event.stopPropagation()}
+                        control={<Checkbox />}
+                        label={careSchedule.sixMos[0].title}
+                    />
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <Typography color="textSecondary">{careSchedule.sixMos[0].description}</Typography>
+                    </AccordionDetails>
+                </Accordion>
+                {/* A1C test ================================================================== */}
+                <Accordion>
+                    <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-label="Expand"
+                    aria-controls="additional-actions1-content"
+                    id="additional-actions1-header"
+                    >
+                    <FormControlLabel
+                        aria-label="Acknowledge"
+                        onClick={(event) => event.stopPropagation()}
+                        onFocus={(event) => event.stopPropagation()}
+                        control={<Checkbox />}
+                        label={careSchedule.sixMos[1].title}
+                    />
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <Typography color="textSecondary">{careSchedule.sixMos[1].description}</Typography>
+                    </AccordionDetails>
+                </Accordion>
+                {/* visit doctor ==================================================================== */}
+                <Accordion>
+                    <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-label="Expand"
+                    aria-controls="additional-actions1-content"
+                    id="additional-actions1-header"
+                    >
+                    <FormControlLabel
+                        aria-label="Acknowledge"
+                        onClick={(event) => event.stopPropagation()}
+                        onFocus={(event) => event.stopPropagation()}
+                        control={<Checkbox />}
+                        label={careSchedule.sixMos[2].title}
+                    />
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <Typography color="textSecondary">{careSchedule.sixMos[2].description}</Typography>
+                    </AccordionDetails>
+                </Accordion>
+            </div>
+            {/* =====================================NESTED===================================== */}
         </AccordionDetails>
       </Accordion>
       {/* Every Year */}
@@ -114,10 +296,110 @@ export default function CareScheduleAccordion() {
           <Typography className={classes.secondaryHeading}>See details</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas eros,
-            vitae egestas augue. Duis vel est augue.
-          </Typography>
+            {/* =====================================NESTED===================================== */}
+            <div>
+                {/* flu shot ========================================================== */}
+                <Accordion>
+                    <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-label="Expand"
+                    aria-controls="additional-actions1-content"
+                    id="additional-actions1-header"
+                    >
+                    <FormControlLabel
+                        aria-label="Acknowledge"
+                        onClick={(event) => event.stopPropagation()}
+                        onFocus={(event) => event.stopPropagation()}
+                        control={<Checkbox />}
+                        label={careSchedule.yearly[0].title}
+                    />
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <Typography color="textSecondary">{careSchedule.yearly[0].description}</Typography>
+                    </AccordionDetails>
+                </Accordion>
+                {/* check kidneys ================================================================== */}
+                <Accordion>
+                    <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-label="Expand"
+                    aria-controls="additional-actions1-content"
+                    id="additional-actions1-header"
+                    >
+                    <FormControlLabel
+                        aria-label="Acknowledge"
+                        onClick={(event) => event.stopPropagation()}
+                        onFocus={(event) => event.stopPropagation()}
+                        control={<Checkbox />}
+                        label={careSchedule.yearly[1].title}
+                    />
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <Typography color="textSecondary">{careSchedule.yearly[1].description}</Typography>
+                    </AccordionDetails>
+                </Accordion>
+                {/* check cholesterol ==================================================================== */}
+                <Accordion>
+                    <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-label="Expand"
+                    aria-controls="additional-actions1-content"
+                    id="additional-actions1-header"
+                    >
+                    <FormControlLabel
+                        aria-label="Acknowledge"
+                        onClick={(event) => event.stopPropagation()}
+                        onFocus={(event) => event.stopPropagation()}
+                        control={<Checkbox />}
+                        label={careSchedule.yearly[2].title}
+                    />
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <Typography color="textSecondary">{careSchedule.yearly[2].description}</Typography>
+                    </AccordionDetails>
+                </Accordion>
+                {/* eye exam ======================================================================== */}
+                <Accordion>
+                    <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-label="Expand"
+                    aria-controls="additional-actions1-content"
+                    id="additional-actions1-header"
+                    >
+                    <FormControlLabel
+                        aria-label="Acknowledge"
+                        onClick={(event) => event.stopPropagation()}
+                        onFocus={(event) => event.stopPropagation()}
+                        control={<Checkbox />}
+                        label={careSchedule.yearly[3].title}
+                    />
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <Typography color="textSecondary">{careSchedule.yearly[3].description}</Typography>
+                    </AccordionDetails>
+                </Accordion>
+                {/* check feet ======================================================================= */}
+                <Accordion>
+                    <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-label="Expand"
+                    aria-controls="additional-actions1-content"
+                    id="additional-actions1-header"
+                    >
+                    <FormControlLabel
+                        aria-label="Acknowledge"
+                        onClick={(event) => event.stopPropagation()}
+                        onFocus={(event) => event.stopPropagation()}
+                        control={<Checkbox />}
+                        label={careSchedule.yearly[4].title}
+                    />
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <Typography color="textSecondary">{careSchedule.yearly[4].description}</Typography>
+                    </AccordionDetails>
+                </Accordion>
+            </div>
+            {/* =====================================NESTED===================================== */}
         </AccordionDetails>
       </Accordion>
       {/* Once */}
@@ -131,10 +413,50 @@ export default function CareScheduleAccordion() {
           <Typography className={classes.secondaryHeading}>See details</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas eros,
-            vitae egestas augue. Duis vel est augue.
-          </Typography>
+            {/* =====================================NESTED===================================== */}
+            <div>
+                {/* flu shot ========================================================== */}
+                <Accordion>
+                    <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-label="Expand"
+                    aria-controls="additional-actions1-content"
+                    id="additional-actions1-header"
+                    >
+                    <FormControlLabel
+                        aria-label="Acknowledge"
+                        onClick={(event) => event.stopPropagation()}
+                        onFocus={(event) => event.stopPropagation()}
+                        control={<Checkbox />}
+                        label={careSchedule.once[0].title}
+                    />
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <Typography color="textSecondary">{careSchedule.once[0].description}</Typography>
+                    </AccordionDetails>
+                </Accordion>
+                {/* check kidneys ================================================================== */}
+                <Accordion>
+                    <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-label="Expand"
+                    aria-controls="additional-actions1-content"
+                    id="additional-actions1-header"
+                    >
+                    <FormControlLabel
+                        aria-label="Acknowledge"
+                        onClick={(event) => event.stopPropagation()}
+                        onFocus={(event) => event.stopPropagation()}
+                        control={<Checkbox />}
+                        label={careSchedule.once[1].title}
+                    />
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <Typography color="textSecondary">{careSchedule.once[1].description}</Typography>
+                    </AccordionDetails>
+                </Accordion>
+            </div>
+            {/* =====================================NESTED===================================== */}
         </AccordionDetails>
       </Accordion>
       {/* As Needed */}
@@ -148,10 +470,50 @@ export default function CareScheduleAccordion() {
           <Typography className={classes.secondaryHeading}>See details</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas eros,
-            vitae egestas augue. Duis vel est augue.
-          </Typography>
+            {/* =====================================NESTED===================================== */}
+            <div>
+                {/* flu shot ========================================================== */}
+                <Accordion>
+                    <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-label="Expand"
+                    aria-controls="additional-actions1-content"
+                    id="additional-actions1-header"
+                    >
+                    <FormControlLabel
+                        aria-label="Acknowledge"
+                        onClick={(event) => event.stopPropagation()}
+                        onFocus={(event) => event.stopPropagation()}
+                        control={<Checkbox />}
+                        label={careSchedule.asNeeded[0].title}
+                    />
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <Typography color="textSecondary">{careSchedule.asNeeded[0].description}</Typography>
+                    </AccordionDetails>
+                </Accordion>
+                {/* check kidneys ================================================================== */}
+                <Accordion>
+                    <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-label="Expand"
+                    aria-controls="additional-actions1-content"
+                    id="additional-actions1-header"
+                    >
+                    <FormControlLabel
+                        aria-label="Acknowledge"
+                        onClick={(event) => event.stopPropagation()}
+                        onFocus={(event) => event.stopPropagation()}
+                        control={<Checkbox />}
+                        label={careSchedule.asNeeded[1].title}
+                    />
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <Typography color="textSecondary">{careSchedule.asNeeded[1].description}</Typography>
+                    </AccordionDetails>
+                </Accordion>
+            </div>
+            {/* =====================================NESTED===================================== */}
         </AccordionDetails>
       </Accordion>
     </div>

@@ -5,9 +5,9 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    marginTop: 20
   },  
   gridContainer: {
-    marginTop: "20px",
     paddingLeft: "40px",
     paddingRight: "40px"
   }

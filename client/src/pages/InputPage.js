@@ -1,78 +1,83 @@
-import React from 'react';
+import React, { useState } from "react";
 import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
-import MenuItem from '@material-ui/core/MenuItem';
-import Card from "@material-ui/core/MenuItem"
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormControl from '@material-ui/core/FormControl';
-import FormLabel from '@material-ui/core/FormLabel';
+import Card from "@material-ui/core/Card"
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
 
+import InputFoodCard from "../components/InputComponents/InputFoodCard"
+import InputBloodSugarCard from "../components/InputComponents/InputBloodSugarCard"
 
-const currencies = [
-  {
-    value: 'false',
-    label: "I'm about to eat",
-  },
-  {
-    value: 'true',
-    label: 'I already ate',
-  },
-];
-
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles({
   root: {
-    '& .MuiTextField-root': {
-      margin: theme.spacing(1),
-      width: '25ch',
-    },
+    minWidth: 275,
   },
-}));
+  bullet: {
+    display: 'inline-block',
+    margin: '0 2px',
+    transform: 'scale(0.8)',
+  },
+  title: {
+    fontSize: 14,
+  },
+  pos: {
+    marginBottom: 12,
+  },
+});
+
 
 function InputPage(props) {
   const classes = useStyles();
-  const [currency, setCurrency] = React.useState('EUR');
-  const [value, setValue] = React.useState('female');
+  const [inputChoice, setInputChoice] = useState(null);
+  const [showTitle, setShowTitle] = useState(true);
 
-  // const handleChange = (event) => {
-  //   setCurrency(event.target.value);
-  // };
+const handleTrackButton = (buttonChoice) => {
+    setInputChoice(buttonChoice)
+    setShowTitle(false)
+  }
 
-  const handleChange = (event) => {
-    setValue(event.target.value);
-  };
+  const buttonOptions = [
+    {
+      buttonName: "Food",
+      buttonChoice: "Food",
+      color: "primary"
+    },
+    {
+      buttonName: "Blood Sugar",
+      buttonChoice: "BloodSugar",
+      color: "secondary"
+    },
+  ];
 
   return (
-    <form className={classes.root} noValidate autoComplete="off">
-      <div><TextField id="standard-basic" label="Standard" /></div>
-      <div><TextField id="filled-basic" label="Filled" variant="filled" /></div>
-      <div><TextField id="outlined-basic" label="Outlined" variant="outlined" /></div>
       <div>
-        <TextField
-          id="standard-select-currency"
-          select
-          label="Select"
-          value={currency}
-          onChange={handleChange}
-          helperText="When are you measuring?"
-        >
-          {currencies.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </TextField>
+        <Card>
+        {showTitle &&<CardContent>
+        <Typography className={classes.title} color="textSecondary" gutterBottom>
+          Let's figure out your insulin!
+        </Typography>
+      <Typography variant="h4" component="h4">
+       What would you like to track?
+        </Typography>
+      </CardContent>}
+      <CardActions>
+                {buttonOptions.map(button => {
+                  const { buttonName, buttonChoice, color } = button;
+                  return (
+                    <Button variant="contained" size="small" color={color} onClick={() => handleTrackButton(buttonChoice)}>
+                      Track {buttonName}
+                    </Button>
+                  );
+                })}
+        {/* <Button  color="secondary" onClick={handleTrackButton}>Track Food</Button>
+        <Button variant="contained" size="small" color="primary" onClick={handleTrackButton}>Track Blood Sugar</Button> */}
+      </CardActions>
+        </Card>
+        { inputChoice === "Food" && (<InputFoodCard />)}
+        { inputChoice === "BloodSugar" && (<InputBloodSugarCard />)}
       </div>
-      <FormControl component="fieldset">
-  <FormLabel component="legend">What would you like to track?</FormLabel>
-  <RadioGroup aria-label="gender" name="gender1" value={value} onChange={handleChange}>
-    <FormControlLabel value="food" control={<Radio />} label="Food" />
-    <FormControlLabel value="bloodSugar" control={<Radio />} label="Blood Sugar" />
-  </RadioGroup>
-</FormControl>
-    </form>
-  );
+      )
 }
 
 export default InputPage

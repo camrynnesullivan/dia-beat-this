@@ -21,15 +21,13 @@ const AuthenticatedApp = () => {
   return (
     <div>
       <Router>
-      <NavBar/>
+      <NavBar handleLogout={handleLogout} />
       <Switch>
         <Route exact from="/" render={props => <HomePage {...props} />} />
         <Route exact path="/input" render={props => <InputPage {...props} />} />
         <Route exact path="/progress" render={props => <ProgressPage {...props} />} />
       </Switch>
       </Router>
-
-      {/* <button onClick={handleLogout}>Logout</button> */}
     </div>
   )
 }
