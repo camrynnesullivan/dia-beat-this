@@ -3,9 +3,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Typography from "@material-ui/core/Typography";
-import { LBSTodo } from "./LowSugarTodo";
+import { HBSTodo } from "./HighSugarTodo";
 const useStyles = makeStyles({
   root: {
     minWidth: 400,
@@ -15,7 +14,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function LowLevelCard() {
+export default function HighLevelCard() {
   const classes = useStyles();
   return (
     <Card className={classes.root}>
@@ -25,8 +24,8 @@ export default function LowLevelCard() {
             Warning!!!
           </Typography>
           <Typography gutterBottom variant="h5" component="h2"></Typography>
-          <Typography>Your blood sugar is low!</Typography>
-          <LBSTodo />
+          <Typography>Your blood sugar is high!</Typography>
+          <HBSTodo />
         </CardContent>
       </CardActionArea>
     </Card>
