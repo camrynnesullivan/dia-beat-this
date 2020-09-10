@@ -1,8 +1,7 @@
 import React from "react";
 import { useGlobalContext } from "../context/GlobalContext";
-import {
-  LOGOUT
-} from "../context/actions";
+import { LOGOUT } from "../context/actions";
+import DenseAppBar from "./AppBar"
 
 const AuthenticatedApp = () => {
   const [state, dispatch] = useGlobalContext();
@@ -15,7 +14,7 @@ const AuthenticatedApp = () => {
 
   return (
     <div>
-      <p>Congrats! You're logged in.</p>
+      {/* <DenseAppBar /> */}
       <button onClick={handleLogout}>Logout</button>
     </div>
   )
