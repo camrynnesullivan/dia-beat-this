@@ -30,9 +30,11 @@ const useStyles = makeStyles({
 function InputPage(props) {
   const classes = useStyles();
   const [inputChoice, setInputChoice] = useState(null);
+  const [showTitle, setShowTitle] = useState(true);
 
-const handleTrackButton = (e) => {
-    console.log(e)
+const handleTrackButton = (buttonChoice) => {
+    setInputChoice(buttonChoice)
+    setShowTitle(false)
   }
 
   const buttonOptions = [
@@ -51,14 +53,14 @@ const handleTrackButton = (e) => {
   return (
       <div>
         <Card>
-        <CardContent>
+        {showTitle &&<CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
           Let's figure out your insulin!
         </Typography>
-        <Typography variant="h4" component="h4">
+      <Typography variant="h4" component="h4">
        What would you like to track?
         </Typography>
-      </CardContent>
+      </CardContent>}
       <CardActions>
                 {buttonOptions.map(button => {
                   const { buttonName, buttonChoice, color } = button;
