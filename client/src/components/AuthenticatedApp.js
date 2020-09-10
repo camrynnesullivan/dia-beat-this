@@ -28,8 +28,6 @@ const AuthenticatedApp = () => {
         <Route exact path="/progress" render={props => <ProgressPage {...props} />} />
       </Switch>
       </Router>
-
-      {/* <button onClick={handleLogout}>Logout</button> */}
     </div>
   )
 }
