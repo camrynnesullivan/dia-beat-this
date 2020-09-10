@@ -11,6 +11,7 @@ import Grid from '@material-ui/core/Grid';
 // import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import Paper from '@material-ui/core/Paper';
 import { Typography } from '@material-ui/core';
+import AuthCardGrid from "./AuthCardGrid"
 
 const useStyles = makeStyles((theme) => ({
   margin: {
@@ -22,16 +23,8 @@ export default function SignUpCard(props) {
   const classes = useStyles();
 
   return (
-    <Paper>
-      <Grid
-        container
-        direction="column"
-        justify="center"
-        alignItems="flex-start"
-      >
-      <Typography variant="h4">Sign Up</Typography>
-      <form className={classes.form} onSubmit={props.handleSignup}>
-          <TextField
+<AuthCardGrid header={props.header}>
+      <TextField
             variant="outlined"
             margin="normal"
             required
@@ -66,17 +59,8 @@ export default function SignUpCard(props) {
             color="secondary"
             className={classes.submit}
           >
-            Sign In
+            Sign Up
           </Button>
-          <Grid container>
-            <Grid item>
-              <Link href="#" variant="body2">
-                {"Don't have an account? Sign Up"}
-              </Link>
-            </Grid>
-          </Grid>
-        </form>
-        </Grid>
-    </Paper>
+    </AuthCardGrid>
   );
 }

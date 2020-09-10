@@ -9,12 +9,14 @@ import Grid from '@material-ui/core/Grid';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faUnlockAlt } from '@fortawesome/free-solid-svg-icons';
 // import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
-import Paper from '@material-ui/core/Paper';
-import { Typography } from '@material-ui/core';
+import AuthCardGrid from "./AuthCardGrid"
 
 const useStyles = makeStyles((theme) => ({
-  margin: {
-    margin: theme.spacing(1),
+  root: {
+    '& .MuiTextField-root': {
+      margin: theme.spacing(1),
+      width: 200,
+    },
   },
 }));
 
@@ -22,16 +24,8 @@ export default function SignInCard(props) {
   const classes = useStyles();
 
   return (
-    <Paper>
-      <Grid
-        container
-        direction="column"
-        justify="center"
-        alignItems="flex-start"
-      >
-      <Typography variant="h4">Sign In</Typography>
-      <form className={classes.form} onSubmit={props.handleSubmit}>
-          <TextField
+<AuthCardGrid header={props.header}>
+      <TextField
             variant="outlined"
             margin="normal"
             required
@@ -43,7 +37,7 @@ export default function SignInCard(props) {
             inputRef={props.emailRef}
             autoFocus
           />
-          <TextField
+      <TextField
             variant="outlined"
             margin="normal"
             inputRef={props.passwordRef}
@@ -55,28 +49,36 @@ export default function SignInCard(props) {
             id="password"
             autoComplete="current-password"
           />
-          <FormControlLabel
+      <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
             label="Remember me"
           />
+          <Grid
+          container
+          direction="row"
+          justify="center"
+          alignItems="center"
+          spacing={3}>
+            <Grid item>
           <Button
             type="submit"
-            fullWidth
             variant="contained"
             color="primary"
             className={classes.submit}
           >
             Sign In
           </Button>
-          <Grid container>
-            <Grid item>
-              <Link href="#" variant="body2">
-                {"Don't have an account? Sign Up"}
-              </Link>
-            </Grid>
           </Grid>
-        </form>
-        </Grid>
-    </Paper>
-  );
+          <Grid item>
+          <Button
+            variant="contained"
+            color="secondary"
+            className={classes.submit}
+          >
+            SignUp
+          </Button>
+          </Grid>
+          </Grid>
+</AuthCardGrid>
+)
 }
