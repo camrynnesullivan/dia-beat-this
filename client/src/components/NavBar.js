@@ -33,9 +33,10 @@ const useStyles = makeStyles(theme => ({
 const NavBar = props => {
   const { history } = props;
   const classes = useStyles();
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = React.useState("/");
   const open = Boolean(anchorEl);
   const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
 
   const handleMenu = event => {
     setAnchorEl(event.currentTarget);
@@ -45,6 +46,7 @@ const NavBar = props => {
     history.push(pageURL);
     setAnchorEl(null);
   };
+
 
   const menuItems = [
     {
@@ -68,6 +70,7 @@ const NavBar = props => {
           <Typography variant="h6" className={classes.title}>
             DiaBeatThis!
           </Typography>
+            <>
               <IconButton
                 edge="start"
                 className={classes.menuButton}
@@ -101,6 +104,7 @@ const NavBar = props => {
                   );
                 })}
               </Menu>
+            </>
         </Toolbar>
       </AppBar>
     </div>
@@ -108,4 +112,4 @@ const NavBar = props => {
 };
 
 
-export default NavBar
+export default withRouter(NavBar)
