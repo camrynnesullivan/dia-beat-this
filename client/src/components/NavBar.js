@@ -36,7 +36,6 @@ const NavBar = props => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
 
   const handleMenu = event => {
     setAnchorEl(event.currentTarget);
@@ -47,22 +46,18 @@ const NavBar = props => {
     setAnchorEl(null);
   };
 
-  const handleButtonClick = pageURL => {
-    history.push(pageURL);
-  };
-
   const menuItems = [
     {
       menuTitle: "Home",
       pageURL: "/"
     },
     {
-      menuTitle: "Contact",
-      pageURL: "/contact"
+      menuTitle: "Input Page",
+      pageURL: "/input"
     },
     {
-      menuTitle: "About",
-      pageURL: "/about"
+      menuTitle: "Progress",
+      pageURL: "/progress"
     }
   ];
 
@@ -71,10 +66,8 @@ const NavBar = props => {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
-            Photos
+            DiaBeatThis!
           </Typography>
-          {isMobile ? (
-            <>
               <IconButton
                 edge="start"
                 className={classes.menuButton}
@@ -108,29 +101,6 @@ const NavBar = props => {
                   );
                 })}
               </Menu>
-            </>
-          ) : (
-            <div className={classes.headerOptions}>
-              <Button
-                variant="contained"
-                onClick={() => handleButtonClick("/")}
-              >
-                HOME
-              </Button>
-              <Button
-                variant="contained"
-                onClick={() => handleButtonClick("/contact")}
-              >
-                CONTACT
-              </Button>
-              <Button
-                variant="contained"
-                onClick={() => handleButtonClick("/about")}
-              >
-                ABOUT
-              </Button>
-            </div>
-          )}
         </Toolbar>
       </AppBar>
     </div>
