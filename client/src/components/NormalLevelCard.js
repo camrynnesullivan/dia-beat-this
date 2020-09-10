@@ -8,27 +8,28 @@ import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles({
   root: {
-    minWidth: 400
+    minWidth: 400,
   },
   media: {
     height: 140,
   },
 });
-export default function FoodSuggeatedCard() {
+export default function NormalLevelCard() {
   const classes = useStyles();
   return (
     <Card className={classes.root}>
       <CardActionArea>
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            Current Blood Sugar:
+            Sugessted amount of Carbs:
           </Typography>
-          <Typography gutterBottom variant="h5" component="h2">
-            {140} mg/dL
-            <i class="fas fa-tint"></i>
-          </Typography>
+          <Typography gutterBottom variant="h5" component="h2"></Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            Looks good!
+            On average, people with diabetes should aim to get about half of
+            their calories from carbs. That means if you normally eat about
+            1,800 calories a day to maintain a healthy weight, about 800 to 900
+            calories can come from carbs. At 4 calories per gram, that's 200–225
+            carb grams a day.
           </Typography>
         </CardContent>
       </CardActionArea>
