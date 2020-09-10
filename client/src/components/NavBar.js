@@ -47,6 +47,11 @@ const NavBar = props => {
     setAnchorEl(null);
   };
 
+  const handleLogOut = () => {
+    props.handleLogout();
+    setAnchorEl(null);
+  }
+
 
   const menuItems = [
     {
@@ -103,6 +108,9 @@ const NavBar = props => {
                     </MenuItem>
                   );
                 })}
+                <MenuItem onClick={() => handleLogOut()}>
+                      Log Out
+                </MenuItem>
               </Menu>
             </>
         </Toolbar>
