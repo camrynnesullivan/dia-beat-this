@@ -2,7 +2,7 @@ import React from "react"
 import BloodSugarCard from "../components/BloodSugarCard"
 import ChartCard from "../components/ChartCard"
 import FoodSuggestedCard from "../components/FoodSuggestedCard"
-import SymptomsCard from "../components/SymptomsCard"
+import { LBSSymptomsCard, HBSSymptomsCard } from "../components/SymptomsCard"
 import CardGrid from "../components/CardGrid"
 
 function ProgressPage(props) {
@@ -11,7 +11,8 @@ function ProgressPage(props) {
         <BloodSugarCard />
         <ChartCard />
         <FoodSuggestedCard />
-        <SymptomsCard />
+        <LBSSymptomsCard />
+        <HBSSymptomsCard />
     </CardGrid>)
 }
 
