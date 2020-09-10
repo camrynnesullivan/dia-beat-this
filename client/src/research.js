@@ -63,6 +63,7 @@ const symptomsLBS = {
     title: "Signs of Low Blood Sugar",
     subtitle: "Diabetes causes your blood sugar to be too high, but once you start treatment, it can also get too low.  Work with your doctor so that you know the signs and how to treat them.",
     signs:[
+        // faQuestion
         "Confusion",
         // 
         "Lightheadedness or dizziness",
