@@ -134,37 +134,47 @@ const treatingLBS = {
 
 const complications = {
     title: "Complications of Type 2 Diabetes",
-    subtitle: "If your diabetes is not controlled, it can slowly affect other parts of your body over time.  Work with your doctor to help prevent or delay these complications.",
+    subtitle: "If your diabetes is not controlled, it can slowly affect other parts of your body over time.  Work with your doctor to help prevent or delay complications.  Read more below.",
     listOfComps:[
         {
             name: "Heart disease and stroke",
             description: "Having high blood pressure and/or high cholesterol increases your risk of a heart attack, stroke, and other heart and vascular diseases.",
-            recommendation: "Have your blood pressure checked at every visit, and your cholesterol check at least once a year.  If your numbers are too high, your doctor can recommend medicine or lifestyle changes.",
-            video: "https://www.youtube.com/watch?time_continue=23&v=t8FF6OESqVQ&feature=emb_logo"
+            recommendation: "Make sure to get your blood pressure checked at every visit, and your cholesterol check at least once a year.  If your numbers are too high, your doctor can recommend medicine or lifestyle changes.",
+            video: "https://www.youtube.com/watch?v=t8FF6OESqVQ",
+            image: "https://images.unsplash.com/photo-1460672985063-6764ac8b9c74?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2110&q=80",
+            imageText: "heart model"
         },
         {
             name: "Kidney Disease",
             description: "High blood sugar over many years can damage your kidneys and cause them to not work well or stop working completely.",
             recommendation: "Ask your doctor about screening for kidney damage.  If you're at risk, medicines and diet changes can help.",
-            video: "https://www.youtube.com/watch?v=KfeKUHGJM1s"
+            video: "https://www.youtube.com/watch?v=KfeKUHGJM1s",
+            image: "https://images.unsplash.com/photo-1559757175-9e351c9a1301?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2689&q=80",
+            imageText: "kidney model"
         },
         {
             name: "Eye Diseases",
             description: "Poorly controlled diabetes increases your risk of several eye-related conditions, including glaucoma, cataracts, and retinopathy.",
             recommendation: "Schedule yearly visits with your eye doctor to spot changes early so you can treat them.",
-            video: "https://www.youtube.com/watch?v=X17Q_RPUlYo"
+            video: "https://www.youtube.com/watch?v=X17Q_RPUlYo",
+            image: "https://images.pexels.com/photos/1651332/pexels-photo-1651332.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+            imageText: "brown eye"
         },
         {
             name: "Neuropathy (nerve damage)",
             description: "High blood sugar over long periods of time can damage your nerves.  The most common type happens in your legs and feet (called peripheral neuropathy).  Symptoms include pain, sensitivity, and numbness.",
             recommendation: "Ask your doctor how to care for your feet, and report any changes right away.  Also have your doctor check your feet at each visit, and get a complete foot exam once a year.",
-            video: "https://www.youtube.com/watch?v=qQLz_LqGMOM"
+            video: "https://www.youtube.com/watch?v=qQLz_LqGMOM",
+            image: "https://images.unsplash.com/photo-1508387104394-d13e1b497f85?ixlib=rb-1.2.1&auto=format&fit=crop&w=3000&q=80",
+            imageText: "foot model"
         },
         {
             name: "Gum Disease",
             description: "Having diabetes and high blood sugar puts you more at risk for bacterial infections, so your gum health can suffer.",
             recommendation: "Brush and floss daily, and see your dentist twice a year for cleanings and checkups.",
-            video: "https://www.youtube.com/watch?v=8s5a73Ccy7Y"
+            video: "https://www.youtube.com/watch?v=8s5a73Ccy7Y",
+            image: "https://images.unsplash.com/photo-1473232117216-c950d4ef2e14?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2213&q=80",
+            imageText: "teeth model"
         }
     ]
 }
