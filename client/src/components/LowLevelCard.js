@@ -8,9 +8,10 @@ import Typography from "@material-ui/core/Typography";
 import { List, ListItem } from "@material-ui/core";
 import { lowLevels, treatingLBS } from "../research";
 import { LBSTodo } from "./LowSugarTodo";
+
 const useStyles = makeStyles({
   root: {
-    minWidth: 400,
+    width: 450
   },
   media: {
     height: 140,

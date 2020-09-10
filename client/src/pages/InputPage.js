@@ -30,26 +30,48 @@ const useStyles = makeStyles({
 function InputPage(props) {
   const classes = useStyles();
   const [inputChoice, setInputChoice] = useState(null);
+  const [showTitle, setShowTitle] = useState(true);
 
-const handleTrackButton = (e) => {
-    console.log(e.target.value)
+const handleTrackButton = (buttonChoice) => {
+    setInputChoice(buttonChoice)
+    setShowTitle(false)
   }
 
+  const buttonOptions = [
+    {
+      buttonName: "Food",
+      buttonChoice: "Food",
+      color: "primary"
+    },
+    {
+      buttonName: "Blood Sugar",
+      buttonChoice: "BloodSugar",
+      color: "secondary"
+    },
+  ];
 
   return (
       <div>
         <Card>
-        <CardContent>
+        {showTitle &&<CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
           Let's figure out your insulin!
         </Typography>
-        <Typography variant="h4" component="h4">
+      <Typography variant="h4" component="h4">
        What would you like to track?
         </Typography>
-      </CardContent>
+      </CardContent>}
       <CardActions>
-        <Button size="small" color="secondary" onClick={handleTrackButton}>Track Food</Button>
-        <Button size="small" color="primary" onClick={handleTrackButton}>Track Blood Sugar</Button>
+                {buttonOptions.map(button => {
+                  const { buttonName, buttonChoice, color } = button;
+                  return (
+                    <Button variant="contained" size="small" color={color} onClick={() => handleTrackButton(buttonChoice)}>
+                      Track {buttonName}
+                    </Button>
+                  );
+                })}
+        {/* <Button  color="secondary" onClick={handleTrackButton}>Track Food</Button>
+        <Button variant="contained" size="small" color="primary" onClick={handleTrackButton}>Track Blood Sugar</Button> */}
       </CardActions>
         </Card>
         { inputChoice === "Food" && (<InputFoodCard />)}
