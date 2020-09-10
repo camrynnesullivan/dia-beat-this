@@ -72,7 +72,7 @@ export default function SignUpCard(props) {
             className={classes.submit}
             onClick={props.handleToggle}
           >
-            Back to Log-in
+            Back to Sign-in
           </Button>
           </Grid>
           </Grid>
