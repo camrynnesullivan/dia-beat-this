@@ -27,7 +27,7 @@ function AuthCardGrid(props) {
       alignItems="center"
     >
     <Typography variant="h4">{props.header}</Typography>
-        <form className={classes.form} onSubmit={props.handleSubmit}>
+        <form className={classes.form} onSubmit={props.handle}>
           <Grid item>{props.children}</Grid>
         </form>
         </Grid>
