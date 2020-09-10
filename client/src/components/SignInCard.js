@@ -74,9 +74,9 @@ export default function SignInCard(props) {
             variant="contained"
             color="secondary"
             className={classes.submit}
-            onClick={props.handleRegister}
+            onClick={props.handleToggle}
           >
-            Register
+            Sign Up
           </Button>
           </Grid>
           </Grid>

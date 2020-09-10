@@ -9,9 +9,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },  
   gridContainer: {
-    marginTop: "20px",
-    paddingLeft: "40px",
-    paddingRight: "40px"
+    padding: "40px",
   }
 }));
 
@@ -25,6 +23,7 @@ function AuthCardGrid(props) {
       direction="column"
       justify="center"
       alignItems="center"
+      className={classes.gridContainer}
     >
     <Typography variant="h4">{props.header}</Typography>
         <form className={classes.form} onSubmit={props.handle}>

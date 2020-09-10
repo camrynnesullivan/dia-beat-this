@@ -50,9 +50,9 @@ const UnauthenticatedApp = () => {
     doSignup();
   }
 
-  const handleRegister = (e) => {
+  const handleToggle = (e) => {
     e.preventDefault();
-    setSignedUp(false);
+    setSignedUp(!signedUp);
   }
   return (
     <div>
@@ -69,9 +69,9 @@ const UnauthenticatedApp = () => {
         <button type="submit">Submit</button>
       </form> */}
       { signedUp ? 
-      (<SignInCard header="Sign In" handle={handleSubmit} emailRef={emailRef} passwordRef={passwordRef} handleRegister={handleRegister}/>) 
+      (<SignInCard header="Sign In" handle={handleSubmit} emailRef={emailRef} passwordRef={passwordRef} handleToggle={handleToggle}/>) 
       :
-      (<SignUpCard header="Sign Up" handle={handleSignup} regEmailRef={regEmailRef} regPasswordRef={regPasswordRef}/>)}
+      (<SignUpCard header="Sign Up" handle={handleSignup} regEmailRef={regEmailRef} regPasswordRef={regPasswordRef} handleToggle={handleToggle}/>)}
     
     </div>
   )
