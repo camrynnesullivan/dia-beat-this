@@ -40,13 +40,13 @@ export default function SignUpCard(props) {
             label="Username"
             name="username"
             autoComplete="username"
-            inputRef={regEmailRef}
+            inputRef={props.regEmailRef}
             autoFocus
           />
           <TextField
             variant="outlined"
             margin="normal"
-            inputRef={regPasswordRef}
+            inputRef={props.regPasswordRef}
             required
             fullWidth
             name="password"
