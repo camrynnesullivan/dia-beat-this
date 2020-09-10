@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Typography from "@material-ui/core/Typography";
 import { List, ListItem } from "@material-ui/core";
 import { lowLevels, treatingLBS } from "../research";
-
+import { LBSTodo } from "./LowSugarTodo";
 const useStyles = makeStyles({
   root: {
     minWidth: 400,
@@ -16,6 +16,7 @@ const useStyles = makeStyles({
     height: 140,
   },
 });
+
 export default function LowLevelCard() {
   const classes = useStyles();
   return (
@@ -47,15 +48,8 @@ export default function LowLevelCard() {
               <ListItem>15 grapes</ListItem>
             </List>
           </Typography>
-          {/* <div>
-            <div className="symptoms-list-main-div">
-              <ul className="fa-ul">
-                {treatingLBS.todos.map((todos) => {
-                  return <li>{todos}</li>;
-                })}
-              </ul>
-            </div>
-          </div> */}
+          <LBSTodo />
+          {/* <LowLevelCard/> */}
         </CardContent>
       </CardActionArea>
     </Card>
