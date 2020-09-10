@@ -6,7 +6,8 @@ import CardContent from "@material-ui/core/CardContent";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Typography from "@material-ui/core/Typography";
 import { List, ListItem } from "@material-ui/core";
-
+import { lowLevels, treatingLBS } from "../research";
+import { LBSTodo } from "./LowSugarTodo";
 const useStyles = makeStyles({
   root: {
     minWidth: 400,
@@ -15,6 +16,7 @@ const useStyles = makeStyles({
     height: 140,
   },
 });
+
 export default function LowLevelCard() {
   const classes = useStyles();
   return (
@@ -22,11 +24,10 @@ export default function LowLevelCard() {
       <CardActionArea>
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            Sugessted amount of Carbs:
+            Warning!!!
           </Typography>
           <Typography gutterBottom variant="h5" component="h2"></Typography>
-
-          <Typography>Your blood sugar is less than 70 mg/dl!</Typography>
+          <Typography>Your blood sugar is less than 80 mg/dl!</Typography>
           <Typography>
             {" "}
             Eat smth from a list below and check your blood sugar in 15 minutes.
@@ -40,13 +41,9 @@ export default function LowLevelCard() {
                 color="orange"
                 size="lg"
               /> */}
-              <ListItem>1/2 banana</ListItem>
-              <ListItem>1 small apple</ListItem>
-              <ListItem>1 small orange</ListItem>
-              <ListItem>1/2 cup applesauce</ListItem>
-              <ListItem>15 grapes</ListItem>
             </List>
           </Typography>
+          <LBSTodo />
         </CardContent>
       </CardActionArea>
     </Card>
