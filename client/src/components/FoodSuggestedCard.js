@@ -8,7 +8,7 @@ import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles({
   root: {
-    minWidth: 400
+    minWidth: 400,
   },
   media: {
     height: 140,
@@ -21,15 +21,12 @@ export default function FoodSuggeatedCard() {
       <CardActionArea>
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            Current Blood Sugar:
+            Sugessted amount of Carbs:
           </Typography>
-          <Typography gutterBottom variant="h5" component="h2">
-            {140} mg/dL
-            <i class="fas fa-tint"></i>
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
+          <Typography gutterBottom variant="h5" component="h2"></Typography>
+          {/* <Typography variant="body2" color="textSecondary" component="p">
             Looks good!
-          </Typography>
+          </Typography> */}
         </CardContent>
       </CardActionArea>
     </Card>
