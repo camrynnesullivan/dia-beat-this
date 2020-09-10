@@ -3,6 +3,7 @@ import { useGlobalContext } from "../context/GlobalContext";
 import { LOGIN } from "../context/actions";
 import axios from "axios";
 import SignInCard from "./SignInCard"
+import SignUpCard from "./SignUpCard"
 
 const UnauthenticatedApp = () => {
   const [state,dispatch] = useGlobalContext();
@@ -65,7 +66,7 @@ const UnauthenticatedApp = () => {
         <button type="submit">Submit</button>
       </form>
       <SignInCard handleSubmit={handleSubmit} emailRef={emailRef} passwordRef={passwordRef}/>
-      <SignInCard handleSignup={handleSignup} regEmailRef={regEmailRef} regPasswordRef={regPasswordRef}/>
+      <SignUpCard handleSignup={handleSignup} regEmailRef={regEmailRef} regPasswordRef={regPasswordRef}/>
     </div>
   )
 }

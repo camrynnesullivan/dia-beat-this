@@ -66,7 +66,7 @@ export default function SignUpCard(props) {
             color="secondary"
             className={classes.submit}
           >
-            Sign In
+            Sign Up
           </Button>
           <Grid container>
             <Grid item>
