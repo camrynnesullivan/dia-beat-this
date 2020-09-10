@@ -49,36 +49,33 @@ export default function SignInCard(props) {
             id="password"
             autoComplete="current-password"
           />
-      <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
-          />
-          <Grid
+      <Grid
           container
           direction="row"
           justify="center"
           alignItems="center"
           spacing={3}>
-            <Grid item>
-          <Button
-            type="submit"
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-          >
-            Sign In
-          </Button>
+          <Grid item>
+                <Button
+                  type="submit"
+                  variant="contained"
+                  color="primary"
+                  className={classes.submit}
+                >
+                  Sign In
+                </Button>
           </Grid>
           <Grid item>
-          <Button
-            variant="contained"
-            color="secondary"
-            className={classes.submit}
-          >
-            SignUp
-          </Button>
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  className={classes.submit}
+                  onClick={props.handleToggle}
+                >
+                  Sign Up
+                </Button>
           </Grid>
-          </Grid>
+      </Grid>
 </AuthCardGrid>
 )
 }

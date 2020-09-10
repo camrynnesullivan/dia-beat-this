@@ -8,10 +8,11 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },  
+  paper: {
+    flexGrow: 1,
+  },  
   gridContainer: {
-    marginTop: "20px",
-    paddingLeft: "40px",
-    paddingRight: "40px"
+    padding: "40px",
   }
 }));
 
@@ -19,12 +20,21 @@ function AuthCardGrid(props) {
   const classes = useStyles();
 
   return (
-    <Paper>
+    <Grid
+    container
+    direction="column"
+    justify="center"
+    alignItems="center"
+    className={classes.gridContainer}
+  >
+    <Grid item>
+    <Paper elevation={3} className={classes.paper}>
     <Grid
       container
       direction="column"
       justify="center"
       alignItems="center"
+      className={classes.gridContainer}
     >
     <Typography variant="h4">{props.header}</Typography>
         <form className={classes.form} onSubmit={props.handle}>
@@ -32,6 +42,8 @@ function AuthCardGrid(props) {
         </form>
         </Grid>
     </Paper>
+    </Grid>
+    </Grid>
   );
 }
 
