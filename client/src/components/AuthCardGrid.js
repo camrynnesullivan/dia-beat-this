@@ -8,6 +8,9 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },  
+  paper: {
+    flexGrow: 1,
+  },  
   gridContainer: {
     padding: "40px",
   }
@@ -17,7 +20,15 @@ function AuthCardGrid(props) {
   const classes = useStyles();
 
   return (
-    <Paper>
+    <Grid
+    container
+    direction="column"
+    justify="center"
+    alignItems="center"
+    className={classes.gridContainer}
+  >
+    <Grid item>
+    <Paper elevation={3} className={classes.paper}>
     <Grid
       container
       direction="column"
@@ -31,6 +42,8 @@ function AuthCardGrid(props) {
         </form>
         </Grid>
     </Paper>
+    </Grid>
+    </Grid>
   );
 }
 
