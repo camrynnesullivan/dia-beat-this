@@ -41,15 +41,9 @@ export default function LowLevelCard() {
                 color="orange"
                 size="lg"
               /> */}
-              <ListItem>1/2 banana</ListItem>
-              <ListItem>1 small apple</ListItem>
-              <ListItem>1 small orange</ListItem>
-              <ListItem>1/2 cup applesauce</ListItem>
-              <ListItem>15 grapes</ListItem>
             </List>
           </Typography>
           <LBSTodo />
-          {/* <LowLevelCard/> */}
         </CardContent>
       </CardActionArea>
     </Card>
