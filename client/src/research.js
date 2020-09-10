@@ -130,7 +130,7 @@ const treatingLBS = {
   title: "How to Raise Your Blood Sugar",
   subtitle:
     "Low blood sugar, also known as 'hypoglycemia', can be raised by doing some of these steps",
-  level: { "Before a meal": "<80 mg/dL", "After a meal": "<130 mg/dL" },
+
   todos: {
     1: "The 15-15 Rule: Have 15 grams of carbohydrates to raise your blood sugar and check it after 15 minutes. If it still low -repeat!",
     2: "Take 4 glucose tablets.",

@@ -5,11 +5,11 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Typography from "@material-ui/core/Typography";
-import { LBSTodo } from "./LowSugarTodo";
+import LBSTodo from "./LowSugarTodo";
 
 const useStyles = makeStyles({
   root: {
-    width: 450
+    width: 450,
   },
   media: {
     height: 140,

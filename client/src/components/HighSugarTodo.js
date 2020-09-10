@@ -8,7 +8,7 @@ function HBSTodo() {
         <h3>{treatingHBS.title}</h3>
         <h3>{treatingHBS.subtitle}</h3>
         {/* <h3>{treatingLBS.level}</h3> */}
-        <h3>{highLevels}</h3>
+        {/* <h3>{highLevels}</h3> */}
         <ul>
           <li>{treatingHBS.todos[1]}</li>
           <li>{treatingHBS.todos[2]}</li>
