@@ -1,8 +1,5 @@
 // This is where we will export all of the research on type 2 diabetes.  We can style it in the files where we import it.
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMeh } from '@fortawesome/free-solid-svg-icons'
-
 const normalLevels = {
     "Before a meal": "80 mg/dL to 130 mg/dL",
     "After a meal": "130 mg/dL to 180 mg/dL"

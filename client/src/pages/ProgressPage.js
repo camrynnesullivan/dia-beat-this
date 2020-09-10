@@ -2,7 +2,7 @@ import React from "react"
 import BloodSugarCard from "../components/BloodSugarCard"
 import ChartCard from "../components/ChartCard"
 import FoodSuggestedCard from "../components/FoodSuggestedCard"
-import SymptomsCard from "../components/SymptomsCard"
+import { LBSSymptomsCard, HBSSymptomsCard } from "../components/SymptomsCard"
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -40,7 +40,7 @@ function ProgressPage(props) {
         <FoodSuggestedCard />
     </Grid>
     <Grid item xs={12} sm={6} md={4}>
-        <SymptomsCard />
+        <LBSSymptomsCard />
     </Grid>
   </Grid>
   </div>)
