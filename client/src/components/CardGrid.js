@@ -17,18 +17,20 @@ function CardGrid(props) {
   const classes = useStyles();
 
   return (
-<Grid
-  container
-  className={classes.gridContainer}
-  direction="column"
-  justify="center"
-  alignItems="center"
-  spacing={2}
->
-    <Grid item xs={12} sm={6} md={4}>
-    {props.children}
-    </Grid>
-</Grid>
+    <div className={classes.root}>
+        <Grid
+            container
+            direction="column"
+            justify="center"
+            alignItems="center"
+            spacing={2}
+          >
+            
+        {props.children.map((card, index) => (
+        <Grid item xs={12} sm={6} md={4}>{card}</Grid>
+        ))}     
+        </Grid>
+    </div>
   );
 }
 
