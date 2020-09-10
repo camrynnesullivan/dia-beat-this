@@ -11,12 +11,13 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
   root: {
-    minWidth: 400
+    width: 450
   },
   media: {
     height: 140,
   },
 });
+
 export default function BloodSugarCard() {
   const classes = useStyles();
   return (

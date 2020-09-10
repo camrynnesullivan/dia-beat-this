@@ -8,12 +8,13 @@ import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles({
   root: {
-    minWidth: 400,
+    width: 450
   },
   media: {
     height: 140,
   },
 });
+
 export default function NormalLevelCard() {
   const classes = useStyles();
   return (
@@ -21,7 +22,7 @@ export default function NormalLevelCard() {
       <CardActionArea>
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            Sugessted amount of Carbs:
+            Sugested amount of Carbs:
           </Typography>
           <Typography gutterBottom variant="h5" component="h2"></Typography>
           <Typography variant="body2" color="textSecondary" component="p">

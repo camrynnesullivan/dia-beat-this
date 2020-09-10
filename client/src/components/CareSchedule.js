@@ -11,7 +11,7 @@ import careSchedule from "../research"
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: '100%',
+    width: 450
   },
   heading: {
     fontSize: theme.typography.pxToRem(15),

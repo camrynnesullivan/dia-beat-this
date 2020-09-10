@@ -19,7 +19,7 @@ import "./FontAwesomeIcons"
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    minWidth: 400,
+    width: 450,
   },
   media: {
     height: 0,
