@@ -6,6 +6,7 @@ import CardGrid from "../components/CardGrid";
 import LowLevelCard from "../components/LowLevelCard";
 import NormalLevelCard from "../components/NormalLevelCard";
 import ComplicationsCard from "../components/ComplicationsCard"
+import CareScheduleAccordion from "../components/CareSchedule"
 
 function ProgressPage(props) {
   return (
@@ -17,6 +18,7 @@ function ProgressPage(props) {
       <LBSSymptomsCard />
       <HBSSymptomsCard />
       <ComplicationsCard />
+      <CareScheduleAccordion />
     </CardGrid>
   );
 }

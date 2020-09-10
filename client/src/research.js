@@ -124,7 +124,7 @@ const treatingLBS = {
     title: "How to Raise Your Blood Sugar",
     subtitle: "Low blood sugar, also known as 'hypoglycemia', can be raised by doing some of these steps",
     todos: {
-        1: "The 15-15 Rule: Have 15 grams of carbohydrates to raise your blood sugar and check it after 15 minutes.  If it's still below 70 mg/dL, have another serving.",
+        1: "The 15-15 Rule: Have 15 grams of carbohydrates to raise your blood sugar and check it after 15 minutes.  If it's still below 80 mg/dL, have another serving.",
         2: "Take 4 glucose tablets.",
         3: "Drink 4 ounces of regular soda, not diet soda.",
         4: "Eat 4 pieces of hard candy."
@@ -180,7 +180,7 @@ const complications = {
 }
 
 const careSchedule = {
-    "Every Day": [
+    daily: [
         {
             title: "Check Your Blood Sugar",
             description: "Check up to several times a day, as directed by your doctor.  Keep a record of your numbers and share them with your health care team during your next visit."
@@ -202,7 +202,7 @@ const careSchedule = {
             description: "Eat healthy foods that give you the nutrition you need and help your blood sugar stay in your target range."
         }
     ],
-    "Every 3 Months": [
+    threeMos: [
         {
             title: "A1C Test",
             description: "If your treatment has changed or if you're having trouble meeting your blood sugar goals, test your A1C every 3 months."
@@ -211,7 +211,7 @@ const careSchedule = {
             description: "If you're having trouble meeting your treatment goals, visit your doctor every 3 months.  Your blood pressure and weight will be checked, and your self-care plan and medicines will be reviewed.  Ask your doctor to check your feet if you've ever had diabetes-related foot problems."
         }
     ],
-    "Every 6 Months": [
+    sixMos: [
         {
             title: "Dental Exam",
             description: "Get your teeth and gums cleaned at least once a year (more often if your doctor recommends), and let your dentist know that you have diabetes."
@@ -225,7 +225,7 @@ const careSchedule = {
             description: "If you're meeting your treatment goals, visit your doctor every 6 months.  Your blood pressure and weight will be checked, and your self-care plan and medicines will be reviewed.  Ask your doctor to check your feet if you've ever had diabetes-related foot problems."
         }
     ],
-    "Every Year": [
+    yearly: [
         {
             title: "Flu Shot",
             description: "Get your yearly flu shot."
@@ -247,7 +247,7 @@ const careSchedule = {
             description: "You may need this foot check more often if you have ever had diabetes-related foot problems."
         }
     ],
-    "Just Once": [
+    once: [
         {
             title: "Pneumonia Shot",
             description: "Get a pneumonia shot as an adult before you're 65.  You'll need two more doses when you're 65 or older."
@@ -256,7 +256,7 @@ const careSchedule = {
             description: "Get a hepatitis B shot if you're 60 or younger and haven't had the shot before.  Talk to your doctor about getting the shot if you're over 60."
         }
     ],
-    "As Needed": [
+    asNeeded: [
         {
             title: "Mental Health Check",
             description: "Your mental health is just as important as your physical health.  If you're feeling sad or hopeless, let your doctor know right away so that you can get the help that you need."

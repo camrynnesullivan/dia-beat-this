@@ -3,11 +3,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
-import MenuItem from '@material-ui/core/MenuItem';
-import Menu from '@material-ui/core/Menu';
 import Typography from "@material-ui/core/Typography";
 import { symptomsLBS, symptomsHBS } from "../../src/research"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { LBSSymptomList, HBSSymptomList} from "./SymptomList";
 
 const useStyles = makeStyles({
