@@ -8,7 +8,6 @@ import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
-import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
@@ -63,7 +62,7 @@ export default function Sources() {
                     {sources.map((sources) => {
                         return (
                             <li>
-                                <a href={sources.access} target="_blank" rel="noopener">
+                                <a href={sources.access} target="_blank" rel="noopener noreferrer" rel="noopener">
                                     {sources.source}
                                 </a> 
                             </li>
