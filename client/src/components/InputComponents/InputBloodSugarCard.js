@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
+import axios from "axios";
 import FormLabel from '@material-ui/core/FormLabel';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -33,7 +34,9 @@ export default function InputFoodCard(props) {
   };
 
   const logMeasurement = () => {
-    console.log(radio, measurement)
+    console.log(radio, measurement);
+    axios.post('http://localhost:5000/bloodsugar/add', {enteredGlucose: measurement, afterMeal: radio})
+      .then(res => console.log(res.data));
   };
 
   const handleFormSubmit = event => {
@@ -63,7 +66,7 @@ const handleRadio = (e) => {
                 labelPlacement="bottom"
               />
             </RadioGroup>
-      </FormGroup>
+      </FormGroup>g
    
       <FormGroup className={classes.formElements} noValidate autoComplete="off">
          <FormLabel>What is your before measurement?</FormLabel>
