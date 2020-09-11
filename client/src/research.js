@@ -79,7 +79,7 @@ const symptomsLBS = {
       symptomName: "Confusion",
     },
     {
-      fontAwesomeClassname: "",
+      fontAwesomeClassname: "faDizzy",
       symptomName: "Lightheadedness or dizziness",
     },
     {
@@ -315,16 +315,47 @@ const careSchedule = {
   ],
 };
 
-const sources = {
-  "American Diabetes Association": "https://www.diabetes.org",
-  "Centers for Disease Control and Prevention": "https://www.cdc.gov",
-  "National Diabetes Education Program": "https://www.ndep.nih.gov",
-  "'Today, my type 2 diabetes...' Guide": "PatientPoint",
-  "National Kidney Foundation": "https://www.kidney.org",
-  "National Eye Institute": "https://www.nei.nih.gov",
-  "University of Michigan School of Dentistry": "https://www.dent.umich.edu",
-  "Diabetes.co.uk": "https://www.diabetes.co.uk",
-};
+const sources = [
+    {
+        source: "American Diabetes Association", 
+        access: "https://www.diabetes.org"
+    },
+    {
+        source: "Centers for Disease Control and Prevention", 
+        access: "https://www.cdc.gov"
+    },
+    {
+        source: "National Diabetes Education Program", 
+        access: "https://www.ndep.nih.gov"
+    },
+    // {
+    //     source: "'Today, my type 2 diabetes...' Guide (physical pamphlet)", 
+    //     access: "#"
+    // },
+    {
+        source: "National Kidney Foundation", 
+        access: "https://www.kidney.org"
+    },
+    {
+        source: "National Eye Institute", 
+        access: "https://www.nei.nih.gov"
+    },
+    {
+        source: "University of Michigan School of Dentistry", 
+        access: "https://www.dent.umich.edu"
+    },
+    {
+        source: "Diabetes.co.uk", 
+        access: "https://www.diabetes.co.uk"
+    },
+];
+
+const a1c = {
+    whatItMeasures: "When sugar enters your bloodstream, it attaches to hemoglobin, a protein in your red blood cells. Everybody has some sugar attached to their hemoglobin, but people with higher blood sugar levels have more. The A1C test measures the percentage of your red blood cells that have sugar-coated hemoglobin.",
+    howItIsMeasured: "Your A1C result can also be reported as estimated average glucose (eAG), the same numbers (mg/dL) you’re used to seeing on your blood sugar meter",
+    // for reference
+    a1cFormula: "28.7 X A1C – 46.7 = eAG" 
+}
 
 export {
   normalLevels,
@@ -339,4 +370,5 @@ export {
   complications,
   careSchedule,
   sources,
+  a1c
 };

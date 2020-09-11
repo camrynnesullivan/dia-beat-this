@@ -25,38 +25,53 @@ export default function InputA1CCard(props) {
   };
 
   return (
-<InputFormGrid>
+    <InputFormGrid>
         <FormGroup className={classes.formElements}>
-            <FormLabel component="legend">When are you measuring?</FormLabel>
-            <RadioGroup row aria-label="position" name="position" defaultValue="before" onChange={handleRadio}>
+            <FormLabel component="legend">Do you know your A1C number?</FormLabel>
+            <RadioGroup row aria-label="position" name="position" defaultValue="Yes" onChange={handleRadio}>
               <FormControlLabel
-                value="before"
+                value="Yes"
                 control={<Radio color="primary" />}
-                label="Before Food"
+                label="Yes"
                 labelPlacement="bottom"
               />
                   <FormControlLabel
-                value="after"
+                value="No"
                 control={<Radio color="primary" />}
-                label="After Food"
+                label="No"
                 labelPlacement="bottom"
               />
             </RadioGroup>
       </FormGroup>
       {!radio ?  
+      // Option 1: I know my A1C number
       <FormGroup className={classes.formElements} noValidate autoComplete="off">
-         <FormLabel>What is your before measurement?</FormLabel>
-          <TextField id="filled-basic" label="Before Measurement" variant="filled"          InputProps={{
-            endAdornment: <InputAdornment position="end">mg/dL</InputAdornment>,
-          }}/>
+         <FormLabel>What is your A1C number?</FormLabel>
+          <TextField 
+            id="filled-basic" 
+            label="A1C number" 
+            variant="filled"          
+            InputProps={{
+              endAdornment: <InputAdornment position="end">%</InputAdornment>,
+            }}
+          />
       </FormGroup>
-      :       <FormGroup className={classes.formElements} noValidate autoComplete="off">
-      <FormLabel>What is your after measurement?</FormLabel>
-       <TextField id="filled-basic" label="After Measurement" variant="filled" InputProps={{
-         endAdornment: <InputAdornment position="end">mg/dL</InputAdornment>,
-       }}/>
-   </FormGroup>}
-</InputFormGrid>
+      
+      :       
+      
+      // Option 2: I do not know my A1C number, but know my eAG (blood sugar level)
+      <FormGroup className={classes.formElements} noValidate autoComplete="off">
+      <FormLabel>Enter your eAG (blood sugar level) and we'll help you find out your A1C</FormLabel>
+          <TextField 
+              id="filled-basic" 
+              label="eAG number" 
+              variant="filled" 
+              InputProps={{
+                endAdornment: <InputAdornment position="end">mg/dL</InputAdornment>,
+              }}
+          />
+      </FormGroup>}
+    </InputFormGrid>
 
 )
 }
