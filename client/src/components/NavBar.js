@@ -37,7 +37,7 @@ const NavBar = props => {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
-  // const theme = useTheme();
+  const theme = useTheme();
   const location = useLocation();
 
   const handleMenu = event => {
