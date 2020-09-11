@@ -6,7 +6,7 @@ const glycemiaSchema = new Schema({
     type: Number,
     trim: true,
   },
-  glucoseType: {
+  afterMeal: {
     type: Boolean,
   },
   date: {

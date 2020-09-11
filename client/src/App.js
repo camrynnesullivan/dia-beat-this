@@ -10,12 +10,12 @@ function App() {
   return (
     <div className="App">
 
-      {state.user.token || authUser ? (
+      {/* {state.user.token || authUser ? (
         <AuthenticatedApp />
       ) : (
         <UnauthenticatedApp />
-      )}
-
+      )} */}
+  <AuthenticatedApp />
     </div>
   );
 }
