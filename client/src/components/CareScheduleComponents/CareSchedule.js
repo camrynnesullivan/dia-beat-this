@@ -51,6 +51,7 @@ export default function CareScheduleAccordion() {
             </Avatar>
           }
           // top of the card
+          titleTypographyProps={{variant:'h5' }}
           title="Your Care Schedule"
           subheader="Managing your type-2 diabetes"
         />
