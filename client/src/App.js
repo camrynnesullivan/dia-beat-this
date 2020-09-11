@@ -9,13 +9,12 @@ function App() {
   const authUser = JSON.parse(localStorage.getItem("authUser"));
   return (
     <div className="App">
-
-      {/* {state.user.token || authUser ? (
+      {state.user.token || authUser ? (
         <AuthenticatedApp />
       ) : (
         <UnauthenticatedApp />
-      )} */}
-  <AuthenticatedApp />
+      )}
+      {/* <AuthenticatedApp /> */}
     </div>
   );
 }
