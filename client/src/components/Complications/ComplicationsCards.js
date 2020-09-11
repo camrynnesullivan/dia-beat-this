@@ -48,7 +48,7 @@ function ComplicationsCard(props) {
   const [expanded, setExpanded] = React.useState(false);
   
     return (
-      <Card className={classes.root}>
+      <Card className={classes.root} elevation={0}>
         <CardHeader
           avatar={
             <Avatar aria-label="complications" className={classes.avatar}>
