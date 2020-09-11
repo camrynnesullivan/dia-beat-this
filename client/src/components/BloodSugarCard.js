@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
@@ -17,8 +17,9 @@ const useStyles = makeStyles({
   },
 });
 
-export default function BloodSugarCard() {
+export default function BloodSugarCard(props) {
   const classes = useStyles();
+
   return (
     <Card className={classes.root}>
       <CardActionArea>
@@ -30,16 +31,13 @@ export default function BloodSugarCard() {
           <Typography gutterBottom variant="h5" component="h2">
             <FontAwesomeIcon icon={faTint} pull="left" color="red" size="lg" />
             {/* <span className="lastRecorded">here will be displayed the last test result</span> */}
-            {140} mg/dL
+            {props.bloodSugar} mg/dL
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
             {/* if checked "Fasted before entering a tesr result - write "Fasted", else -"Just Ate" */}
-            Fasted / Just ate
+            {props.afterMeal ? "You just ate" : "You are about to eat"}
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            This level looks good!
-            {/* or write:Oh-oh!Too high!/Too low */}
-          </Typography>
+        
           {/* add button to enter test result
           onClickevent create an input area for numbers
           after clicking submit, change number in span lastRecorded and save in a database with date and time, update a chart*/}
