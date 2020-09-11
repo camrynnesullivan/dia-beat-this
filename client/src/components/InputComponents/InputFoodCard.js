@@ -32,20 +32,18 @@ export default function InputFoodCard(props) {
   };
 
   const getFood = () => {
-    console.log("Working")
-      fetch("https://nutritionix-api.p.rapidapi.com/v1_1/search/" + state.q + "?fields=item_name%252Citem_id%252Cbrand_name%252Cnf_calories%252Cnf_total_fat", {
-        "method": "GET",
-        "headers": {
-          "x-rapidapi-host": "nutritionix-api.p.rapidapi.com",
-          "x-rapidapi-key": "6c45312c83msh64109d7b4df795dp1feb3bjsn924eea0bc390"
-        }
+    axios({
+      "method":"GET",
+      "url":"https://nutritionix-api.p.rapidapi.com/v1_1/search/cheddar%2520cheese",
+      "headers":{
+      "content-type":"application/octet-stream",
+      "x-rapidapi-host":"nutritionix-api.p.rapidapi.com",
+      "x-rapidapi-key":"6c45312c83msh64109d7b4df795dp1feb3bjsn924eea0bc390",
+      "useQueryString":true
+      },"params":{
+      "fields":"item_name%2Citem_id%2Cbrand_name%2Cnf_calories%2Cnf_total_fat"
+      }
       })
-      .then(response => {
-        console.log(response);
-      })
-      .catch(err => {
-        console.log(err);
-      });
   };
 
   const handleFormSubmit = event => {
