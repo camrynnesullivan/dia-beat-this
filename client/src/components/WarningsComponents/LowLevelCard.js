@@ -3,15 +3,13 @@ import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Typography from "@material-ui/core/Typography";
-import { List, ListItem } from "@material-ui/core";
-import { lowLevels, treatingLBS } from "../research";
-import { LBSTodo } from "./LowSugarTodo";
+import LBSTodo from "./LowSugarTodo";
 
 const useStyles = makeStyles({
   root: {
-    width: 450
+    width: 450,
   },
   media: {
     height: 140,
@@ -28,22 +26,7 @@ export default function LowLevelCard() {
             Warning!!!
           </Typography>
           <Typography gutterBottom variant="h5" component="h2"></Typography>
-          <Typography>Your blood sugar is less than 80 mg/dl!</Typography>
-          <Typography>
-            {" "}
-            Eat smth from a list below and check your blood sugar in 15 minutes.
-            Repeat, if it still less than 100 mg/l.
-          </Typography>
-          <Typography>
-            <List>
-              {/* <FontAwesomeIcon
-                icon={faCarrot}
-                pull="center"
-                color="orange"
-                size="lg"
-              /> */}
-            </List>
-          </Typography>
+          <Typography>Your blood sugar is low!</Typography>
           <LBSTodo />
         </CardContent>
       </CardActionArea>

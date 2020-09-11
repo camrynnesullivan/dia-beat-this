@@ -117,11 +117,11 @@ const treatingHBS = {
   title: "How to Lower Your Blood Sugar",
   subtitle:
     "High blood sugar, also known as 'hyperglycemia', can be lowered by doing some of these steps",
-  todos: [
-    "Insulin: Take your insulin to reduce your blood sugar levels.  Be careful, as insulin can take 4 hours to be fully absorbed.",
-    "Walking: Exercise can help to lower blood sugar and walking is a good way of achieve this.",
-    "Drink Water: When your blood sugar levels are running high, your body will try to flush excess sugar our of your blood through the urine.  Drinking water helps!",
-  ],
+  todos: {
+    1: "Insulin: Take your insulin to reduce your blood sugar levels.  Be careful, as insulin can take 4 hours to be fully absorbed.",
+    2: "Walking: Exercise can help to lower blood sugar and walking is a good way of achieve this.",
+    3: "Drink Water: When your blood sugar levels are running high, your body will try to flush excess sugar our of your blood through the urine.  Drinking water helps!",
+  },
   warning:
     "Always consult with your doctor when your blood sugar levels fluctuate.",
 };
@@ -130,11 +130,14 @@ const treatingLBS = {
   title: "How to Raise Your Blood Sugar",
   subtitle:
     "Low blood sugar, also known as 'hypoglycemia', can be raised by doing some of these steps",
+
   todos: {
-    1: "The 15-15 Rule: Have 15 grams of carbohydrates to raise your blood sugar and check it after 15 minutes.  If it's still below 80 mg/dL, have another serving.",
+    1: "The 15-15 Rule: Have 15 grams of carbohydrates to raise your blood sugar and check it after 15 minutes. If it still low -repeat!",
     2: "Take 4 glucose tablets.",
     3: "Drink 4 ounces of regular soda, not diet soda.",
     4: "Eat 4 pieces of hard candy.",
+    5: "Eat 1/2 of the banana",
+    6: "Eat small apple or small orange",
   },
   warning:
     "Always consult with your doctor when your blood sugar levels fluctuate.",
