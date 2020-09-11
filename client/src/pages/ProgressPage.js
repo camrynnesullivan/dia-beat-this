@@ -13,31 +13,44 @@ import FoodTrackCard from "../components/FoodTrackCard";
 
 
 function ProgressPage(props) {
-  const [bloodSugar, setBloodSugar] = useState(180)
+  const [bloodSugar, setBloodSugar] = useState(140)
   const [afterMeal, setAfterMeal] = useState(true)
   const [warning, setWarning] = useState("high")
 
-
-
- const getLastMeasurement = () => {
-// {!afterMeal && bloodSugar < 130 && <Typography variant="body2" color="textSecondary" component="p">Looks Normal!</Typography>}
-// {afterMeal && bloodSugar > 130 && <Typography variant="body2" color="textSecondary" component="p">Looks Normal!</Typography>}
-// {!afterMeal && bloodSugar < 80 && <Typography variant="body2" color="textSecondary" component="p">Looks Low!</Typography>}
-// {afterMeal && bloodSugar < 130 && <Typography variant="body2" color="textSecondary" component="p">Looks Low!</Typography>}
-// {!afterMeal && bloodSugar > 130 && <Typography variant="body2" color="textSecondary" component="p">Looks High!</Typography>}
-// {afterMeal && bloodSugar > 180 && <Typography variant="body2" color="textSecondary" component="p">Looks High!</Typography>}
-  }
-  
+// const getLastMeasurement = () => {
+//     //  Once last measurement is retrieved from database
+//     switch (key) {
+//       case !afterMeal && bloodSugar < 130:
+//         setWarning("normal")
+//         break;
+//       case afterMeal && bloodSugar > 130:
+//         setWarning("normal")
+//         break;
+//       case !afterMeal && bloodSugar < 80:
+//         setWarning("low")
+//         break;
+//       case afterMeal && bloodSugar < 130:
+//         setWarning("low")
+//         break;
+//       case !afterMeal && bloodSugar > 130:
+//         setWarning("high")
+//         break;
+//       case afterMeal && bloodSugar > 180:
+//         setWarning("high")
+//         break;
+//       default:
+//         break;
+//     }
 
   return (
     <CardGrid>
       <BloodSugarCard bloodSugar={bloodSugar} afterMeal={afterMeal}/>
-      <ChartCard />
       {warning === "low" && <LowLevelCard />}
+      {warning === "low" && <LBSSymptomsCard />}
       {warning === "high" && <HighLevelCard />}
+      {warning === "high" && <HBSSymptomsCard />}
       <FoodTrackCard />
-      <LBSSymptomsCard />
-      <HBSSymptomsCard />
+      <ChartCard />
       <CareScheduleAccordion />
     </CardGrid>
   );
