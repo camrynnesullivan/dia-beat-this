@@ -29,6 +29,7 @@ const UnauthenticatedApp = () => {
   };
 
   const doSignup = async () => {
+
     const { data } = await axios.post("/auth/register", {
       email: regEmailRef.current.value,
       password: regPasswordRef.current.value,
