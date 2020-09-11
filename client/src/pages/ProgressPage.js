@@ -11,11 +11,13 @@ import HighLevelCard from "../components/WarningsComponents/HighLevelCard";
 import NormalLevelCard from "../components/WarningsComponents/NormalLevelCard";
 import ComplicationsCard from "../components/ComplicationsCard";
 import CareScheduleAccordion from "../components/CareScheduleComponents/CareSchedule";
+import FoodTrackCard from "../components/FoodTrackCard";
 
 function ProgressPage(props) {
   return (
     <CardGrid>
       <BloodSugarCard />
+      <FoodTrackCard />
       <ChartCard />
       {/* if enteredGluc is lower then lowLevels,then render */}
       <LowLevelCard />
