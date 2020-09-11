@@ -9,6 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import InputFoodCard from "../components/InputComponents/InputFoodCard"
 import InputBloodSugarCard from "../components/InputComponents/InputBloodSugarCard"
 import InputA1CCard from "../components/InputComponents/InputA1CCard"
+import CardGrid from "../components/CardGrid"
 
 const useStyles = makeStyles({
   root: {
@@ -60,7 +61,7 @@ const handleTrackButton = (buttonChoice) => {
   ];
 
   return (
-      <div>
+      <CardGrid>
         <Card>
         {showTitle &&<CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
@@ -84,7 +85,7 @@ const handleTrackButton = (buttonChoice) => {
         { inputChoice === "Food" && (<InputFoodCard />)}
         { inputChoice === "BloodSugar" && (<InputBloodSugarCard />)}
         { inputChoice === "A1C" && (<InputA1CCard />)}
-      </div>
+      </CardGrid>
       )
 }
 

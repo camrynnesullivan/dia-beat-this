@@ -6,10 +6,16 @@ import CardContent from '@material-ui/core/CardContent';
 
 import FormControl from '@material-ui/core/FormControl';
 
-export default function InputFormGrid(props) {
+const useStyles = makeStyles({
+  root: {
+    width: 400
+  }
+})
 
+export default function InputFormGrid(props) {
+const classes = useStyles()
   return (
-    <Card>
+    <Card className={classes.root}>
       <CardContent>
       <Grid
         container

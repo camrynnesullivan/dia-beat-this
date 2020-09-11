@@ -6,12 +6,16 @@ import ProgressPage from "./pages/ProgressPage";
 
 function App() {
   const [state, dispatch] = useGlobalContext();
-
+  const authUser = JSON.parse(localStorage.getItem("authUser"));
   return (
     <div className="App">
-      {/* {state.user.token ? <AuthenticatedApp /> : <UnauthenticatedApp />} */}
-      <AuthenticatedApp/>
-      {/* <ProgressPage /> */}
+
+      {state.user.token || authUser ? (
+        <AuthenticatedApp />
+      ) : (
+        <UnauthenticatedApp />
+      )}
+
     </div>
   );
 }
