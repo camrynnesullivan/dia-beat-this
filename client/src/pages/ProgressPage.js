@@ -12,6 +12,7 @@ import NormalLevelCard from "../components/WarningsComponents/NormalLevelCard";
 import ComplicationsCard from "../components/ComplicationsCard";
 import CareScheduleAccordion from "../components/CareScheduleComponents/CareSchedule";
 import FoodTrackCard from "../components/FoodTrackCard";
+import Sources from "../components/Sources"
 
 function ProgressPage(props) {
   return (
@@ -28,6 +29,7 @@ function ProgressPage(props) {
       <HBSSymptomsCard />
       <ComplicationsCard />
       <CareScheduleAccordion />
+      <Sources />
     </CardGrid>
   );
 }
