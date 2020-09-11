@@ -7,7 +7,7 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
-import { withRouter } from "react-router-dom";
+import { Link, useLocation, withRouter } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -36,9 +36,9 @@ const NavBar = props => {
   const { history } = props;
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const [headerTitle, setHeaderTitle] = React.useState("");
   const open = Boolean(anchorEl);
   const theme = useTheme();
+  const location = useLocation();
 
   const handleMenu = event => {
     setAnchorEl(event.currentTarget);
@@ -46,7 +46,6 @@ const NavBar = props => {
 
   const handleMenuClick = (menuTitle, pageURL) => {
     history.push(pageURL);
-    setHeaderTitle(menuTitle)
     setAnchorEl(null);
   };
 
@@ -73,6 +72,8 @@ const NavBar = props => {
       pageURL: "/progress"
     }
   ];
+
+  const headerTitle = location.pathname.substring(1, location.pathname.length).charAt(0).toUpperCase() + location.pathname.slice(2)
 
   return (
     <div className={classes.root}>
