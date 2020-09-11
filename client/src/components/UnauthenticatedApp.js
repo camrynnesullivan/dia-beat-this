@@ -56,18 +56,6 @@ const UnauthenticatedApp = () => {
   }
   return (
     <div>
-      {/* <p>Please enter your information to login:</p>
-      <form onSubmit={handleSubmit}>
-        <input type="text" placeholder="email" ref={emailRef} />
-        <input type="text" placeholder="password" ref={passwordRef} />
-        <button type="submit">Submit</button>
-      </form>
-      <p>Please enter your information to signup:</p>
-      <form onSubmit={handleSignup}>
-        <input type="text" placeholder="email" ref={regEmailRef} />
-        <input type="text" placeholder="password" ref={regPasswordRef} />
-        <button type="submit">Submit</button>
-      </form> */}
       { signedUp ? 
       (<SignInCard header="Sign In" handle={handleSubmit} emailRef={emailRef} passwordRef={passwordRef} handleToggle={handleToggle}/>) 
       :

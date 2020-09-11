@@ -1,23 +1,18 @@
 import React from "react";
 import { lowLevels, treatingLBS } from "../../research";
 import { makeStyles } from "@material-ui/core/styles";
+<<<<<<< HEAD
 import Accordion from "@material-ui/core/Accordion";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+=======
+import CardContent from "@material-ui/core/CardContent";
+>>>>>>> master
 
-const useStyles = makeStyles({
-  root: {
-    width: 450,
-  },
-  media: {
-    height: 140,
-  },
-});
 
 export default function LBSTodo() {
-  const classes = useStyles();
 
   return (
     <div>

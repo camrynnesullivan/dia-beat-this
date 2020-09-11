@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography';
 
 import InputFoodCard from "../components/InputComponents/InputFoodCard"
 import InputBloodSugarCard from "../components/InputComponents/InputBloodSugarCard"
+import InputA1CCard from "../components/InputComponents/InputA1CCard"
 
 const useStyles = makeStyles({
   root: {
@@ -50,6 +51,12 @@ const handleTrackButton = (buttonChoice) => {
       buttonChoice: "BloodSugar",
       color: "secondary"
     },
+    {
+      id: "3",
+      buttonName: "A1C",
+      buttonChoice: "A1C",
+      color: "primary"
+    },
   ];
 
   return (
@@ -76,6 +83,7 @@ const handleTrackButton = (buttonChoice) => {
         </Card>
         { inputChoice === "Food" && (<InputFoodCard />)}
         { inputChoice === "BloodSugar" && (<InputBloodSugarCard />)}
+        { inputChoice === "A1C" && (<InputA1CCard />)}
       </div>
       )
 }
