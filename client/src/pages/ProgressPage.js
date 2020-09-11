@@ -12,7 +12,7 @@ import CareScheduleAccordion from "../components/CareScheduleComponents/CareSche
 import FoodTrackCard from "../components/FoodTrackCard";
 
 function ProgressPage(props) {
-  const [bloodSugar, setBloodSugar] = useState(140);
+  const [bloodSugar, setBloodSugar] = useState(180);
   const [afterMeal, setAfterMeal] = useState(true);
   const [warning, setWarning] = useState("high");
 

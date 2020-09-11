@@ -1,20 +1,20 @@
 import React from 'react'
 import { sources } from "../research"
 import { makeStyles } from '@material-ui/core/styles';
-import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
-import Collapse from '@material-ui/core/Collapse';
-import IconButton from '@material-ui/core/IconButton';
-import Button from '@material-ui/core/Button'
+import List from '@material-ui/core/List';
+import Link from '@material-ui/core/Link';
+import ListItem from '@material-ui/core/ListItem';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import Accordion from '@material-ui/core/Accordion';
+import AccordionSummary from '@material-ui/core/AccordionSummary';
+import AccordionDetails from '@material-ui/core/AccordionDetails';
 
 const useStyles = makeStyles((theme) => ({
     root: {
       width: 450,
+      backgroundColor: 'rgba(0, 0, 0, .09)',
     },
     expand: {
       transform: 'rotate(0deg)',
@@ -37,42 +37,29 @@ export default function Sources() {
     };
 
     return (
-    <Card className={classes.root}>
-            <CardHeader 
-            // top of the card
-            title="Sources"
-            subheader="See details"
-        />
-      <CardActions>
-        <IconButton
-          className={clsx(classes.expand, {
-            [classes.expandOpen]: expanded,
-          })}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-          text-align="right"
+    <Accordion className={classes.root}>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
         >
-          <ExpandMoreIcon />
-        </IconButton>
-      </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-            <Typography variant="body2" color="textSecondary" component="p">
-                <ul className="sources-list">
+          <Typography className={classes.heading}>View Sources</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography variant="body2" color="textSecondary" component="p">
+                <List className="sources-list">
                     {sources.map((sources) => {
                         return (
-                            <li>
-                                <a href={sources.access} target="_blank" rel="noopener">
+                            <ListItem>
+                                <Link href={sources.access} target="_blank" rel="noopener noreferrer" rel="noopener">
                                     {sources.source}
-                                </a> 
-                            </li>
+                                </Link> 
+                            </ListItem>
                         )
                     })}
-                </ul>
+                </List>
             </Typography>
-        </CardContent>
-      </Collapse>
-    </Card>
+        </AccordionDetails>
+      </Accordion>
     )
 }

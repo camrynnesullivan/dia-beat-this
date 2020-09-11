@@ -6,8 +6,14 @@ import AccordionSummary from "@material-ui/core/AccordionSummary";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import Checkbox from "@material-ui/core/Checkbox";
+import Card from "@material-ui/core/Card"
+import CardHeader from "@material-ui/core/CardHeader"
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import { careSchedule } from "../../research";
+import Avatar from "@material-ui/core/Avatar";
+import { blue } from "@material-ui/core/colors";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHospitalUser } from "@fortawesome/free-solid-svg-icons"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -22,6 +28,9 @@ const useStyles = makeStyles((theme) => ({
     fontSize: theme.typography.pxToRem(15),
     color: theme.palette.text.secondary,
   },
+  avatar: {
+    backgroundColor: blue[500],
+  },
 }));
 
 export default function CareScheduleAccordion() {
@@ -34,6 +43,18 @@ export default function CareScheduleAccordion() {
 
   return (
     <div className={classes.root}>
+        <Card>
+        <CardHeader
+          avatar={
+            <Avatar aria-label="schedule" className={classes.avatar}>
+              <FontAwesomeIcon icon={faHospitalUser} />
+            </Avatar>
+          }
+          // top of the card
+          titleTypographyProps={{variant:'h5' }}
+          title="Your Care Schedule"
+          subheader="Managing your type-2 diabetes"
+        />
       {/* Daily */}
       <Accordion
         expanded={expanded === "panel1"}
@@ -584,6 +605,7 @@ export default function CareScheduleAccordion() {
           {/* =====================================NESTED===================================== */}
         </AccordionDetails>
       </Accordion>
+      </Card>
     </div>
   );
 }
