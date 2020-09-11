@@ -1,16 +1,11 @@
-import React from 'react';
-import Carousel from 'react-material-ui-carousel'
-import { HeartCard, KidneyCard, EyeCard, NeuroCard, GumCard } from "./ComplicationsCards";
-import { Card } from '@material-ui/core';
- 
+import React from "react";
+import Carousel from "react-material-ui-carousel";
+import { ComplicationsCard } from "./ComplicationsCards";
+
 export default function ComplicationsCarousel() {
-    return (
-        <Carousel>
-            <HeartCard />
-            <KidneyCard />
-            <EyeCard />
-            <NeuroCard />
-            <GumCard />
-        </Carousel>
-    )
+  return (
+    <Carousel>
+      <ComplicationsCard />
+    </Carousel>
+  );
 }
