@@ -1,8 +1,6 @@
 import React from "react";
-import { highLevels, treatingHBS } from "../../research";
 import { makeStyles } from "@material-ui/core/styles";
 import Accordion from "@material-ui/core/Accordion";
-import AccordionDetails from "@material-ui/core/AccordionDetails";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
 import Card from "@material-ui/core/Card"
 import CardHeader from "@material-ui/core/CardHeader"
@@ -67,7 +65,7 @@ function LBSSymptomsCard() {
         >
           <div>
             <Typography gutterBottom variant="h6" component="h6">
-              What to look out for
+              What to know about low glucose
             </Typography>
           </div>
         </AccordionSummary>
@@ -118,7 +116,7 @@ function HBSSymptomsCard() {
         >
           <div>
             <Typography gutterBottom variant="h6" component="h6">
-              What to look out for
+              What to know about high glucose
             </Typography>
             {/* <br /> */}
           </div>
