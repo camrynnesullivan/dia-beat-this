@@ -44,7 +44,6 @@ export default function HBSTodo() {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      ;
     </div>
   );
 }

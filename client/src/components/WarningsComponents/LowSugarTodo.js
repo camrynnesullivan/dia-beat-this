@@ -44,7 +44,7 @@ export default function LBSTodo() {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      ;
+      
     </div>
   );
 }
