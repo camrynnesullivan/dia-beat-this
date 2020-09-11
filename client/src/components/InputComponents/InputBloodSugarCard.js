@@ -52,7 +52,7 @@ export default function InputFoodCard(props) {
       </FormGroup>
       :       <FormGroup className={classes.formElements} noValidate autoComplete="off">
       <FormLabel>What is your after measurement?</FormLabel>
-       <TextField id="filled-basic" label="Before Measurement" variant="filled" InputProps={{
+       <TextField id="filled-basic" label="After Measurement" variant="filled" InputProps={{
          endAdornment: <InputAdornment position="end">mg/dL</InputAdornment>,
        }}/>
    </FormGroup>}
