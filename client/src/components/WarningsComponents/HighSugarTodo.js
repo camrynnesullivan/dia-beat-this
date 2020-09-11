@@ -1,10 +1,17 @@
 import React from "react";
 import { highLevels, treatingHBS } from "../../research";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles({
+  root: {
+  }
+})
 
 function HBSTodo() {
+  const classes = useStyles()
+  
   return (
-    <div>
-      <div className="symptoms-list-main-div">
+      <div className="classes.root">
         <h3>{treatingHBS.title}</h3>
         <h3>{treatingHBS.subtitle}</h3>
         {/* <h3>{treatingLBS.level}</h3> */}
@@ -16,7 +23,6 @@ function HBSTodo() {
         </ul>
         <h3>{treatingHBS.warning}</h3>
       </div>
-    </div>
   );
 }
 
