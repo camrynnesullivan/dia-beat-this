@@ -20,16 +20,17 @@ export default function LowLevelCard() {
   const classes = useStyles();
   return (
     <Card className={classes.root}>
-      <CardActionArea>
+
         <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            Warning!!!
+        <Typography gutterBottom variant="h6" component="h6"  color="secondary">
+            Warning!
           </Typography>
           <Typography gutterBottom variant="h5" component="h2"></Typography>
-          <Typography>Your blood sugar is low!</Typography>
+          <Typography variant="h4"> Your blood sugar is low!</Typography>
+          </CardContent>
+          <CardActionArea>
           <LBSTodo />
-        </CardContent>
-      </CardActionArea>
+          </CardActionArea>
     </Card>
   );
 }
