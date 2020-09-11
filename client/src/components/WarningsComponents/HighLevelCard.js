@@ -5,16 +5,17 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import HBSTodo from "./HighSugarTodo";
-import CardMedia from "@material-ui/core/CardMedia";
 
 const useStyles = makeStyles({
   root: {
     width: 450,
   },
   media: {
-    width: 50,
-    height: 50,
+    height: 140,
   },
+  // toDo: {
+  //   width: "100%"
+  // }
 });
 
 export default function HighLevelCard() {
@@ -22,10 +23,11 @@ export default function HighLevelCard() {
   return (
     <Card className={classes.root}>
       <CardContent>
-        <Typography gutterBottom variant="h6" component="h6" color="secondary">
-          Warning!
+        <Typography gutterBottom variant="h5" component="h2">
+          Warning!!!
         </Typography>
-        <Typography variant="h4"> Your blood sugar is high!</Typography>
+        <Typography gutterBottom variant="h5" component="h2"></Typography>
+        <Typography>Your blood sugar is high!</Typography>
       </CardContent>
       <CardActionArea>
         <HBSTodo className={classes.toDo} />
