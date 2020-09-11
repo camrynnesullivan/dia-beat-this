@@ -104,7 +104,7 @@ const NavBar = props => {
                   vertical: "top",
                   horizontal: "right"
                 }}
-                open={open}
+                open={false}
                 onClose={() => setAnchorEl(null)}
               >
                 {menuItems.map(menuItem => {
