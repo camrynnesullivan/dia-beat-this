@@ -4,12 +4,12 @@ import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
-import { symptomsLBS, symptomsHBS } from "../../src/research"
-import { LBSSymptomList, HBSSymptomList} from "./SymptomList";
+import { symptomsLBS, symptomsHBS } from "../../research";
+import { LBSSymptomList, HBSSymptomList } from "./SymptomList";
 
 const useStyles = makeStyles({
   root: {
-    minWidth: 400
+    minWidth: 400,
   },
   media: {
     height: 140,
@@ -25,10 +25,10 @@ function LBSSymptomsCard() {
           <Typography gutterBottom variant="h5" component="h2">
             {symptomsLBS.title}
           </Typography>
-          <Typography variant="body2" color="textSecondary"component="p">
+          <Typography variant="body2" color="textSecondary" component="p">
             {symptomsLBS.subtitle}
           </Typography>
-          <Typography variant="body2" color="textSecondary"component="p">
+          <Typography variant="body2" color="textSecondary" component="p">
             <LBSSymptomList />
           </Typography>
         </CardContent>
@@ -46,10 +46,10 @@ function HBSSymptomsCard() {
           <Typography gutterBottom variant="h5" component="h2">
             {symptomsHBS.title}
           </Typography>
-          <Typography variant="body2" color="textSecondary"component="p">
+          <Typography variant="body2" color="textSecondary" component="p">
             {symptomsHBS.subtitle}
           </Typography>
-          <Typography variant="body2" color="textSecondary"component="p">
+          <Typography variant="body2" color="textSecondary" component="p">
             <HBSSymptomList />
           </Typography>
         </CardContent>
@@ -58,4 +58,4 @@ function HBSSymptomsCard() {
   );
 }
 
-export { LBSSymptomsCard, HBSSymptomsCard }
+export { LBSSymptomsCard, HBSSymptomsCard };

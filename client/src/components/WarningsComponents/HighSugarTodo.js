@@ -1,5 +1,5 @@
 import React from "react";
-import { highLevels, treatingHBS } from "../research";
+import { highLevels, treatingHBS } from "../../research";
 
 function HBSTodo() {
   return (
