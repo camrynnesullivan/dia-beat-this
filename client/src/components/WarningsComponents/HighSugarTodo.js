@@ -9,7 +9,7 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
 const useStyles = makeStyles({
   root: {
-    width: 450,
+    width: "100%",
   },
   media: {
     height: 140,
@@ -21,7 +21,7 @@ export default function HBSTodo() {
 
   return (
     <div>
-      <Accordion>
+      <Accordion className={classes.root}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-label="Expand"
