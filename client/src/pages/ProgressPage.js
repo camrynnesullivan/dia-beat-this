@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import BloodSugarCard from "../components/BloodSugarCard";
 import ChartCard from "../components/ChartComponents/ChartCard";
 import {
@@ -8,27 +8,43 @@ import {
 import CardGrid from "../components/CardGrid";
 import LowLevelCard from "../components/WarningsComponents/LowLevelCard";
 import HighLevelCard from "../components/WarningsComponents/HighLevelCard";
-import NormalLevelCard from "../components/WarningsComponents/NormalLevelCard";
-import ComplicationsCard from "../components/ComplicationsCard";
 import CareScheduleAccordion from "../components/CareScheduleComponents/CareSchedule";
 import FoodTrackCard from "../components/FoodTrackCard";
-import Sources from "../components/Sources"
+
 
 function ProgressPage(props) {
+  const [bloodSugar, setBloodSugar] = useState(180)
+  const [afterMeal, setAfterMeal] = useState(true)
+  const [warning, setWarning] = useState("high")
+
+
+
+ const getLastMeasurement = () => {
+// {!afterMeal && bloodSugar < 130 && <Typography variant="body2" color="textSecondary" component="p">Looks Normal!</Typography>}
+// {afterMeal && bloodSugar > 130 && <Typography variant="body2" color="textSecondary" component="p">Looks Normal!</Typography>}
+// {!afterMeal && bloodSugar < 80 && <Typography variant="body2" color="textSecondary" component="p">Looks Low!</Typography>}
+// {afterMeal && bloodSugar < 130 && <Typography variant="body2" color="textSecondary" component="p">Looks Low!</Typography>}
+// {!afterMeal && bloodSugar > 130 && <Typography variant="body2" color="textSecondary" component="p">Looks High!</Typography>}
+// {afterMeal && bloodSugar > 180 && <Typography variant="body2" color="textSecondary" component="p">Looks High!</Typography>}
+  }
+  
+
   return (
     <CardGrid>
-      <BloodSugarCard />
-      <FoodTrackCard />
+      <BloodSugarCard bloodSugar={bloodSugar} afterMeal={afterMeal}/>
       <ChartCard />
-      {/* if enteredGluc is lower then lowLevels,then render */}
-      <LowLevelCard />
-      {/* else if enteredGluc is higher than high levels, render */}
-      <HighLevelCard />
+      {warning === "low" && <LowLevelCard />}
+      {warning === "high" && <HighLevelCard />}
+      <FoodTrackCard />
       <LBSSymptomsCard />
       <HBSSymptomsCard />
       <CareScheduleAccordion />
     </CardGrid>
   );
 }
+
+
+
+
 
 export default ProgressPage;

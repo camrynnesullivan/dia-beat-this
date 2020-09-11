@@ -17,11 +17,8 @@ const useStyles = makeStyles({
   },
 });
 
-export default function BloodSugarCard() {
+export default function BloodSugarCard(props) {
   const classes = useStyles();
-  const [bloodSugar, setBloodSugar] = useState(180)
-  const [afterMeal, setAfterMeal] = useState(true)
-
 
   return (
     <Card className={classes.root}>
@@ -34,21 +31,13 @@ export default function BloodSugarCard() {
           <Typography gutterBottom variant="h5" component="h2">
             <FontAwesomeIcon icon={faTint} pull="left" color="red" size="lg" />
             {/* <span className="lastRecorded">here will be displayed the last test result</span> */}
-            {bloodSugar} mg/dL
+            {props.bloodSugar} mg/dL
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
             {/* if checked "Fasted before entering a tesr result - write "Fasted", else -"Just Ate" */}
-            {afterMeal ? "You just ate" : "You are about to eat"}
+            {props.afterMeal ? "You just ate" : "You are about to eat"}
           </Typography>
-
-            {!afterMeal && bloodSugar < 130 && <Typography variant="body2" color="textSecondary" component="p">Looks Normal!</Typography>}
-            {afterMeal && bloodSugar > 130 && <Typography variant="body2" color="textSecondary" component="p">Looks Normal!</Typography>}
-            {!afterMeal && bloodSugar < 80 && <Typography variant="body2" color="textSecondary" component="p">Looks Low!</Typography>}
-            {afterMeal && bloodSugar < 130 && <Typography variant="body2" color="textSecondary" component="p">Looks Low!</Typography>}
-            {!afterMeal && bloodSugar > 130 && <Typography variant="body2" color="textSecondary" component="p">Looks High!</Typography>}
-            {afterMeal && bloodSugar > 180 && <Typography variant="body2" color="textSecondary" component="p">Looks High!</Typography>}
-
-          
+        
           {/* add button to enter test result
           onClickevent create an input area for numbers
           after clicking submit, change number in span lastRecorded and save in a database with date and time, update a chart*/}
