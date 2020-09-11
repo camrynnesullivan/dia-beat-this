@@ -26,8 +26,7 @@ export default function HighLevelCard() {
         <Typography gutterBottom variant="h5" component="h2">
           Warning!!!
         </Typography>
-        <Typography gutterBottom variant="h5" component="h2"></Typography>
-        <Typography>Your blood sugar is high!</Typography>
+        <Typography variant="h5"> Your blood sugar is high!</Typography>
       </CardContent>
       <CardActionArea>
         <HBSTodo className={classes.toDo} />
