@@ -4,7 +4,8 @@ import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
-import { HBSTodo } from "./HighSugarTodo";
+import HBSTodo from "./HighSugarTodo";
+
 const useStyles = makeStyles({
   root: {
     minWidth: 400,
