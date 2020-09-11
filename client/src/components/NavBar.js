@@ -7,7 +7,7 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
-import { withRouter } from "react-router-dom";
+import { Link, useLocation, withRouter } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -25,16 +25,20 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     flex: 1,
     justifyContent: "space-evenly"
-  }
+  },
+  rightToolbar: {
+    marginLeft: "auto",
+    marginRight: -12
+  },
 }));
 
 const NavBar = props => {
   const { history } = props;
   const classes = useStyles();
-  const [anchorEl, setAnchorEl] = React.useState("/");
-  const [headerTitle, setHeaderTitle] = React.useState("");
+  const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const theme = useTheme();
+  const location = useLocation();
 
   const handleMenu = event => {
     setAnchorEl(event.currentTarget);
@@ -42,7 +46,6 @@ const NavBar = props => {
 
   const handleMenuClick = (menuTitle, pageURL) => {
     history.push(pageURL);
-    setHeaderTitle(menuTitle)
     setAnchorEl(null);
   };
 
@@ -70,6 +73,8 @@ const NavBar = props => {
     }
   ];
 
+  const headerTitle = location.pathname.substring(1, location.pathname.length).charAt(0).toUpperCase() + location.pathname.slice(2)
+
   return (
     <div className={classes.root}>
       <AppBar position="static">
@@ -84,8 +89,9 @@ const NavBar = props => {
                 color="inherit"
                 aria-label="menu"
                 onClick={handleMenu}
+                className={classes.rightToolbar}
               >
-                <MenuIcon />
+              <MenuIcon />
               </IconButton>
               <Menu
                 id="menu-appbar"

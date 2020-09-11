@@ -14,7 +14,6 @@ function App() {
       ) : (
         <UnauthenticatedApp />
       )}
-      {/* <AuthenticatedApp /> */}
     </div>
   );
 }
