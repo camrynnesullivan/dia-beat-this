@@ -49,7 +49,7 @@ function ProgressPage(props) {
       {warning === "high" && <HighLevelCard />}
       {warning === "high" && <HBSSymptomsCard />}
       <FoodTrackCard />
-      <ChartCard />
+      {/* <ChartCard /> */}
       <CareScheduleAccordion />
     </CardGrid>
   );
