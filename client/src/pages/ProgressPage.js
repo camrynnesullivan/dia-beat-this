@@ -24,12 +24,9 @@ function ProgressPage(props) {
       <LowLevelCard />
       {/* else if enteredGluc is higher than high levels, render */}
       <HighLevelCard />
-      <NormalLevelCard />
       <LBSSymptomsCard />
       <HBSSymptomsCard />
-      <ComplicationsCard />
       <CareScheduleAccordion />
-      <Sources />
     </CardGrid>
   );
 }
