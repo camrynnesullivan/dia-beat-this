@@ -44,6 +44,12 @@ export default function InputFoodCard(props) {
       "fields":"item_name%2Citem_id%2Cbrand_name%2Cnf_calories%2Cnf_total_fat"
       }
       })
+      .then((response)=>{
+        console.log(response)
+      })
+      .catch((error)=>{
+        console.log(error)
+      })
   };
 
   const handleFormSubmit = event => {
