@@ -39,11 +39,13 @@ const handleTrackButton = (buttonChoice) => {
 
   const buttonOptions = [
     {
+      id: "1",
       buttonName: "Food",
       buttonChoice: "Food",
       color: "primary"
     },
     {
+      id: "2",
       buttonName: "Blood Sugar",
       buttonChoice: "BloodSugar",
       color: "secondary"
@@ -63,15 +65,13 @@ const handleTrackButton = (buttonChoice) => {
       </CardContent>}
       <CardActions>
                 {buttonOptions.map(button => {
-                  const { buttonName, buttonChoice, color } = button;
+                  const { buttonName, buttonChoice, color, id } = button;
                   return (
-                    <Button variant="contained" size="small" color={color} onClick={() => handleTrackButton(buttonChoice)}>
+                    <Button key={id} variant="contained" size="small" color={color} onClick={() => handleTrackButton(buttonChoice)}>
                       Track {buttonName}
                     </Button>
                   );
                 })}
-        {/* <Button  color="secondary" onClick={handleTrackButton}>Track Food</Button>
-        <Button variant="contained" size="small" color="primary" onClick={handleTrackButton}>Track Blood Sugar</Button> */}
       </CardActions>
         </Card>
         { inputChoice === "Food" && (<InputFoodCard />)}
