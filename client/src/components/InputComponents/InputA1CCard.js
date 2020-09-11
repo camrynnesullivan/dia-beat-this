@@ -72,6 +72,9 @@ export default function InputA1CCard(props) {
           />
       </FormGroup>}
     </InputFormGrid>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4b9009dfdb9939a755f092a0980c0a3d3734be87
 )
 }

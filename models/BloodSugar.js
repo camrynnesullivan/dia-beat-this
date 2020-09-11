@@ -6,6 +6,9 @@ const glycemiaSchema = new Schema({
     type: Number,
     trim: true,
   },
+  afterMeal: {
+    type: Boolean,
+  },
   date: {
     type: Date,
     default: Date.now,
