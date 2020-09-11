@@ -7,9 +7,8 @@ import Card from '@material-ui/core/Card';
 import FormLabel from '@material-ui/core/FormLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormGroup from '@material-ui/core/FormGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import Switch from '@material-ui/core/Switch';
+import InputFormGrid from './InputFormGrid';
+import InputAdornment from '@material-ui/core/InputAdornment';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -26,18 +25,17 @@ export default function InputFoodCard(props) {
   };
 
   return (
-    <Card>
-      <FormControl component="fieldset">
-      <FormLabel component="legend">Are you tracking before or after you eat?</FormLabel>
-      <FormGroup>
-        <FormControlLabel
-          control={<Switch checked={state.gilad} onChange={handleChange} name="gilad" />}
-          label="Gilad Gray"
-        />
+<InputFormGrid>
+      <FormGroup className={classes.formElements} noValidate autoComplete="off">
+         <FormLabel>What did you eat?</FormLabel>
+          <TextField id="filled-basic" label="Food" variant="filled"/>
+          <TextField id="filled-basic" variant="filled" InputProps={{
+            endAdornment: <InputAdornment position="end">servings</InputAdornment>,
+          }}/>
       </FormGroup>
-      <FormHelperText>Be careful</FormHelperText>
-    </FormControl>
-    </Card>
+      <FormGroup>
+      </FormGroup>
+</InputFormGrid>
 
 )
 }
