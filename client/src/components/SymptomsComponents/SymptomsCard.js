@@ -9,7 +9,7 @@ import { LBSSymptomList, HBSSymptomList } from "./SymptomList";
 
 const useStyles = makeStyles({
   root: {
-    minWidth: 400,
+    width: 450,
   },
   media: {
     height: 140,
@@ -20,7 +20,6 @@ function LBSSymptomsCard() {
   const classes = useStyles();
   return (
     <Card className={classes.root}>
-      <CardActionArea>
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
             {symptomsLBS.title}
@@ -32,7 +31,6 @@ function LBSSymptomsCard() {
             <LBSSymptomList />
           </Typography>
         </CardContent>
-      </CardActionArea>
     </Card>
   );
 }
@@ -41,7 +39,6 @@ function HBSSymptomsCard() {
   const classes = useStyles();
   return (
     <Card className={classes.root}>
-      <CardActionArea>
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
             {symptomsHBS.title}
@@ -53,7 +50,6 @@ function HBSSymptomsCard() {
             <HBSSymptomList />
           </Typography>
         </CardContent>
-      </CardActionArea>
     </Card>
   );
 }

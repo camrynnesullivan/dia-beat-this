@@ -27,12 +27,12 @@ export default function FoodTrackCard() {
           component="img"
           alt="Delicious Food"
           height="140"
-          image="/food#2.jpg"
+          image="https://foodrevolution.org/wp-content/uploads/blog-featured-diabetes-20180406-1330.jpg"
           title="Delicious Food"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            Calories today:<span>0</span>Kcal
+            Calories today:<span>0</span> Kcal
           </Typography>
           <Typography gutterBottom variant="h5" component="h2">
             Carbs today:<span>0</span> mg
@@ -44,10 +44,10 @@ export default function FoodTrackCard() {
       </CardActionArea>
       <CardActions>
         <Button size="small" color="primary">
-          Set Calories
+          Set Calories Goal:
         </Button>
         <Button size="small" color="primary">
-          Set Carbs
+          Set Carbs Goal:
         </Button>
       </CardActions>
     </Card>
