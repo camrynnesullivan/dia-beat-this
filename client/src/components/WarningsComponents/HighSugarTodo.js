@@ -33,7 +33,7 @@ export default function HBSTodo() {
           aria-controls="additional-actions1-content"
           id="additional-actions1-header"
         >
-          <Typography variant="p" className={classes.title}>
+          <Typography variant="p">
           {treatingHBS.title}
           </Typography>
         </AccordionSummary>
