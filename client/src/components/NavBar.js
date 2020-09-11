@@ -7,8 +7,6 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
-import Button from "@material-ui/core/Button";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { withRouter } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
@@ -56,14 +54,17 @@ const NavBar = props => {
 
   const menuItems = [
     {
+      id: "1",
       menuTitle: "Home",
       pageURL: "/"
     },
     {
+      id: "2",
       menuTitle: "Input",
       pageURL: "/input"
     },
     {
+      id: "3",
       menuTitle: "Progress",
       pageURL: "/progress"
     }
@@ -102,9 +103,9 @@ const NavBar = props => {
                 onClose={() => setAnchorEl(null)}
               >
                 {menuItems.map(menuItem => {
-                  const { menuTitle, pageURL } = menuItem;
+                  const { menuTitle, pageURL, id } = menuItem;
                   return (
-                    <MenuItem onClick={() => handleMenuClick(menuTitle, pageURL)}>
+                    <MenuItem key={id} onClick={() => handleMenuClick(menuTitle, pageURL)}>
                       {menuTitle}
                     </MenuItem>
                   );
