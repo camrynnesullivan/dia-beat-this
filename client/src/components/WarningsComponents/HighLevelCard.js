@@ -13,22 +13,28 @@ const useStyles = makeStyles({
   media: {
     height: 140,
   },
+  // toDo: {
+  //   width: "100%"
+  // }
 });
 
 export default function HighLevelCard() {
   const classes = useStyles();
   return (
     <Card className={classes.root}>
-      <CardActionArea>
+
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
             Warning!!!
           </Typography>
           <Typography gutterBottom variant="h5" component="h2"></Typography>
           <Typography>Your blood sugar is high!</Typography>
-          <HBSTodo />
-        </CardContent>
-      </CardActionArea>
+          </CardContent>
+          <CardActionArea>
+          <HBSTodo className={classes.toDo}/>
+          </CardActionArea>
+
+
     </Card>
   );
 }
