@@ -1,21 +1,18 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import Grid from '@material-ui/core/Grid';
-import Card from '@material-ui/core/Card';
 import FormLabel from '@material-ui/core/FormLabel';
-import FormControl from '@material-ui/core/FormControl';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import Switch from '@material-ui/core/Switch';
+import InputAdornment from '@material-ui/core/InputAdornment';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 
+import InputFormGrid from "./InputFormGrid"
 
 const useStyles = makeStyles((theme) => ({
-  root: {
+  formElements: {
+    padding: 10
   },
 }));
 
@@ -28,27 +25,38 @@ export default function InputFoodCard(props) {
   };
 
   return (
-    <Card>
-  <FormControl component="fieldset">
-      <FormLabel component="legend">When are you measuring?</FormLabel>
-      <RadioGroup row aria-label="position" name="position" defaultValue="top" onChange={handleRadio}>
-
-        <FormControlLabel
-          value="before"
-          control={<Radio color="primary" />}
-          label="Before Food"
-          labelPlacement="bottom"
-        />
-            <FormControlLabel
-          value="after"
-          control={<Radio color="primary" />}
-          label="After Food"
-          labelPlacement="bottom"
-        />
-      </RadioGroup>
-      {radio ?  <h1>Before food questions</h1> : "after" && <h1>After food questions</h1>}
-    </FormControl>
-    </Card>
+<InputFormGrid>
+        <FormGroup className={classes.formElements}>
+            <FormLabel component="legend">When are you measuring?</FormLabel>
+            <RadioGroup row aria-label="position" name="position" defaultValue="top" onChange={handleRadio}>
+              <FormControlLabel
+                value="before"
+                control={<Radio color="primary" />}
+                label="Before Food"
+                labelPlacement="bottom"
+              />
+                  <FormControlLabel
+                value="after"
+                control={<Radio color="primary" />}
+                label="After Food"
+                labelPlacement="bottom"
+              />
+            </RadioGroup>
+      </FormGroup>
+      {radio ?  
+      <FormGroup className={classes.formElements} noValidate autoComplete="off">
+         <FormLabel>What is your before measurement?</FormLabel>
+          <TextField id="filled-basic" label="Before Measurement" variant="filled"          InputProps={{
+            endAdornment: <InputAdornment position="end">mg/dL</InputAdornment>,
+          }}/>
+      </FormGroup>
+      :       <FormGroup className={classes.formElements} noValidate autoComplete="off">
+      <FormLabel>What is your after measurement?</FormLabel>
+       <TextField id="filled-basic" label="Before Measurement" variant="filled"          InputProps={{
+         endAdornment: <InputAdornment position="end">mg/dL</InputAdornment>,
+       }}/>
+   </FormGroup>}
+</InputFormGrid>
 
 )
 }
