@@ -35,7 +35,7 @@ const useStyles = makeStyles(theme => ({
 const NavBar = props => {
   const { history } = props;
   const classes = useStyles();
-  const [anchorEl, setAnchorEl] = React.useState("/");
+  const [anchorEl, setAnchorEl] = React.useState(null);
   const [headerTitle, setHeaderTitle] = React.useState("");
   const open = Boolean(anchorEl);
   const theme = useTheme();
