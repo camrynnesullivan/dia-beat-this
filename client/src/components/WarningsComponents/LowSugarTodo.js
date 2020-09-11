@@ -1,23 +1,12 @@
 import React from "react";
 import { lowLevels, treatingLBS } from "../../research";
 import { makeStyles } from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 
-const useStyles = makeStyles({
-  root: {
-    width: 450,
-  },
-  media: {
-    height: 140,
-  },
-});
 
 export default function LBSTodo() {
-  const classes = useStyles();
 
   return (
-    <Card className={classes.root}>
       <CardContent>
         <div>
           <h3>{treatingLBS.title}</h3>
@@ -35,6 +24,5 @@ export default function LBSTodo() {
           <h3>{treatingLBS.warning}</h3>
         </div>
       </CardContent>
-    </Card>
   );
 }

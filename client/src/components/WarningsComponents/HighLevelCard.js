@@ -7,7 +7,7 @@ import Typography from "@material-ui/core/Typography";
 import { HBSTodo } from "./HighSugarTodo";
 const useStyles = makeStyles({
   root: {
-    minWidth: 400,
+    width: 450
   },
   media: {
     height: 140,
