@@ -8,6 +8,7 @@ import { red } from '@material-ui/core/colors';
 import Typography from "@material-ui/core/Typography";
 import Avatar from '@material-ui/core/Avatar';
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import CardContent from "@material-ui/core/CardContent";
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import {
@@ -35,11 +36,12 @@ const useStyles = makeStyles({
     backgroundColor: 'rgba(0, 0, 0, .03)',
   },
   dropDown: {
-    margin: 30
+    margin: 30,
+    marginTop: 0
   },
   avatar: {
     backgroundColor: red[500],
-  },
+  }
 });
 
 function LBSSymptomsCard() {
@@ -48,6 +50,7 @@ function LBSSymptomsCard() {
   return (
     <Card className={classes.root}>
       <CardHeader 
+   
         avatar={
           <Avatar aria-label="symptoms" className={classes.avatar}>
             <FontAwesomeIcon icon={faMinus} />
@@ -58,6 +61,7 @@ function LBSSymptomsCard() {
       />
       <Accordion >
         <AccordionSummary
+           className={classes.summary}
           expandIcon={<ExpandMoreIcon />}
           aria-label="Expand"
           aria-controls="additional-actions1-content"
@@ -70,7 +74,7 @@ function LBSSymptomsCard() {
           </div>
         </AccordionSummary>
         <div className={classes.dropDown}>
-            <Typography variant="body2" color="textSecondary" component="p">
+            <Typography variant="body2" color="textSecondary" component="p" className={classes.subtitle}>
               {symptomsLBS.subtitle}
             </Typography>
             {/* Does not map the icons properly */}
@@ -106,6 +110,7 @@ function HBSSymptomsCard() {
         }
         // top of the card
         title={symptomsHBS.title}
+        titleTypographyProps={{variant:'h5' }}
       />
       <Accordion>
         <AccordionSummary
@@ -113,13 +118,11 @@ function HBSSymptomsCard() {
           aria-label="Expand"
           aria-controls="additional-actions1-content"
           id="additional-actions1-header"
+          className={classes.summary}
         >
-          <div>
-            <Typography gutterBottom variant="h6" component="h6">
+            <Typography variant="p">
               What to know about high glucose
             </Typography>
-            {/* <br /> */}
-          </div>
         </AccordionSummary>
         <div className={classes.dropDown}>
           <Typography variant="body2" color="textSecondary" component="p">

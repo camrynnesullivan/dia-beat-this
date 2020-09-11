@@ -22,7 +22,7 @@ export default function LowLevelCard() {
     <Card className={classes.root}>
 
         <CardContent>
-        <Typography gutterBottom variant="h6" component="h6"  color="secondary">
+        <Typography variant="h6" component="h6"  color="secondary">
             Warning!
           </Typography>
           <Typography gutterBottom variant="h5" component="h2"></Typography>

@@ -16,7 +16,8 @@ const useStyles = makeStyles({
     backgroundColor: 'rgba(0, 0, 0, .03)',
   },
   dropDown: {
-    margin: 30
+    margin: 30,
+    marginTop: 0
   }
 });
 
@@ -37,7 +38,7 @@ export default function HBSTodo() {
           </Typography>
         </AccordionSummary>
         <div className={classes.dropDown}>
-          <Typography color="textSecondary" variant="h5">
+          <Typography variant="body2" color="textSecondary" component="p">
             {treatingHBS.subtitle}</Typography>
             <Typography display="inital">
             <List>
