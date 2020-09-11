@@ -25,7 +25,11 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     flex: 1,
     justifyContent: "space-evenly"
-  }
+  },
+  rightToolbar: {
+    marginLeft: "auto",
+    marginRight: -12
+  },
 }));
 
 const NavBar = props => {
@@ -84,8 +88,9 @@ const NavBar = props => {
                 color="inherit"
                 aria-label="menu"
                 onClick={handleMenu}
+                className={classes.rightToolbar}
               >
-                <MenuIcon />
+              <MenuIcon />
               </IconButton>
               <Menu
                 id="menu-appbar"

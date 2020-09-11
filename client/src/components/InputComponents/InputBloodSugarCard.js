@@ -66,7 +66,7 @@ const handleRadio = (e) => {
                 labelPlacement="bottom"
               />
             </RadioGroup>
-      </FormGroup>g
+      </FormGroup>
    
       <FormGroup className={classes.formElements} noValidate autoComplete="off">
          <FormLabel>What is your before measurement?</FormLabel>
