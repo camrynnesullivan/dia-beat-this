@@ -26,7 +26,7 @@ export default function LowLevelCard() {
             Warning!
           </Typography>
           <Typography gutterBottom variant="h5" component="h2"></Typography>
-          <Typography variant="h4"> Your blood sugar is low!</Typography>
+          <Typography variant="h4">Your blood sugar is low!</Typography>
           </CardContent>
           <CardActionArea>
           <LBSTodo />
