@@ -4,6 +4,7 @@ import { LOGOUT, GET_WELCOME } from "../context/actions";
 import NavBar from "./NavBar";
 import HomePage from "../pages/HomePage";
 import InputPage from "../pages/InputPage";
+import ResourcesPage from "../pages/ResourcesPage";
 import ProgressPage from "../pages/ProgressPage";
 import { Route, Switch } from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";
@@ -51,6 +52,11 @@ const AuthenticatedApp = () => {
             exact
             path="/progress"
             render={(props) => <ProgressPage {...props} />}
+          />
+                    <Route
+            exact
+            path="/resources"
+            render={(props) => <ResourcesPage {...props} />}
           />
         </Switch>
       </Router>

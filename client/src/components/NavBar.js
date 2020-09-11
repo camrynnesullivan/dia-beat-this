@@ -70,6 +70,11 @@ const NavBar = props => {
       id: "3",
       menuTitle: "Progress",
       pageURL: "/progress"
+    },
+    {
+      id: "4",
+      menuTitle: "Resources",
+      pageURL: "/resources"
     }
   ];
 

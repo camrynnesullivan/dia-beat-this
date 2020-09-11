@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import BloodSugarCard from "../components/BloodSugarCard";
 //import ChartCard from "../components/ChartComponents/ChartCard";
 import {
@@ -8,28 +8,49 @@ import {
 import CardGrid from "../components/CardGrid";
 import LowLevelCard from "../components/WarningsComponents/LowLevelCard";
 import HighLevelCard from "../components/WarningsComponents/HighLevelCard";
-import NormalLevelCard from "../components/WarningsComponents/NormalLevelCard";
-import ComplicationsCard from "../components/ComplicationsCard";
 import CareScheduleAccordion from "../components/CareScheduleComponents/CareSchedule";
 import FoodTrackCard from "../components/FoodTrackCard";
-import Sources from "../components/Sources";
 
 function ProgressPage(props) {
+  const [bloodSugar, setBloodSugar] = useState(140);
+  const [afterMeal, setAfterMeal] = useState(true);
+  const [warning, setWarning] = useState("high");
+
+  // const getLastMeasurement = () => {
+  //     //  Once last measurement is retrieved from database
+  //     switch (key) {
+  //       case !afterMeal && bloodSugar < 130:
+  //         setWarning("normal")
+  //         break;
+  //       case afterMeal && bloodSugar > 130:
+  //         setWarning("normal")
+  //         break;
+  //       case !afterMeal && bloodSugar < 80:
+  //         setWarning("low")
+  //         break;
+  //       case afterMeal && bloodSugar < 130:
+  //         setWarning("low")
+  //         break;
+  //       case !afterMeal && bloodSugar > 130:
+  //         setWarning("high")
+  //         break;
+  //       case afterMeal && bloodSugar > 180:
+  //         setWarning("high")
+  //         break;
+  //       default:
+  //         break;
+  //     }
+
   return (
     <CardGrid>
-      <BloodSugarCard />
+      <BloodSugarCard bloodSugar={bloodSugar} afterMeal={afterMeal} />
+      {warning === "low" && <LowLevelCard />}
+      {warning === "low" && <LBSSymptomsCard />}
+      {warning === "high" && <HighLevelCard />}
+      {warning === "high" && <HBSSymptomsCard />}
       <FoodTrackCard />
-      {/* <ChartCard /> */}
-      {/* if enteredGluc is lower then lowLevels,then render */}
-      <LowLevelCard />
-      {/* else if enteredGluc is higher than high levels, render */}
-      <HighLevelCard />
-      <NormalLevelCard />
-      <LBSSymptomsCard />
-      <HBSSymptomsCard />
-      <ComplicationsCard />
+      <ChartCard />
       <CareScheduleAccordion />
-      <Sources />
     </CardGrid>
   );
 }
