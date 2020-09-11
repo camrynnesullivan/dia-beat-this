@@ -28,7 +28,7 @@ export default function InputFoodCard(props) {
 <InputFormGrid>
         <FormGroup className={classes.formElements}>
             <FormLabel component="legend">When are you measuring?</FormLabel>
-            <RadioGroup row aria-label="position" name="position" defaultValue="top" onChange={handleRadio}>
+            <RadioGroup row aria-label="position" name="position" defaultValue="before" onChange={handleRadio}>
               <FormControlLabel
                 value="before"
                 control={<Radio color="primary" />}
@@ -43,7 +43,7 @@ export default function InputFoodCard(props) {
               />
             </RadioGroup>
       </FormGroup>
-      {radio ?  
+      {!radio ?  
       <FormGroup className={classes.formElements} noValidate autoComplete="off">
          <FormLabel>What is your before measurement?</FormLabel>
           <TextField id="filled-basic" label="Before Measurement" variant="filled"          InputProps={{
@@ -52,7 +52,7 @@ export default function InputFoodCard(props) {
       </FormGroup>
       :       <FormGroup className={classes.formElements} noValidate autoComplete="off">
       <FormLabel>What is your after measurement?</FormLabel>
-       <TextField id="filled-basic" label="Before Measurement" variant="filled"          InputProps={{
+       <TextField id="filled-basic" label="Before Measurement" variant="filled" InputProps={{
          endAdornment: <InputAdornment position="end">mg/dL</InputAdornment>,
        }}/>
    </FormGroup>}
