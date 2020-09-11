@@ -8,12 +8,11 @@ import { complications } from "../../research";
 export default function ComplicationsCarousel() {
   return (
     <Card>
-    <Carousel>
-      
-            {
-                complications.listOfComps.map( (complication, i) => <ComplicationsCard key={i} name={complication.name} description={complication.description} recommendation={complication.recommendation} video={complication.video} image={complication.image} imageText={complication.imageText}/> )
-            }
-    </Carousel>
+      <Carousel>
+              {
+                  complications.listOfComps.map( (complication, i) => <ComplicationsCard key={i} name={complication.name} description={complication.description} recommendation={complication.recommendation} video={complication.video} image={complication.image} imageText={complication.imageText}/> )
+              }
+      </Carousel>
     </Card>
   );
 }
