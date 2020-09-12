@@ -1,17 +1,14 @@
 import React, { useState, useEffect } from "react";
 
 import BloodSugarCard from "../components/BloodSugarCard";
-//import ChartCard from "../components/ChartComponents/ChartCard";
-import {
-  LBSSymptomsCard,
-  HBSSymptomsCard,
-} from "../components/SymptomsComponents/SymptomsCard";
+
 import CardGrid from "../components/CardGrid";
-import WarningCard from "../components/WarningsComponents/WarningCard";
+import WarningCard from "../components/WarningComponents/WarningCard";
 import CareScheduleAccordion from "../components/CareScheduleComponents/CareSchedule";
 import FoodTrackCard from "../components/FoodTrackCard";
 import { treatingHBS, treatingLBS } from "../research";
-
+import { symptomsLBS, symptomsHBS } from "../research";
+import SymptomsCard from "../components/WarningComponents/SymptomsCard"
 
 function ProgressPage(props) {
   // Input Page
@@ -21,6 +18,7 @@ function ProgressPage(props) {
   // Progress Page
   const [warning, setWarning] = useState("low")
   const [research, setResearch] = useState(treatingLBS)
+  const [symptoms, setSymptoms] = useState(symptomsHBS)
 
   // const getLastMeasurement = () => {
   //     //  Once last measurement is retrieved from database
@@ -51,9 +49,7 @@ function ProgressPage(props) {
     <CardGrid>
       <BloodSugarCard bloodSugar={bloodSugar} afterMeal={afterMeal}/>
       {warning !== "normal" && <WarningCard level={warning} title={research.title} subtitle={research.subtitle}  warning={research.warning} todos={research.todos} />}
-      {/* {warning === "low" && <LBSSymptomsCard />} */}
-      {/* {warning === "high" && <HighLevelCard />}
-      {warning === "high" && <HBSSymptomsCard />} */}
+      {warning !== "normal" && <SymptomsCard title={symptoms.title} subtitle={symptoms.subtitle} summary={symptoms.summary} symptoms={symptoms.symptoms}/>}
       <FoodTrackCard />
       {/* <ChartCard /> */}
       <CareScheduleAccordion />
