@@ -17,16 +17,9 @@ const useStyles = makeStyles({
   },
 });
 
-function a11yProps(index) {
-  return {
-    id: `simple-tab-${index}`,
-    'aria-controls': `simple-tabpanel-${index}`,
-  };
-}
-
 function InputPage(props) {
   const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -50,9 +43,9 @@ function InputPage(props) {
               textColor="primary"
               centered
             >
-              <Tab label="Food" {...a11yProps(0)} />
-              <Tab label="Blood Sugar" {...a11yProps(1)} />
-              <Tab label="A1C" {...a11yProps(2)} />
+              <Tab label="Food"/>
+              <Tab label="Blood Sugar"/>
+              <Tab label="A1C"/>
             </Tabs>
             <InputFoodCard value={value} index={0}/>
             <InputBloodSugarCard value={value} index={1}/>
