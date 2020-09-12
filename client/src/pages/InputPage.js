@@ -6,6 +6,7 @@ import Tabs from '@material-ui/core/Tabs';
 import InputFoodCard from "../components/InputComponents/InputFoodCard"
 import InputBloodSugarCard from "../components/InputComponents/InputBloodSugarCard"
 import InputA1CCard from "../components/InputComponents/InputA1CCard"
+import InputPageGrid from "../components/InputComponents/InputPageGrid"
 import Card from "@material-ui/core/Card"
 import CardContent from "@material-ui/core/CardContent"
 import Paper from "@material-ui/core/Paper"
@@ -77,15 +78,7 @@ function InputPage(props) {
   };
   
   return (
-        <Card>
-                <Grid
-        container
-        direction="column"
-        justify="flex-start"
-        alignItems="center"
-        className={classes.root}
-      >
-        <Grid item>
+    <InputPageGrid>
           <CardContent>
             <Typography variant="subtitle" color="textSecondary" gutterBottom>
               Let's figure out your insulin!
@@ -94,8 +87,6 @@ function InputPage(props) {
                 What would you like to track?
               </Typography>
             </CardContent>
-            </Grid>
-            <Grid item>
       <Paper className={classes.root} elevation={0}>
             <Tabs
               value={tab}
@@ -113,8 +104,6 @@ function InputPage(props) {
             <InputA1CCard value={tab} index={2} radio={props.radio} handleRadio={handleRadio} handleInputChange={handleInputChange}/>
 
       </Paper>
-      </Grid>
-      <Grid item>
       <Button
                 className={classes.button}
                 type="submit"
@@ -124,9 +113,7 @@ function InputPage(props) {
               >
                 Submit
               </Button>
-      </Grid>
-      </Grid>
-      </Card>
+      </InputPageGrid>
       )
 }
 
