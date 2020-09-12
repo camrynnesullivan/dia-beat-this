@@ -117,11 +117,11 @@ const treatingHBS = {
   title: "How to Lower Your Blood Sugar",
   subtitle:
     "High blood sugar, also known as 'hyperglycemia', can be lowered by doing some of these steps",
-  todos: {
-    1: "Insulin: Take your insulin to reduce your blood sugar levels.  Be careful, as insulin can take 4 hours to be fully absorbed.",
-    2: "Walking: Exercise can help to lower blood sugar and walking is a good way of achieve this.",
-    3: "Drink Water: When your blood sugar levels are running high, your body will try to flush excess sugar our of your blood through the urine.  Drinking water helps!",
-  },
+  todos: [
+    "Insulin: Take your insulin to reduce your blood sugar levels.  Be careful, as insulin can take 4 hours to be fully absorbed.",
+    "Walking: Exercise can help to lower blood sugar and walking is a good way of achieve this.",
+    "Drink Water: When your blood sugar levels are running high, your body will try to flush excess sugar our of your blood through the urine.  Drinking water helps!",
+  ],
   warning:
     "Always consult with your doctor when your blood sugar levels fluctuate.",
 };

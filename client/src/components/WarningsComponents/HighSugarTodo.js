@@ -42,9 +42,11 @@ export default function HBSTodo(props) {
             {props.subtitle}</Typography>
             <Typography display="inital">
             <List>
-              <ListItem><FontAwesomeIcon icon={faTint} pull="left" color="red" size="lg" />{props.todos[1]}</ListItem>
-              <ListItem><FontAwesomeIcon icon={faTint} pull="left" color="red" size="lg" />{props.todos[2]}</ListItem>
-              <ListItem><FontAwesomeIcon icon={faTint} pull="left" color="red" size="lg" />{props.todos[3]}</ListItem>
+                {
+                  props.todos.map((element, index) => 
+                    (<ListItem key={index}><FontAwesomeIcon icon={faTint} pull="left" color="red" size="lg" />{element}</ListItem>)
+                  )
+                }
             </List>
             </Typography>
             <Typography variant="h6" >{props.warning}</Typography>

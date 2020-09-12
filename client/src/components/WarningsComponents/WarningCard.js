@@ -13,9 +13,6 @@ const useStyles = makeStyles({
   media: {
     height: 140,
   },
-  // toDo: {
-  //   width: "100%"
-  // }
 });
 
 export default function WarningCard(props) {
