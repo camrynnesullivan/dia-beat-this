@@ -33,23 +33,24 @@ function ProgressPage(props) {
 
   // This may not be the appropriate use of useEffect, but should maybe be triggered as a callback function once our page recieves the last measurement from the databse.
 useEffect(() => {
-  setBloodSugar(200)
+  // Play with these values to see how they render appropriately!
+  setBloodSugar(180)
   setAfterMeal(true)
-  
-    //   if (!afterMeal) {
-    //      if (bloodSugar < 80){
-    //       setLevel(low)
-    //     } else if (bloodSugar > 130) {
-    //       setLevel(high)
-    //     } else {
-    //       setLevel(null)}
-    //   } else {
-    //     if (bloodSugar < 130){
-    //     setLevel(low)
-    //   } else if (bloodSugar > 180){
-    //     setLevel(high)
-    //   } else {setLevel(null)}
-    // }
+  // After those values are set, this function sets the level:
+      if (!afterMeal) {
+         if (bloodSugar < 80){
+          setLevel(low)
+        } else if (bloodSugar > 130) {
+          setLevel(high)
+        } else {
+          setLevel(normal)}
+      } else {
+        if (bloodSugar < 130){
+        setLevel(low)
+      } else if (bloodSugar > 180){
+        setLevel(high)
+      } else {setLevel(normal)}
+    }
     
 })
 
