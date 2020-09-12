@@ -96,7 +96,7 @@ function InputPage(props) {
             </CardContent>
             </Grid>
             <Grid item>
-      <Paper className={classes.root}>
+      <Paper className={classes.root} elevation={0}>
             <Tabs
               value={tab}
               onChange={handleChange}
