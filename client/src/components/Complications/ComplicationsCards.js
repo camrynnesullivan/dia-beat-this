@@ -56,6 +56,7 @@ function ComplicationsCard(props) {
             </Avatar>
           }
           // top of the card
+          titleTypographyProps={{variant:'h5' }}
           title={props.name}
           subheader={complications.title}
         />
