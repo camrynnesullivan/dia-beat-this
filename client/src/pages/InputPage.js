@@ -12,6 +12,7 @@ import CardContent from "@material-ui/core/CardContent"
 import Paper from "@material-ui/core/Paper"
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid"
+import API from "../utils/API"
 
 const useStyles = makeStyles({
   root: {
@@ -39,14 +40,15 @@ function InputPage(props) {
 
   const logBloodSugar = () => {
     console.log(radioBS, measurement);
-    // const glucoseData = { measurement, radio };
-    // API.saveGlucose(glucoseData).then((res) => console.log(res.data));
+    let glucoseData = {"enteredGlucose": parseInt(measurement.measurement), "afterMeal": radioBS.valueOf()}
+    console.log(glucoseData)
+    API.saveGlycemia(glucoseData).then((res) => console.log(res.data));
   };
 
   const logA1C = () => {
     console.log(radioA1C, measurement);
     // const glucoseData = { measurement, radio };
-    // API.saveGlucose(glucoseData).then((res) => console.log(res.data));
+    // API.saveGlycemia(glucoseData).then((res) => console.log(res.data));
   };
 
   const handleFormSubmit = (event) => {
