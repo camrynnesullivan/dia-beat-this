@@ -1,6 +1,7 @@
-import React, {useState} from "react";
+import React, { useState, useEffect } from "react";
+
 import BloodSugarCard from "../components/BloodSugarCard";
-import ChartCard from "../components/ChartComponents/ChartCard";
+//import ChartCard from "../components/ChartComponents/ChartCard";
 import {
   LBSSymptomsCard,
   HBSSymptomsCard,
@@ -21,30 +22,30 @@ function ProgressPage(props) {
   const [warning, setWarning] = useState("low")
   const [research, setResearch] = useState(treatingLBS)
 
-// const getLastMeasurement = () => {
-//     //  Once last measurement is retrieved from database
-//     switch (key) {
-//       case !afterMeal && bloodSugar < 130:
-//         setWarning("normal")
-//         break;
-//       case afterMeal && bloodSugar > 130:
-//         setWarning("normal")
-//         break;
-//       case !afterMeal && bloodSugar < 80:
-//         setWarning("low")
-//         break;
-//       case afterMeal && bloodSugar < 130:
-//         setWarning("low")
-//         break;
-//       case !afterMeal && bloodSugar > 130:
-//         setWarning("high")
-//         break;
-//       case afterMeal && bloodSugar > 180:
-//         setWarning("high")
-//         break;
-//       default:
-//         break;
-//     }
+  // const getLastMeasurement = () => {
+  //     //  Once last measurement is retrieved from database
+  //     switch (key) {
+  //       case !afterMeal && bloodSugar < 130:
+  //         setWarning("normal")
+  //         break;
+  //       case afterMeal && bloodSugar > 130:
+  //         setWarning("normal")
+  //         break;
+  //       case !afterMeal && bloodSugar < 80:
+  //         setWarning("low")
+  //         break;
+  //       case afterMeal && bloodSugar < 130:
+  //         setWarning("low")
+  //         break;
+  //       case !afterMeal && bloodSugar > 130:
+  //         setWarning("high")
+  //         break;
+  //       case afterMeal && bloodSugar > 180:
+  //         setWarning("high")
+  //         break;
+  //       default:
+  //         break;
+  //     }
 
   return (
     <CardGrid>
@@ -54,14 +55,10 @@ function ProgressPage(props) {
       {/* {warning === "high" && <HighLevelCard />}
       {warning === "high" && <HBSSymptomsCard />} */}
       <FoodTrackCard />
-      <ChartCard />
+      {/* <ChartCard /> */}
       <CareScheduleAccordion />
     </CardGrid>
   );
 }
-
-
-
-
 
 export default ProgressPage;

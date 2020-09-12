@@ -8,7 +8,7 @@ import WarningTodo from "./WarningTodo";
 
 const useStyles = makeStyles({
   root: {
-    width: 450
+    width: 450,
   },
   media: {
     height: 140,
@@ -19,7 +19,6 @@ export default function WarningCard(props) {
   const classes = useStyles();
   return (
     <Card className={classes.root}>
-
         <CardContent>
           <Typography gutterBottom variant="h6" component="h6"  color="secondary">
             Warning!
@@ -29,8 +28,6 @@ export default function WarningCard(props) {
           <CardActionArea>
           <WarningTodo title={props.title}  subtitle={props.subtitle} todos={props.todos} warning={props.warning}       className={classes.toDo}/>
           </CardActionArea>
-
-
     </Card>
   );
 }

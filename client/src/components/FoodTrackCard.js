@@ -43,10 +43,10 @@ export default function FoodTrackCard() {
       </CardActionArea>
       <CardActions>
         <Button size="small" color="primary">
-          Set Calories Goal:
+          Set Calories Goal
         </Button>
         <Button size="small" color="primary">
-          Set Carbs Goal:
+          Set Carbs Goal
         </Button>
       </CardActions>
     </Card>
