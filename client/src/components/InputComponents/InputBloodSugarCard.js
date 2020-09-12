@@ -11,6 +11,7 @@ import RadioGroup from "@material-ui/core/RadioGroup";
 import Button from "@material-ui/core/Button";
 
 import InputFormGrid from "./InputFormGrid";
+import API from "../../utils/API";
 
 const useStyles = makeStyles((theme) => ({
   formElements: {
@@ -35,12 +36,8 @@ export default function InputFoodCard(props) {
 
   const logMeasurement = () => {
     console.log(radio, measurement);
-    axios
-      .post("http://localhost:5000/bloodsugar/add", {
-        enteredGlucose: measurement,
-        afterMeal: radio,
-      })
-      .then((res) => console.log(res.data));
+    const glucoseData = { measurement, radio };
+    API.saveGlucose(glucoseData).then((res) => console.log(res.data));
   };
 
   const handleFormSubmit = (event) => {

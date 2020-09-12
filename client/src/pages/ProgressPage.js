@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+
 import BloodSugarCard from "../components/BloodSugarCard";
 //import ChartCard from "../components/ChartComponents/ChartCard";
 import {
@@ -10,11 +11,17 @@ import LowLevelCard from "../components/WarningsComponents/LowLevelCard";
 import HighLevelCard from "../components/WarningsComponents/HighLevelCard";
 import CareScheduleAccordion from "../components/CareScheduleComponents/CareSchedule";
 import FoodTrackCard from "../components/FoodTrackCard";
+import API from "../utils/API";
 
 function ProgressPage(props) {
   const [bloodSugar, setBloodSugar] = useState(180);
   const [afterMeal, setAfterMeal] = useState(true);
   const [warning, setWarning] = useState("high");
+  useEffect(() => {
+    API.getGlucose().then((results) => {
+      console.log(results.data);
+    });
+  }, []);
 
   // const getLastMeasurement = () => {
   //     //  Once last measurement is retrieved from database
