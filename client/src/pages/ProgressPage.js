@@ -31,34 +31,28 @@ function ProgressPage(props) {
   // Hooks rendering the appropiate cards based on blood sugar range
   const [level, setLevel] = useState(normal)
 
-  // This may not be the appropriate use of useEffect, but should maybe be triggered as a callback function once our page recieves the last measurement from the databse.
+
+  // The beginning of this function needs to call the database and get information on the last recorded measurement.  There are example values here for now. The code written here might be better in a callback function, after useEffect makes the call to the databse.
 useEffect(() => {
   // Play with these values to see how they render appropriately!
-  setBloodSugar(180)
+  setBloodSugar(200)
   setAfterMeal(true)
-  // After those values are set, this function sets the level:
-      if (!afterMeal) {
-         if (bloodSugar < 80){
-          setLevel(low)
-        } else if (bloodSugar > 130) {
-          setLevel(high)
-        } else {
-          setLevel(normal)}
-      } else {
-        if (bloodSugar < 130){
-        setLevel(low)
-      } else if (bloodSugar > 180){
-        setLevel(high)
-      } else {setLevel(normal)}
-    }
-    
+  // After those values are set, this function sets the level. It should be done in a callback.; It will work if you try to uncomment, biut your app will immediately crash as it creates an infinite loop here.
+    // if (!afterMeal) {
+    //      if (bloodSugar < 80){
+    //       setLevel(low)
+    //     } else if (bloodSugar > 130) {
+    //       setLevel(high)
+    //     } else {
+    //       setLevel(normal)}
+    //     } else {
+    //       if (bloodSugar < 130){
+    //       setLevel(low)
+    //     } else if (bloodSugar > 180){
+    //       setLevel(high)
+    //     } else {setLevel(normal)}
+    //   }
 })
-
-
-
-  // const getLastMeasurement = () => {
-  //     //  Once last measurement is retrieved from database
-  //    
 
   return (
     <CardGrid>

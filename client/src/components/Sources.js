@@ -1,7 +1,6 @@
 import React from 'react'
 import { sources } from "../research"
 import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
 import List from '@material-ui/core/List';
 import Link from '@material-ui/core/Link';
 import ListItem from '@material-ui/core/ListItem';

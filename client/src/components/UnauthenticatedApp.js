@@ -5,7 +5,6 @@ import axios from "axios";
 import SignInCard from "./SignInCard";
 import SignUpCard from "./SignUpCard";
 import { useHistory } from "react-router-dom";
-import HomePage from "../pages/HomePage";
 const UnauthenticatedApp = () => {
   const [state, dispatch] = useGlobalContext();
   const [signedUp, setSignedUp] = useState(true);

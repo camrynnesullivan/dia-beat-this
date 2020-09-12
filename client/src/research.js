@@ -11,8 +11,6 @@ import {
   faPizzaSlice,
   faLowVision,
   faQuestion,
-  faPlus,
-  faMinus
 } from "@fortawesome/free-solid-svg-icons";
 
 // This is where we will export all of the research on type 2 diabetes.  We can style it in the files where we import it.
