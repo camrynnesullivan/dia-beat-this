@@ -8,7 +8,7 @@ import HBSTodo from "./HighSugarTodo";
 
 const useStyles = makeStyles({
   root: {
-    width: 450
+    width: 450,
   },
   media: {
     height: 140,
@@ -22,18 +22,15 @@ export default function HighLevelCard() {
   const classes = useStyles();
   return (
     <Card className={classes.root}>
-
-        <CardContent>
-          <Typography gutterBottom variant="h6" component="h6"  color="secondary">
-            Warning!
-          </Typography>
-          <Typography variant="h5"> Your blood sugar is high!</Typography>
-          </CardContent>
-          <CardActionArea>
-          <HBSTodo className={classes.toDo}/>
-          </CardActionArea>
-
-
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="h2">
+          Warning!!!
+        </Typography>
+        <Typography variant="h5"> Your blood sugar is high!</Typography>
+      </CardContent>
+      <CardActionArea>
+        <HBSTodo className={classes.toDo} />
+      </CardActionArea>
     </Card>
   );
 }
