@@ -34,7 +34,12 @@ function ProgressPage(props) {
   // These values must be set afer the database is reached.
   // setBloodSugar(data.enteredGlucose)
   // setAfterMeal(data.afterMeal)
-  
+  useEffect(()=>{
+    
+  })
+
+
+
   // This will update whenever blooSugar or afterMeal changes. The states ("high", "low", "normal") have to be included as dependecies after the array to resolve error in console, even though we know they will not change.
 useEffect(() => {
     if (!afterMeal) {
@@ -56,13 +61,6 @@ useEffect(() => {
   return (
     <CardGrid>
       {/* // Play with these values to see how they render appropriately! Delete this entire div once information is successfully being retrieved from database */}
-      <div>
-        <h3>Temporary area to test "Levels" state, delete once we have this data coming from database</h3>
-        <p>Click to see the elements change!</p>
-        <button onClick={()=> setBloodSugar(bloodSugar + 10)}>Raise measurement number</button>
-        <button onClick={()=> setBloodSugar(bloodSugar - 10)}>Lower measurement number</button>
-        <button onClick={()=> setAfterMeal(!afterMeal)}>Switch before/after meal</button>
-      </div>
       <BloodSugarCard bloodSugar={bloodSugar} afterMeal={afterMeal}/>
       {level.warning !== "normal" && <WarningCard level={level.warning} title={level.research.title} subtitle={level.research.subtitle}  warning={level.research.warning} todos={level.research.todos} />}
       {level.warning !== "normal" && <SymptomsCard level={level.warning} title={level.symptoms.title} subtitle={level.symptoms.subtitle} summary={level.symptoms.summary} symptoms={level.symptoms.symptoms}/>}
