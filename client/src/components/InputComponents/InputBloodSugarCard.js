@@ -1,7 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
-import axios from "axios";
 import FormLabel from "@material-ui/core/FormLabel";
 import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
@@ -50,6 +49,13 @@ export default function InputFoodCard(props) {
   };
 
   return (
+    <div
+    role="tabpanel"
+    hidden={props.value !== props.index}
+    id={`simple-tabpanel-${props.index}`}
+    aria-labelledby={`simple-tab-${props.index}`}
+    {...props.other}
+  >
     <InputFormGrid>
       <FormGroup className={classes.formElements}>
         <FormLabel component="legend">When are you measuring?</FormLabel>
@@ -98,5 +104,6 @@ export default function InputFoodCard(props) {
         </Button>
       </FormGroup>
     </InputFormGrid>
+    </div>
   );
 }

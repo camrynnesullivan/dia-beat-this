@@ -28,7 +28,7 @@ const AuthenticatedApp = () => {
 
   useEffect(() => {
     getWelcome();
-  }, []);
+  });
   const handleLogout = () => {
     localStorage.removeItem("authUser");
     console.log("Clicked!");

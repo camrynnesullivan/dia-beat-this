@@ -4,7 +4,7 @@ import AuthenticatedApp from "./components/AuthenticatedApp";
 import UnauthenticatedApp from "./components/UnauthenticatedApp";
 
 function App() {
-  const [state, dispatch] = useGlobalContext();
+  const [state] = useGlobalContext();
   const authUser = JSON.parse(localStorage.getItem("authUser"));
   return (
     <div className="App">

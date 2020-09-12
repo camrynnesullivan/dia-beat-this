@@ -1,6 +1,6 @@
 import React from "react";
 import CardGrid from "../components/CardGrid";
-import NormalLevelCard from "../components/WarningsComponents/NormalLevelCard";
+import NormalLevelCard from "../components/WarningComponents/NormalLevelCard";
 import ComplicationsCarousel from "../components/Complications/ComplicationsCarousel";
 import Sources from "../components/Sources"
 
