@@ -49,6 +49,13 @@ export default function InputFoodCard(props) {
   };
 
   return (
+    <div
+    role="tabpanel"
+    hidden={props.value !== props.index}
+    id={`simple-tabpanel-${props.index}`}
+    aria-labelledby={`simple-tab-${props.index}`}
+    {...props.other}
+  >
     <InputFormGrid>
       <FormGroup className={classes.formElements}>
         <FormLabel component="legend">When are you measuring?</FormLabel>
@@ -97,5 +104,6 @@ export default function InputFoodCard(props) {
         </Button>
       </FormGroup>
     </InputFormGrid>
+    </div>
   );
 }

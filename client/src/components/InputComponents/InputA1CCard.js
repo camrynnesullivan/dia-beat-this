@@ -7,7 +7,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
-
+import PropTypes from 'prop-types';
 import InputFormGrid from "./InputFormGrid"
 
 const useStyles = makeStyles((theme) => ({
@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function InputA1CCard(props) {
+  const { children, value, index, ...other } = props;
   const classes = useStyles();
   const [radio, setRadio] = React.useState(false)
   
@@ -25,6 +26,13 @@ export default function InputA1CCard(props) {
   };
 
   return (
+    <div
+    role="tabpanel"
+    hidden={props.value !== props.index}
+    id={`simple-tabpanel-${props.index}`}
+    aria-labelledby={`simple-tab-${props.index}`}
+    {...props.other}
+  >
     <InputFormGrid>
         <FormGroup className={classes.formElements}>
             <FormLabel component="legend">Do you know your A1C number?</FormLabel>
@@ -72,5 +80,12 @@ export default function InputA1CCard(props) {
           />
       </FormGroup>}
     </InputFormGrid>
+    </div>
 )
 }
+
+InputA1CCard.propTypes = {
+  children: PropTypes.node,
+  index: PropTypes.any.isRequired,
+  value: PropTypes.any.isRequired,
+};

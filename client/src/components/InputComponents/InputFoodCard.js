@@ -55,19 +55,26 @@ export default function InputFoodCard(props) {
   };
 
   return (
-<InputFormGrid>
-      <FormGroup className={classes.formElements} noValidate autoComplete="off" >
-         <FormLabel>What did you eat?</FormLabel>
-          <TextField onChange={handleInputChange} value={state.q} id="filled-basic" label="Food" variant="filled"/>
-          {/* <TextField id="filled-basic" variant="filled" InputProps={{
-            endAdornment: <InputAdornment position="end">servings</InputAdornment>,
-          }}/> */}
-          <Button type="submit" variant="contained" color="secondary" onClick={handleFormSubmit}>Submit</Button>
-      </FormGroup>
-      <FormGroup>
-      </FormGroup>
+        <div
+            role="tabpanel"
+            hidden={props.value !== props.index}
+            id={`simple-tabpanel-${props.index}`}
+            aria-labelledby={`simple-tab-${props.index}`}
+            {...props.other}
+          >
+    <InputFormGrid>
+          <FormGroup className={classes.formElements} noValidate autoComplete="off" >
+            <FormLabel>What did you eat?</FormLabel>
+              <TextField onChange={handleInputChange} value={state.q} id="filled-basic" label="Food" variant="filled"/>
+              {/* <TextField id="filled-basic" variant="filled" InputProps={{
+                endAdornment: <InputAdornment position="end">servings</InputAdornment>,
+              }}/> */}
+              <Button type="submit" variant="contained" color="secondary" onClick={handleFormSubmit}>Submit</Button>
+          </FormGroup>
+          <FormGroup>
+          </FormGroup>
 
-</InputFormGrid>
-
+    </InputFormGrid>
+</div>
 )
 }
