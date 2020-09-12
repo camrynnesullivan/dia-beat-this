@@ -131,14 +131,14 @@ const treatingLBS = {
   subtitle:
     "Low blood sugar, also known as 'hypoglycemia', can be raised by doing some of these steps",
 
-  todos: {
-    1: "The 15-15 Rule: Have 15 grams of carbohydrates to raise your blood sugar and check it after 15 minutes. If it still low -repeat!",
-    2: "Take 4 glucose tablets.",
-    3: "Drink 4 ounces of regular soda, not diet soda.",
-    4: "Eat 4 pieces of hard candy.",
-    5: "Eat 1/2 of the banana",
-    6: "Eat small apple or small orange",
-  },
+  todos: [
+    "The 15-15 Rule: Have 15 grams of carbohydrates to raise your blood sugar and check it after 15 minutes. If it still low -repeat!",
+    "Take 4 glucose tablets.",
+    "Drink 4 ounces of regular soda, not diet soda.",
+    "Eat 4 pieces of hard candy.",
+    "Eat 1/2 of the banana",
+    "Eat small apple or small orange",
+  ],
   warning:
     "Always consult with your doctor when your blood sugar levels fluctuate.",
 };

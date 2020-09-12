@@ -9,8 +9,7 @@ import CardGrid from "../components/CardGrid";
 import WarningCard from "../components/WarningsComponents/WarningCard";
 import CareScheduleAccordion from "../components/CareScheduleComponents/CareSchedule";
 import FoodTrackCard from "../components/FoodTrackCard";
-import { treatingHBS } from "../research";
-import { treatingLBS } from "../research";
+import { treatingHBS, treatingLBS } from "../research";
 
 
 function ProgressPage(props) {
@@ -20,7 +19,7 @@ function ProgressPage(props) {
 
   // Progress Page
   const [warning, setWarning] = useState("low")
-  const [research, setResearch] = useState(treatingHBS)
+  const [research, setResearch] = useState(treatingLBS)
 
 // const getLastMeasurement = () => {
 //     //  Once last measurement is retrieved from database
