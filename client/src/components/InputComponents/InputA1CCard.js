@@ -36,12 +36,13 @@ export default function InputA1CCard(props) {
     <InputFormGrid>
         <FormGroup className={classes.formElements}>
             <FormLabel component="legend">Do you know your A1C number?</FormLabel>
-            <RadioGroup row aria-label="position" name="position" defaultValue="Yes" onChange={handleRadio}>
+            <RadioGroup row aria-label="position" name="position" defaultValue="Yes"  onChange={props.handleRadio}>
               <FormControlLabel
                 value="Yes"
                 control={<Radio color="primary" />}
                 label="Yes"
                 labelPlacement="bottom"
+                
               />
                   <FormControlLabel
                 value="No"
@@ -57,6 +58,7 @@ export default function InputA1CCard(props) {
          <FormLabel>What is your A1C number?</FormLabel>
           <TextField 
             id="filled-basic" 
+            onChange={props.handleInputChange}
             label="A1C number" 
             variant="filled"          
             InputProps={{
@@ -74,6 +76,7 @@ export default function InputA1CCard(props) {
               id="filled-basic" 
               label="eAG number" 
               variant="filled" 
+              onChange={props.handleInputChange}
               InputProps={{
                 endAdornment: <InputAdornment position="end">mg/dL</InputAdornment>,
               }}

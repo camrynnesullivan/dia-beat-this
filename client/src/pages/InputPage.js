@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Tab from '@material-ui/core/Tab';
-import Box from '@material-ui/core/Box';
 import Tabs from '@material-ui/core/Tabs';
 import InputFoodCard from "../components/InputComponents/InputFoodCard"
 import InputBloodSugarCard from "../components/InputComponents/InputBloodSugarCard"
@@ -10,6 +9,8 @@ import InputA1CCard from "../components/InputComponents/InputA1CCard"
 import Card from "@material-ui/core/Card"
 import CardContent from "@material-ui/core/CardContent"
 import Paper from "@material-ui/core/Paper"
+import Button from "@material-ui/core/Button";
+
 
 const useStyles = makeStyles({
   root: {
@@ -19,10 +20,50 @@ const useStyles = makeStyles({
 
 function InputPage(props) {
   const classes = useStyles();
-  const [value, setValue] = useState(0);
+  const [tab, setTab] =useState(0);
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
+  const [radio, setRadio] = React.useState(false);
+  const [measurement, setMeasurement] = React.useState("");
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setMeasurement({
+      [name]: value,
+    });
+  };
+
+  const logBloodSugar = () => {
+    console.log(radio, measurement);
+    // const glucoseData = { measurement, radio };
+    // API.saveGlucose(glucoseData).then((res) => console.log(res.data));
+  };
+
+  const logA1C = () => {
+    console.log(radio, measurement);
+    // const glucoseData = { measurement, radio };
+    // API.saveGlucose(glucoseData).then((res) => console.log(res.data));
+  };
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    if (tab === 0) {
+      // logFood():
+    } else if (tab === 1) {
+      logBloodSugar();
+    } else {
+      logA1C();
+    }
+    
+  };
+
+  const handleRadio = (e) => {
+    setRadio(!radio);
+  };
+
+
+
+  const handleChange = (event, newTabValue) => {
+    setTab(newTabValue);
   };
   
   return (
@@ -37,7 +78,7 @@ function InputPage(props) {
             </CardContent>
       <Paper className={classes.root}>
             <Tabs
-              value={value}
+              value={tab}
               onChange={handleChange}
               indicatorColor="primary"
               textColor="primary"
@@ -47,9 +88,18 @@ function InputPage(props) {
               <Tab label="Blood Sugar"/>
               <Tab label="A1C"/>
             </Tabs>
-            <InputFoodCard value={value} index={0}/>
-            <InputBloodSugarCard value={value} index={1}/>
-            <InputA1CCard value={value} index={2}/>
+            <InputFoodCard value={tab} index={0}/>
+            <InputBloodSugarCard value={tab} index={1} handleRadio={handleRadio} handleInputChange={handleInputChange}/>
+            <InputA1CCard value={tab} index={2} handleRadio={handleRadio} handleInputChange={handleInputChange}/>
+            <Button
+                className={classes.button}
+                type="submit"
+                variant="contained"
+                color="secondary"
+                onClick={handleFormSubmit}
+              >
+                Submit
+              </Button>
       </Paper>
       </Card>
       )

@@ -23,30 +23,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function InputFoodCard(props) {
   const classes = useStyles();
-  const [radio, setRadio] = React.useState(false);
-  const [measurement, setMeasurement] = React.useState("");
-
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setMeasurement({
-      [name]: value,
-    });
-  };
-
-  const logMeasurement = () => {
-    console.log(radio, measurement);
-    const glucoseData = { measurement, radio };
-    API.saveGlucose(glucoseData).then((res) => console.log(res.data));
-  };
-
-  const handleFormSubmit = (event) => {
-    event.preventDefault();
-    logMeasurement();
-  };
-
-  const handleRadio = (e) => {
-    setRadio(!radio);
-  };
 
   return (
     <div
@@ -64,7 +40,7 @@ export default function InputFoodCard(props) {
           aria-label="position"
           name="position"
           defaultValue="before"
-          onChange={handleRadio}
+          onChange={props.handleRadio}
         >
           <FormControlLabel
             value="before"
@@ -88,22 +64,16 @@ export default function InputFoodCard(props) {
           name="measurement"
           label="Ex. 180"
           variant="filled"
-          onChange={handleInputChange}
+          onChange={props.handleInputChange}
           InputProps={{
             endAdornment: <InputAdornment position="end">mg/dL</InputAdornment>,
           }}
         />
-        <Button
-          className={classes.button}
-          type="submit"
-          variant="contained"
-          color="secondary"
-          onClick={handleFormSubmit}
-        >
-          Submit
-        </Button>
       </FormGroup>
+
     </InputFormGrid>
+
     </div>
+    
   );
 }

@@ -64,14 +64,14 @@ export default function InputFoodCard(props) {
           >
           <InputFormGrid>
                 <FormGroup className={classes.formElements} noValidate autoComplete="off" >
-                  <FormLabel>What did you eat?</FormLabel>
-                    <TextField onChange={handleInputChange} value={state.q} id="filled-basic" label="Food" variant="filled"/>
-                    {/* <TextField id="filled-basic" variant="filled" InputProps={{
-                      endAdornment: <InputAdornment position="end">servings</InputAdornment>,
-                    }}/> */}
-                    <Button type="submit" variant="contained" color="secondary" onClick={handleFormSubmit}>Submit</Button>
-                </FormGroup>
-                <FormGroup>
+                      <FormLabel>What did you eat?</FormLabel>
+                        <TextField onChange={handleInputChange} value={state.q} id="filled-basic" label="Food" variant="filled"/>
+                        {/* <TextField id="filled-basic" variant="filled" InputProps={{
+                          endAdornment: <InputAdornment position="end">servings</InputAdornment>,
+                        }}/> */}
+                        <Button type="submit" variant="contained" color="secondary" onClick={handleFormSubmit}>Submit</Button>
+                    </FormGroup>
+                  <FormGroup>
                 </FormGroup>
           </InputFormGrid>
 </div>
