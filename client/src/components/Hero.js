@@ -44,10 +44,10 @@ export default function Hero(props) {
         <Grid item md={6}>
           <div className={classes.heroContent}>
             <Typography component="h1" variant="h3" color="inherit" gutterBottom>
-              Welcome to our Application
+              Welcome to DiaBeatThis!
             </Typography>
             <Typography variant="h5" color="inherit" paragraph>
-              Subtitle
+              Managing your diabetes and beating this diagnosis
             </Typography>
           </div>
         </Grid>
