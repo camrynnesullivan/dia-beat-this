@@ -10,22 +10,7 @@ import Avatar from '@material-ui/core/Avatar';
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import {
-  faMeh,
-  faGlassWhiskey,
-  faBed,
-  faDizzy,
-  faToilet,
-  faAngry,
-  faTired,
-  faTemperatureLow,
-  faHeartbeat,
-  faPizzaSlice,
-  faLowVision,
-  faQuestion,
-  faPlus,
-  faMinus
-} from "@fortawesome/free-solid-svg-icons";
+import {faPlus} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const useStyles = makeStyles({
@@ -78,7 +63,7 @@ function SymptomsCard(props) {
             <List>
             {
                   props.symptoms.map((element, index) => 
-                    (<ListItem key={index}><FontAwesomeIcon icon={props.icon} pull="left" color="red" size="lg" />{element.symptomName}</ListItem>)
+                    (<ListItem key={index}><FontAwesomeIcon icon={element.icon} pull="left" color="red" size="lg" />{element.symptomName}</ListItem>)
                   )
                 }
             </List>

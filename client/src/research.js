@@ -1,3 +1,20 @@
+import {
+  faMeh,
+  faGlassWhiskey,
+  faBed,
+  faDizzy,
+  faToilet,
+  faAngry,
+  faTired,
+  faTemperatureLow,
+  faHeartbeat,
+  faPizzaSlice,
+  faLowVision,
+  faQuestion,
+  faPlus,
+  faMinus
+} from "@fortawesome/free-solid-svg-icons";
+
 // This is where we will export all of the research on type 2 diabetes.  We can style it in the files where we import it.
 
 const normalLevels = {
@@ -41,33 +58,38 @@ const causesLBS = {
   ],
 };
 
+
+
+
 const symptomsHBS = {
   title: "Signs of High Blood Sugar",
   subtitle:
     "Diabetes causes your blood sugar to be too high, but once you start treatment, it can also get too low.  Work with your doctor so that you know the signs and how to treat them.",
   symptoms: [
     {
-      fontAwesomeClassname: "faMeh",
+      icon: faMeh,
       symptomName: "Headaches",
     },
     {
-      fontAwesomeClassname: "faEyeSlash",
+      icon: faLowVision,
       symptomName: "Blurred vision",
     },
     {
-      fontAwesomeClassname: "faGlassWhiskey",
+      icon: faGlassWhiskey,
       symptomName: "Being thirsty",
     },
     {
-      fontAwesomeClassname: "faBed",
+      icon: faBed,
       symptomName: "Feeling tired",
     },
     {
-      fontAwesomeClassname: "faToilet",
+      icon: faToilet,
       symptomName: "Urinating more often",
     },
   ],
 };
+
+
 
 const symptomsLBS = {
   title: "Signs of Low Blood Sugar",
@@ -75,39 +97,39 @@ const symptomsLBS = {
     "Diabetes causes your blood sugar to be too high, but once you start treatment, it can also get too low.  Work with your doctor so that you know the signs and how to treat them.",
   symptoms: [
     {
-      fontAwesomeClassname: "faQuestion",
+      icon: faQuestion,
       symptomName: "Confusion",
     },
     {
-      fontAwesomeClassname: "faDizzy",
+      icon: faDizzy,
       symptomName: "Lightheadedness or dizziness",
     },
     {
-      fontAwesomeClassname: "faLowVision",
+      icon: faLowVision,
       symptomName: "Blurred vision",
     },
     {
-      fontAwesomeClassname: "faPizzaSlice",
+      icon: faPizzaSlice,
       symptomName: "Hunger or nausea",
     },
     {
-      fontAwesomeClassname: "faHeartbeat",
+      icon: faHeartbeat,
       symptomName: "Fast heartbeat",
     },
     {
-      fontAwesomeClassname: "faTemperatureLow",
+      icon: faTemperatureLow,
       symptomName: "Shakiness, sweating, or chills",
     },
     {
-      fontAwesomeClassname: "faBed",
+      icon: faBed,
       symptomName: "Feeling tired",
     },
     {
-      fontAwesomeClassname: "faAngry",
+      icon: faAngry,
       symptomName: "Being irritable or impatient",
     },
     {
-      fontAwesomeClassname: "faTired",
+      icon: faTired,
       symptomName: "Feeling nervous or anxious",
     },
   ],
