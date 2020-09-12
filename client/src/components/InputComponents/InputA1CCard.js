@@ -17,13 +17,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function InputA1CCard(props) {
-  const { children, value, index, ...other } = props;
   const classes = useStyles();
-  const [radio, setRadio] = React.useState(false)
-  
-  const handleRadio = (e) => {
-    setRadio(!radio);
-  };
 
   return (
     <div
@@ -36,12 +30,13 @@ export default function InputA1CCard(props) {
     <InputFormGrid>
         <FormGroup className={classes.formElements}>
             <FormLabel component="legend">Do you know your A1C number?</FormLabel>
-            <RadioGroup row aria-label="position" name="position" defaultValue="Yes" onChange={handleRadio}>
+            <RadioGroup row aria-label="position" name="position" defaultValue="Yes"  onChange={props.handleRadio}>
               <FormControlLabel
                 value="Yes"
                 control={<Radio color="primary" />}
                 label="Yes"
                 labelPlacement="bottom"
+                
               />
                   <FormControlLabel
                 value="No"
@@ -51,12 +46,13 @@ export default function InputA1CCard(props) {
               />
             </RadioGroup>
       </FormGroup>
-      {!radio ?  
+      {!props.radio ?  
       // Option 1: I know my A1C number
       <FormGroup className={classes.formElements} noValidate autoComplete="off">
          <FormLabel>What is your A1C number?</FormLabel>
           <TextField 
             id="filled-basic" 
+            onChange={props.handleInputChange}
             label="A1C number" 
             variant="filled"          
             InputProps={{
@@ -74,6 +70,7 @@ export default function InputA1CCard(props) {
               id="filled-basic" 
               label="eAG number" 
               variant="filled" 
+              onChange={props.handleInputChange}
               InputProps={{
                 endAdornment: <InputAdornment position="end">mg/dL</InputAdornment>,
               }}
