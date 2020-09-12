@@ -49,7 +49,7 @@ function ProgressPage(props) {
   return (
     <CardGrid>
       <BloodSugarCard bloodSugar={bloodSugar} afterMeal={afterMeal}/>
-      {warning !== "normal" && <WarningCard level={warning} title={research.title} subTitle={research.subtitle}  warning={research.warning} todos={research.todos} />}
+      {warning !== "normal" && <WarningCard level={warning} title={research.title} subtitle={research.subtitle}  warning={research.warning} todos={research.todos} />}
       {/* {warning === "low" && <LBSSymptomsCard />} */}
       {/* {warning === "high" && <HighLevelCard />}
       {warning === "high" && <HBSSymptomsCard />} */}

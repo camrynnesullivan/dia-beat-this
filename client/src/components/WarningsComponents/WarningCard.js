@@ -27,7 +27,7 @@ export default function WarningCard(props) {
           <Typography variant="h5"> Your blood sugar is {props.level}!</Typography>
           </CardContent>
           <CardActionArea>
-          <HBSTodo title={props.title}  subTitle={props.subtitle} todos={props.todos} warning={props.warning}       className={classes.toDo}/>
+          <HBSTodo title={props.title}  subtitle={props.subtitle} todos={props.todos} warning={props.warning}       className={classes.toDo}/>
           </CardActionArea>
 
 
