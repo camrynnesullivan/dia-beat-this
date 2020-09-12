@@ -21,12 +21,15 @@ function ProgressPage(props) {
     research: treatingHBS,
     symptoms: symptomsHBS
   }
+  const normal = {
+    warning: "normal"
+  }
   // Last Measurement from database
   const [bloodSugar, setBloodSugar] = useState()
   const [afterMeal, setAfterMeal] = useState()
 
   // Hooks rendering the appropiate cards based on blood sugar range
-  const [level, setLevel] = useState(low)
+  const [level, setLevel] = useState(normal)
 
   // This may not be the appropriate use of useEffect, but should maybe be triggered as a callback function once our page recieves the last measurement from the databse.
 useEffect(() => {
