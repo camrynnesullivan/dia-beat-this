@@ -7,21 +7,20 @@ import {
   HBSSymptomsCard,
 } from "../components/SymptomsComponents/SymptomsCard";
 import CardGrid from "../components/CardGrid";
-import LowLevelCard from "../components/WarningsComponents/LowLevelCard";
-import HighLevelCard from "../components/WarningsComponents/HighLevelCard";
+import WarningCard from "../components/WarningsComponents/WarningCard";
 import CareScheduleAccordion from "../components/CareScheduleComponents/CareSchedule";
 import FoodTrackCard from "../components/FoodTrackCard";
-import API from "../utils/API";
+import { treatingHBS, treatingLBS } from "../research";
+
 
 function ProgressPage(props) {
-  const [bloodSugar, setBloodSugar] = useState(180);
-  const [afterMeal, setAfterMeal] = useState(true);
-  const [warning, setWarning] = useState("high");
-  useEffect(() => {
-    API.getGlucose().then((results) => {
-      console.log(results.data);
-    });
-  }, []);
+  // Input Page
+  const [bloodSugar, setBloodSugar] = useState(180)
+  const [afterMeal, setAfterMeal] = useState(true)
+
+  // Progress Page
+  const [warning, setWarning] = useState("low")
+  const [research, setResearch] = useState(treatingLBS)
 
   // const getLastMeasurement = () => {
   //     //  Once last measurement is retrieved from database
@@ -50,11 +49,11 @@ function ProgressPage(props) {
 
   return (
     <CardGrid>
-      <BloodSugarCard bloodSugar={bloodSugar} afterMeal={afterMeal} />
-      {warning === "low" && <LowLevelCard />}
-      {warning === "low" && <LBSSymptomsCard />}
-      {warning === "high" && <HighLevelCard />}
-      {warning === "high" && <HBSSymptomsCard />}
+      <BloodSugarCard bloodSugar={bloodSugar} afterMeal={afterMeal}/>
+      {warning !== "normal" && <WarningCard level={warning} title={research.title} subtitle={research.subtitle}  warning={research.warning} todos={research.todos} />}
+      {/* {warning === "low" && <LBSSymptomsCard />} */}
+      {/* {warning === "high" && <HighLevelCard />}
+      {warning === "high" && <HBSSymptomsCard />} */}
       <FoodTrackCard />
       {/* <ChartCard /> */}
       <CareScheduleAccordion />
