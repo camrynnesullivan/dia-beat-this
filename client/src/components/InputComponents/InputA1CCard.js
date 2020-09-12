@@ -17,7 +17,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function InputA1CCard(props) {
-  const { children, value, index, ...other } = props;
   const classes = useStyles();
 
   return (
