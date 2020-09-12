@@ -1,5 +1,4 @@
 import React from "react";
-// import { treatingHBS } from "../../research";
 import { makeStyles } from "@material-ui/core/styles";
 import Accordion from "@material-ui/core/Accordion";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
@@ -21,7 +20,7 @@ const useStyles = makeStyles({
   }
 });
 
-export default function HBSTodo(props) {
+export default function WarningTodo(props) {
   const classes = useStyles();
 
   return (

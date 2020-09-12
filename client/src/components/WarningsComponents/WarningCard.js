@@ -4,7 +4,7 @@ import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
-import HBSTodo from "./HighSugarTodo";
+import WarningTodo from "./WarningTodo";
 
 const useStyles = makeStyles({
   root: {
@@ -27,7 +27,7 @@ export default function WarningCard(props) {
           <Typography variant="h5"> Your blood sugar is {props.level}!</Typography>
           </CardContent>
           <CardActionArea>
-          <HBSTodo title={props.title}  subtitle={props.subtitle} todos={props.todos} warning={props.warning}       className={classes.toDo}/>
+          <WarningTodo title={props.title}  subtitle={props.subtitle} todos={props.todos} warning={props.warning}       className={classes.toDo}/>
           </CardActionArea>
 
 
