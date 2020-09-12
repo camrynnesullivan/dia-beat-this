@@ -10,12 +10,19 @@ import LowLevelCard from "../components/WarningsComponents/LowLevelCard";
 import HighLevelCard from "../components/WarningsComponents/HighLevelCard";
 import CareScheduleAccordion from "../components/CareScheduleComponents/CareSchedule";
 import FoodTrackCard from "../components/FoodTrackCard";
+import { treatingHBS } from "../../research";
+import { treatingLBS } from "../../research";
 
 
 function ProgressPage(props) {
+  // Input Page
   const [bloodSugar, setBloodSugar] = useState(180)
   const [afterMeal, setAfterMeal] = useState(true)
+
+  // Progress Page
   const [warning, setWarning] = useState("high")
+  const [research, setResearch] = useState(treatingHBS)
+  const [level, setLvel] = useState("high")
 
 // const getLastMeasurement = () => {
 //     //  Once last measurement is retrieved from database
@@ -45,8 +52,8 @@ function ProgressPage(props) {
   return (
     <CardGrid>
       <BloodSugarCard bloodSugar={bloodSugar} afterMeal={afterMeal}/>
-      {warning === "low" && <LowLevelCard />}
-      {warning === "low" && <LBSSymptomsCard />}
+      {warning !== "normal" && <WarningCard name={}/>}
+      {/* {warning === "low" && <LBSSymptomsCard />} */}
       {warning === "high" && <HighLevelCard />}
       {warning === "high" && <HBSSymptomsCard />}
       <FoodTrackCard />

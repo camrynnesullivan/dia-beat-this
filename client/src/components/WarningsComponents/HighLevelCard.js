@@ -18,7 +18,7 @@ const useStyles = makeStyles({
   // }
 });
 
-export default function HighLevelCard() {
+export default function WarningCard() {
   const classes = useStyles();
   return (
     <Card className={classes.root}>
@@ -27,7 +27,7 @@ export default function HighLevelCard() {
           <Typography gutterBottom variant="h6" component="h6"  color="secondary">
             Warning!
           </Typography>
-          <Typography variant="h5"> Your blood sugar is high!</Typography>
+          <Typography variant="h5"> Your blood sugar is {props.level}!</Typography>
           </CardContent>
           <CardActionArea>
           <HBSTodo className={classes.toDo}/>
