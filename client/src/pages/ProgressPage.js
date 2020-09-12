@@ -21,40 +21,33 @@ function ProgressPage(props) {
     research: treatingHBS,
     symptoms: symptomsHBS
   }
-  // Input Page
+  // Last Measurement from database
   const [bloodSugar, setBloodSugar] = useState()
   const [afterMeal, setAfterMeal] = useState()
 
-  // Progress Page
-  const [level, setLevel] = useState(high)
+  // Hooks rendering the appropiate cards based on blood sugar range
+  const [level, setLevel] = useState(low)
 
   // This may not be the appropriate use of useEffect, but should maybe be triggered as a callback function once our page recieves the last measurement from the databse.
 useEffect(() => {
-  setBloodSugar(180)
+  setBloodSugar(200)
   setAfterMeal(true)
-  // 
-// switch (afterMeal, bloodSugar) {
-//         case !afterMeal && bloodSugar < 130:
-//           setWarning("normal")
-//           break;
-//         case afterMeal && bloodSugar > 130:
-//           setWarning("normal")
-//           break;
-//         case !afterMeal && bloodSugar < 80:
-//           setWarning("low")
-//           break;
-//         case afterMeal && bloodSugar < 130:
-//           setWarning("low")
-//           break;
-//         case !afterMeal && bloodSugar > 130:
-//           setWarning("high")
-//           break;
-//         case afterMeal && bloodSugar > 180:
-//           setWarning("high")
-//           break;
-//         default:
-//           break;
-//       }
+  
+    //   if (!afterMeal) {
+    //      if (bloodSugar < 80){
+    //       setLevel(low)
+    //     } else if (bloodSugar > 130) {
+    //       setLevel(high)
+    //     } else {
+    //       setLevel(null)}
+    //   } else {
+    //     if (bloodSugar < 130){
+    //     setLevel(low)
+    //   } else if (bloodSugar > 180){
+    //     setLevel(high)
+    //   } else {setLevel(null)}
+    // }
+    
 })
 
 
