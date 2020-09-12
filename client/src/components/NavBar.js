@@ -74,7 +74,7 @@ const NavBar = props => {
     }
   ];
 
-  const headerTitle = location.pathname.substring(1, location.pathname.length).charAt(0).toUpperCase() + location.pathname.slice(2)
+  const headerTitle = location.pathname === "/" ? "Home" : location.pathname.substring(1, location.pathname.length).charAt(0).toUpperCase() + location.pathname.slice(2)
 
   return (
     <div className={classes.root}>
