@@ -18,7 +18,7 @@ const useStyles = makeStyles({
   // }
 });
 
-export default function WarningCard() {
+export default function WarningCard(props) {
   const classes = useStyles();
   return (
     <Card className={classes.root}>
@@ -30,7 +30,7 @@ export default function WarningCard() {
           <Typography variant="h5"> Your blood sugar is {props.level}!</Typography>
           </CardContent>
           <CardActionArea>
-          <HBSTodo className={classes.toDo}/>
+          <HBSTodo title={props.title}  subTitle={props.subtitle} todos={props.todos} warning={props.warning}       className={classes.toDo}/>
           </CardActionArea>
 
 

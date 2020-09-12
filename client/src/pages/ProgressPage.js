@@ -6,12 +6,11 @@ import {
   HBSSymptomsCard,
 } from "../components/SymptomsComponents/SymptomsCard";
 import CardGrid from "../components/CardGrid";
-import LowLevelCard from "../components/WarningsComponents/LowLevelCard";
-import HighLevelCard from "../components/WarningsComponents/HighLevelCard";
+import WarningCard from "../components/WarningsComponents/WarningCard";
 import CareScheduleAccordion from "../components/CareScheduleComponents/CareSchedule";
 import FoodTrackCard from "../components/FoodTrackCard";
-import { treatingHBS } from "../../research";
-import { treatingLBS } from "../../research";
+import { treatingHBS } from "../research";
+import { treatingLBS } from "../research";
 
 
 function ProgressPage(props) {
@@ -20,9 +19,8 @@ function ProgressPage(props) {
   const [afterMeal, setAfterMeal] = useState(true)
 
   // Progress Page
-  const [warning, setWarning] = useState("high")
+  const [warning, setWarning] = useState("low")
   const [research, setResearch] = useState(treatingHBS)
-  const [level, setLvel] = useState("high")
 
 // const getLastMeasurement = () => {
 //     //  Once last measurement is retrieved from database
@@ -52,10 +50,10 @@ function ProgressPage(props) {
   return (
     <CardGrid>
       <BloodSugarCard bloodSugar={bloodSugar} afterMeal={afterMeal}/>
-      {warning !== "normal" && <WarningCard name={}/>}
+      {warning !== "normal" && <WarningCard level={warning} title={research.title} subTitle={research.subtitle}  warning={research.warning} todos={research.todos} />}
       {/* {warning === "low" && <LBSSymptomsCard />} */}
-      {warning === "high" && <HighLevelCard />}
-      {warning === "high" && <HBSSymptomsCard />}
+      {/* {warning === "high" && <HighLevelCard />}
+      {warning === "high" && <HBSSymptomsCard />} */}
       <FoodTrackCard />
       <ChartCard />
       <CareScheduleAccordion />
