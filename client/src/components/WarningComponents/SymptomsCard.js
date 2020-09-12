@@ -76,11 +76,11 @@ function SymptomsCard(props) {
             {/* Does not map the icons properly */}
             <Typography display="initial">
             <List>
-              <ListItem><FontAwesomeIcon icon={faMeh} pull="left" color="red" size="lg" />{props.symptoms[0].symptomName}</ListItem>
-              <ListItem><FontAwesomeIcon icon={faLowVision} pull="left" color="red" size="lg" />{props.symptoms[1].symptomName}</ListItem>
-              <ListItem><FontAwesomeIcon icon={faGlassWhiskey} pull="left" color="red" size="lg" />{props.symptoms[2].symptomName}</ListItem>
-              <ListItem><FontAwesomeIcon icon={faBed} pull="left" color="red" size="lg" />{props.symptoms[3].symptomName}</ListItem>
-              <ListItem><FontAwesomeIcon icon={faToilet} pull="left" color="red" size="lg" />{props.symptoms[4].symptomName}</ListItem>
+            {
+                  props.symptoms.map((element, index) => 
+                    (<ListItem key={index}><FontAwesomeIcon icon={props.icon} pull="left" color="red" size="lg" />{element.symptomName}</ListItem>)
+                  )
+                }
             </List>
           </Typography>
         </div>
