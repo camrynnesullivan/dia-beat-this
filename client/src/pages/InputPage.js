@@ -22,7 +22,8 @@ function InputPage(props) {
   const classes = useStyles();
   const [tab, setTab] =useState(0);
 
-  const [radio, setRadio] = React.useState(false);
+  const [radioBS, setRadioBS] = React.useState(false);
+  const [radioA1C, setRadioA1C] = React.useState(true);
   const [measurement, setMeasurement] = React.useState("");
 
   const handleInputChange = (event) => {
@@ -33,13 +34,13 @@ function InputPage(props) {
   };
 
   const logBloodSugar = () => {
-    console.log(radio, measurement);
+    console.log(radioBS, measurement);
     // const glucoseData = { measurement, radio };
     // API.saveGlucose(glucoseData).then((res) => console.log(res.data));
   };
 
   const logA1C = () => {
-    console.log(radio, measurement);
+    console.log(radioA1C, measurement);
     // const glucoseData = { measurement, radio };
     // API.saveGlucose(glucoseData).then((res) => console.log(res.data));
   };
@@ -57,7 +58,13 @@ function InputPage(props) {
   };
 
   const handleRadio = (e) => {
-    setRadio(!radio);
+    if (tab === 0) {
+      // logFood():
+    } else if (tab === 1) {
+      setRadioBS(!radioBS);
+    } else {
+      setRadioA1C(!radioA1C);
+    }
   };
 
 
@@ -90,7 +97,7 @@ function InputPage(props) {
             </Tabs>
             <InputFoodCard value={tab} index={0}/>
             <InputBloodSugarCard value={tab} index={1} handleRadio={handleRadio} handleInputChange={handleInputChange}/>
-            <InputA1CCard value={tab} index={2} handleRadio={handleRadio} handleInputChange={handleInputChange}/>
+            <InputA1CCard value={tab} index={2} radio={props.radio} handleRadio={handleRadio} handleInputChange={handleInputChange}/>
             <Button
                 className={classes.button}
                 type="submit"

@@ -19,11 +19,6 @@ const useStyles = makeStyles((theme) => ({
 export default function InputA1CCard(props) {
   const { children, value, index, ...other } = props;
   const classes = useStyles();
-  const [radio, setRadio] = React.useState(false)
-  
-  const handleRadio = (e) => {
-    setRadio(!radio);
-  };
 
   return (
     <div
@@ -52,7 +47,7 @@ export default function InputA1CCard(props) {
               />
             </RadioGroup>
       </FormGroup>
-      {!radio ?  
+      {!props.radio ?  
       // Option 1: I know my A1C number
       <FormGroup className={classes.formElements} noValidate autoComplete="off">
          <FormLabel>What is your A1C number?</FormLabel>
