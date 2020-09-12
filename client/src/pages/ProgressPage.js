@@ -35,6 +35,7 @@ function ProgressPage(props) {
   // setBloodSugar(data.enteredGlucose)
   // setAfterMeal(data.afterMeal)
   
+  // This will update whenever blooSugar or afterMeal changes. The states ("high", "low", "normal") have to be included as dependecies after the array to resolve error in console, even though we know they will not change.
 useEffect(() => {
     if (!afterMeal) {
          if (bloodSugar < 80){
@@ -50,7 +51,7 @@ useEffect(() => {
           setLevel(high)
         } else {setLevel(normal)}
       }
-}, [afterMeal, bloodSugar])
+}, [afterMeal, bloodSugar, high, low, normal])
 
   return (
     <CardGrid>

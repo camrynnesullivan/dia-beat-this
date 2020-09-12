@@ -27,7 +27,7 @@ function CardGrid(props) {
           >
             
         {props.children.map((card, index) => (
-        <Grid item xs={12} sm={6} md={4}>{card}</Grid>
+        <Grid key={index} item xs={12} sm={6} md={4}>{card}</Grid>
         ))}     
         </Grid>
     </div>

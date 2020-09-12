@@ -39,6 +39,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: red[500],
   },
 }));
+
 function ComplicationsCard(props) {
   const handleExpandClick = () => {
     console.log("ok");
@@ -75,17 +76,17 @@ function ComplicationsCard(props) {
           <Typography variant="body2" color="textPrimary" component="p">
             Read more
           </Typography>
-          <div onClick={handleExpandClick}>
-            {" "}
+          <div >
             <IconButton
               className={clsx(classes.expand, {
                 [classes.expandOpen]: expanded,
               })}
               aria-expanded={expanded}
               aria-label="show more"
+              onClick={handleExpandClick}
             >
               <ExpandMoreIcon />
-            </IconButton>{" "}
+            </IconButton>
           </div>
         </CardActions>
         <Collapse in={expanded} timeout="auto" unmountOnExit>

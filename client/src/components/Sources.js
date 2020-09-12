@@ -29,11 +29,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Sources() {
     const classes = useStyles();
-    const [expanded, setExpanded] = React.useState(false);
-  
-    const handleExpandClick = () => {
-      setExpanded(!expanded);
-    };
 
     return (
     <Accordion className={classes.root}>
@@ -45,19 +40,17 @@ export default function Sources() {
           <Typography className={classes.heading}>View Sources</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography variant="body2" color="textSecondary" component="p">
                 <List className="sources-list">
-                    {sources.map((sources) => {
+                    {sources.map((sources, index) => {
                         return (
-                            <ListItem>
-                                <Link href={sources.access} target="_blank" rel="noopener noreferrer" rel="noopener">
+                            <ListItem key={index}>
+                                <Link href={sources.access} target="_blank" rel="noopener noreferrer">
                                     {sources.source}
                                 </Link> 
                             </ListItem>
                         )
                     })}
                 </List>
-            </Typography>
         </AccordionDetails>
       </Accordion>
     )
