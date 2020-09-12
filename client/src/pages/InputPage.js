@@ -15,17 +15,6 @@ const useStyles = makeStyles({
   root: {
     minWidth: 275,
   },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
-  },
-  title: {
-    fontSize: 14,
-  },
-  pos: {
-    marginBottom: 12,
-  },
 });
 
 function a11yProps(index) {
@@ -37,49 +26,21 @@ function a11yProps(index) {
 
 function InputPage(props) {
   const classes = useStyles();
-  const [inputChoice, setInputChoice] = useState(null);
-  const [showTitle, setShowTitle] = useState(true);
   const [value, setValue] = React.useState(0);
-
-const handleTrackButton = (buttonChoice) => {
-    setInputChoice(buttonChoice)
-    setShowTitle(false)
-  }
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
-  const buttonOptions = [
-    {
-      id: "1",
-      buttonName: "Food",
-      buttonChoice: "Food",
-      color: "primary"
-    },
-    {
-      id: "2",
-      buttonName: "Blood Sugar",
-      buttonChoice: "BloodSugar",
-      color: "secondary"
-    },
-    {
-      id: "3",
-      buttonName: "A1C",
-      buttonChoice: "A1C",
-      color: "primary"
-    },
-  ];
-
+  
   return (
         <Card>
           <CardContent>
-                  <Typography className={classes.title} color="textSecondary" gutterBottom>
-                  Let's figure out your insulin!
-                </Typography>
-              <Typography variant="h4" component="h4">
-              What would you like to track?
-                </Typography>
+            <Typography variant="subtitle" color="textSecondary" gutterBottom>
+              Let's figure out your insulin!
+            </Typography>
+              <Typography variant="h5" component="h5">
+                What would you like to track?
+              </Typography>
             </CardContent>
       <Paper className={classes.root}>
             <Tabs
@@ -89,9 +50,9 @@ const handleTrackButton = (buttonChoice) => {
               textColor="primary"
               centered
             >
-              <Tab label="Item One" {...a11yProps(0)} />
-              <Tab label="Item Two" {...a11yProps(1)} />
-              <Tab label="Item Three" {...a11yProps(2)} />
+              <Tab label="Food" {...a11yProps(0)} />
+              <Tab label="Blood Sugar" {...a11yProps(1)} />
+              <Tab label="A1C" {...a11yProps(2)} />
             </Tabs>
             <InputFoodCard value={value} index={0}/>
             <InputBloodSugarCard value={value} index={1}/>
