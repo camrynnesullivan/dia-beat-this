@@ -6,6 +6,8 @@ Router.get("/welcome", (req, res) => {
   res.send("Welcome to DiaBeatThis!");
 });
 
+
+
 Router.route("/users").post(userController.createNew);
 // .get(userController.getAllUsers)
 
