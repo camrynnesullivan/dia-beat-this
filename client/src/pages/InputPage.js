@@ -10,12 +10,15 @@ import Card from "@material-ui/core/Card"
 import CardContent from "@material-ui/core/CardContent"
 import Paper from "@material-ui/core/Paper"
 import Button from "@material-ui/core/Button";
-
+import Grid from "@material-ui/core/Grid"
 
 const useStyles = makeStyles({
   root: {
     minWidth: 275,
+    justifyContent: 'center'
   },
+  button: {
+  }
 });
 
 function InputPage(props) {
@@ -75,6 +78,14 @@ function InputPage(props) {
   
   return (
         <Card>
+                <Grid
+        container
+        direction="column"
+        justify="flex-start"
+        alignItems="center"
+        className={classes.root}
+      >
+        <Grid item>
           <CardContent>
             <Typography variant="subtitle" color="textSecondary" gutterBottom>
               Let's figure out your insulin!
@@ -83,6 +94,8 @@ function InputPage(props) {
                 What would you like to track?
               </Typography>
             </CardContent>
+            </Grid>
+            <Grid item>
       <Paper className={classes.root}>
             <Tabs
               value={tab}
@@ -98,7 +111,11 @@ function InputPage(props) {
             <InputFoodCard value={tab} index={0}/>
             <InputBloodSugarCard value={tab} index={1} handleRadio={handleRadio} handleInputChange={handleInputChange}/>
             <InputA1CCard value={tab} index={2} radio={props.radio} handleRadio={handleRadio} handleInputChange={handleInputChange}/>
-            <Button
+
+      </Paper>
+      </Grid>
+      <Grid item>
+      <Button
                 className={classes.button}
                 type="submit"
                 variant="contained"
@@ -107,7 +124,8 @@ function InputPage(props) {
               >
                 Submit
               </Button>
-      </Paper>
+      </Grid>
+      </Grid>
       </Card>
       )
 }
