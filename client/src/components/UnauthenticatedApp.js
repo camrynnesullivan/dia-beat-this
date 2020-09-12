@@ -6,7 +6,7 @@ import SignInCard from "./SignInCard";
 import SignUpCard from "./SignUpCard";
 // import { useHistory } from "react-router-dom";
 const UnauthenticatedApp = () => {
-  const [dispatch] = useGlobalContext();
+  const [state, dispatch] = useGlobalContext();
   const [signedUp, setSignedUp] = useState(true);
   // const history = useHistory();
   const emailRef = useRef();
@@ -28,7 +28,6 @@ const UnauthenticatedApp = () => {
   };
 
   const doSignup = async () => {
-
     const { data } = await axios.post("/auth/register", {
       email: regEmailRef.current.value,
       password: regPasswordRef.current.value,
