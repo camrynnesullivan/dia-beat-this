@@ -20,6 +20,10 @@ function ProgressPage(props) {
   const [research, setResearch] = useState(treatingLBS)
   const [symptoms, setSymptoms] = useState(symptomsHBS)
 
+
+
+
+
   // const getLastMeasurement = () => {
   //     //  Once last measurement is retrieved from database
   //     switch (key) {
@@ -49,7 +53,7 @@ function ProgressPage(props) {
     <CardGrid>
       <BloodSugarCard bloodSugar={bloodSugar} afterMeal={afterMeal}/>
       {warning !== "normal" && <WarningCard level={warning} title={research.title} subtitle={research.subtitle}  warning={research.warning} todos={research.todos} />}
-      {warning !== "normal" && <SymptomsCard title={symptoms.title} subtitle={symptoms.subtitle} summary={symptoms.summary} symptoms={symptoms.symptoms}/>}
+      {warning !== "normal" && <SymptomsCard level={warning} title={symptoms.title} subtitle={symptoms.subtitle} summary={symptoms.summary} symptoms={symptoms.symptoms}/>}
       <FoodTrackCard />
       {/* <ChartCard /> */}
       <CareScheduleAccordion />

@@ -51,7 +51,7 @@ function SymptomsCard(props) {
           className={classes.summary}
         >
             <Typography variant="p">
-              What to know about high glucose
+              What to know about {props.level} glucose
             </Typography>
         </AccordionSummary>
         <div className={classes.dropDown}>
