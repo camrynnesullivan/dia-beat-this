@@ -1,12 +1,8 @@
 import React, { useState } from "react";
-import CardGrid from "../components/CardGrid";
+import JournalComponent from "../components/Journal/JournalComponent";
 
 function JournalPage(props) {
-    return (
-      <CardGrid>
-        {/* <JournalComponent /> */}
-      </CardGrid>
-    );
-  }
-  
-  export default JournalPage;
+  return <JournalComponent />;
+}
+
+export default JournalPage;
