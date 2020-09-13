@@ -44,6 +44,7 @@ export default function FoodTrackCard() {
       <CardActions>
         <Button size="small" color="primary">
           Set Calories Goal
+          {/* add function and an input that will allow to set a number-goal  */}
         </Button>
         <Button size="small" color="primary">
           Set Carbs Goal
