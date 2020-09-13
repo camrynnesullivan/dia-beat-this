@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, componentDidMount } from "react";
 
 import BloodSugarCard from "../components/BloodSugarCard";
 
@@ -22,7 +22,6 @@ function ProgressPage(props) {
       console.log(res.data[0]);
     });
   }
-  getLoggedData();
   const low = {
     warning: "low",
     research: treatingLBS,
@@ -39,6 +38,7 @@ function ProgressPage(props) {
   // Last Measurement from database
   const [bloodSugar, setBloodSugar] = useState(180);
   const [afterMeal, setAfterMeal] = useState(true);
+  const [page, setPage] = useState(1);
 
   // Hooks rendering the appropiate cards based on blood sugar range
   const [level, setLevel] = useState(normal);
@@ -46,26 +46,6 @@ function ProgressPage(props) {
   const setLevels = (res)=> {
     setBloodSugar(res.data[res.data.length - 1].enteredGlucose);
     setAfterMeal(res.data[res.data.length - 1].afterMeal)
-  }
-
-  // These values must be set afer the database is reached.
-  useEffect(() =>{
-    API.getSavedGlycemia()
-    .then(res => 
-setLevels(res))
-    .catch(err => console.log(err));
-  })
-
-
-
-  // setBloodSugar(res.data[res.data.length - 1].enteredGlucose)
-  // setAfterMeal(res.data[res.data.length - 1].afterMeal)
-
-  useEffect(() => {});
-
-
-  // This will update whenever blooSugar or afterMeal changes. The states ("high", "low", "normal") have to be included as dependecies after the array to resolve error in console, even though we know they will not change.
-  useEffect(() => {
     if (!afterMeal) {
       if (bloodSugar < 80) {
         setLevel(low);
@@ -83,9 +63,16 @@ setLevels(res))
       } else {
         setLevel(normal);
       }
-
     }
-  }, [afterMeal, bloodSugar, high, low, normal]);
+  }
+
+  // These values must be set afer the database is reached.
+  useEffect(()=>{
+        API.getSavedGlycemia()
+        .then(res => 
+    setLevels(res))
+        .catch(err => console.log(err));
+  }, [page])
 
   return (
     <CardGrid>

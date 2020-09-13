@@ -42,6 +42,5 @@ module.exports = {
     db.Glycemia.find(req.query)
       .then(dbGlycemia => res.json(dbGlycemia))
       .catch(err => res.status(422).json(err));
-  },
-
+  }
 };
