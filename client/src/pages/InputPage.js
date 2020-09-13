@@ -1,92 +1,132 @@
 import React, { useState } from "react";
-import { makeStyles } from '@material-ui/core/styles';
-import Card from "@material-ui/core/Card"
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-
-import InputFoodCard from "../components/InputComponents/InputFoodCard"
-import InputBloodSugarCard from "../components/InputComponents/InputBloodSugarCard"
-import InputA1CCard from "../components/InputComponents/InputA1CCard"
-import CardGrid from "../components/CardGrid"
+import { makeStyles } from "@material-ui/core/styles";
+import Typography from "@material-ui/core/Typography";
+import Tab from "@material-ui/core/Tab";
+import Tabs from "@material-ui/core/Tabs";
+import InputFoodCard from "../components/InputComponents/InputFoodCard";
+import InputBloodSugarCard from "../components/InputComponents/InputBloodSugarCard";
+import InputA1CCard from "../components/InputComponents/InputA1CCard";
+import InputPageGrid from "../components/InputComponents/InputPageGrid";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
+import Paper from "@material-ui/core/Paper";
+import Button from "@material-ui/core/Button";
+import Grid from "@material-ui/core/Grid";
+import API from "../utils/API";
+import axios from "axios";
 
 const useStyles = makeStyles({
   root: {
     minWidth: 275,
+    justifyContent: "center",
   },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
-  },
-  title: {
-    fontSize: 14,
-  },
-  pos: {
-    marginBottom: 12,
-  },
+  button: {},
 });
-
 
 function InputPage(props) {
   const classes = useStyles();
-  const [inputChoice, setInputChoice] = useState(null);
-  const [showTitle, setShowTitle] = useState(true);
+  const [tab, setTab] = useState(0);
 
-const handleTrackButton = (buttonChoice) => {
-    setInputChoice(buttonChoice)
-    setShowTitle(false)
-  }
+  const [radioBS, setRadioBS] = React.useState(false);
+  const [radioA1C, setRadioA1C] = React.useState(true);
+  const [measurement, setMeasurement] = React.useState("");
 
-  const buttonOptions = [
-    {
-      id: "1",
-      buttonName: "Food",
-      buttonChoice: "Food",
-      color: "primary"
-    },
-    {
-      id: "2",
-      buttonName: "Blood Sugar",
-      buttonChoice: "BloodSugar",
-      color: "secondary"
-    },
-    {
-      id: "3",
-      buttonName: "A1C",
-      buttonChoice: "A1C",
-      color: "primary"
-    },
-  ];
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setMeasurement({
+      [name]: value,
+    });
+  };
+
+  const logBloodSugar = async () => {
+    console.log(radioBS, measurement);
+    let glucoseData = {
+      enteredGlucose: parseInt(measurement.measurement),
+      afterMeal: radioBS.valueOf(),
+    };
+    console.log(glucoseData);
+    API.saveGlycemia(glucoseData).then((res) => console.log(res.data));
+  };
+
+  const logA1C = () => {
+    console.log(radioA1C, measurement);
+    // const glucoseData = { measurement, radio };
+    // API.saveGlycemia(glucoseData).then((res) => console.log(res.data));
+  };
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    if (tab === 0) {
+      // logFood():
+    } else if (tab === 1) {
+      logBloodSugar();
+    } else {
+      logA1C();
+    }
+  };
+
+  const handleRadio = (e) => {
+    if (tab === 0) {
+      // logFood():
+    } else if (tab === 1) {
+      setRadioBS(!radioBS);
+    } else {
+      setRadioA1C(!radioA1C);
+    }
+  };
+
+  const handleChange = (event, newTabValue) => {
+    setTab(newTabValue);
+  };
 
   return (
-      <CardGrid>
-        <Card>
-        {showTitle &&<CardContent>
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
+    <InputPageGrid>
+      <CardContent>
+        <Typography variant="subtitle" color="textSecondary" gutterBottom>
           Let's figure out your insulin!
         </Typography>
-      <Typography variant="h4" component="h4">
-       What would you like to track?
+        <Typography variant="h5" component="h5">
+          What would you like to track?
         </Typography>
-      </CardContent>}
-      <CardActions>
-                {buttonOptions.map(button => {
-                  const { buttonName, buttonChoice, color, id } = button;
-                  return (
-                    <Button key={id} variant="contained" size="small" color={color} onClick={() => handleTrackButton(buttonChoice)}>
-                      Track {buttonName}
-                    </Button>
-                  );
-                })}
-      </CardActions>
-        </Card>
-        { inputChoice === "Food" && (<InputFoodCard />)}
-        { inputChoice === "BloodSugar" && (<InputBloodSugarCard />)}
-        { inputChoice === "A1C" && (<InputA1CCard />)}
-      </CardGrid>
-      )
+      </CardContent>
+      <Paper className={classes.root} elevation={0}>
+        <Tabs
+          value={tab}
+          onChange={handleChange}
+          indicatorColor="primary"
+          textColor="primary"
+          centered
+        >
+          <Tab label="Food" />
+          <Tab label="Blood Sugar" />
+          <Tab label="A1C" />
+        </Tabs>
+        <InputFoodCard value={tab} index={0} />
+        <InputBloodSugarCard
+          value={tab}
+          index={1}
+          handleRadio={handleRadio}
+          handleInputChange={handleInputChange}
+        />
+        <InputA1CCard
+          value={tab}
+          index={2}
+          radio={props.radio}
+          handleRadio={handleRadio}
+          handleInputChange={handleInputChange}
+        />
+      </Paper>
+      <Button
+        className={classes.button}
+        type="submit"
+        variant="contained"
+        color="secondary"
+        onClick={handleFormSubmit}
+      >
+        Submit
+      </Button>
+    </InputPageGrid>
+  );
 }
 
-export default InputPage
+export default InputPage;

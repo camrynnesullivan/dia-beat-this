@@ -1,5 +1,5 @@
 import React from "react";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
@@ -9,38 +9,34 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import { useLocation, withRouter } from "react-router-dom";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1
-  },
-  menuButton: {
-    marginRight: theme.spacing(2)
+    flexGrow: 1,
   },
   title: {
     [theme.breakpoints.down("xs")]: {
-      flexGrow: 1
-    }
+      flexGrow: 1,
+    },
   },
   headerOptions: {
     display: "flex",
     flex: 1,
-    justifyContent: "space-evenly"
+    justifyContent: "space-evenly",
   },
   rightToolbar: {
     marginLeft: "auto",
-    marginRight: -12
+    marginRight: -12,
   },
 }));
 
-const NavBar = props => {
+const NavBar = (props) => {
   const { history } = props;
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
-  const theme = useTheme();
   const location = useLocation();
 
-  const handleMenu = event => {
+  const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
   };
 
@@ -52,33 +48,39 @@ const NavBar = props => {
   const handleLogOut = () => {
     props.handleLogout();
     setAnchorEl(null);
-  }
-
+  };
 
   const menuItems = [
     {
       id: "1",
       menuTitle: "Home",
-      pageURL: "/"
+      pageURL: "/",
     },
     {
       id: "2",
       menuTitle: "Input",
-      pageURL: "/input"
+      pageURL: "/input",
     },
     {
       id: "3",
       menuTitle: "Progress",
-      pageURL: "/progress"
+      pageURL: "/progress",
     },
     {
       id: "4",
       menuTitle: "Resources",
-      pageURL: "/Resources"
-    }
+      pageURL: "/Resources",
+    },
+    {
+      id: "5",
+      menuTitle: "Journal",
+      pageURL: "/Journal",
+    },
   ];
 
-  const headerTitle = location.pathname.substring(1, location.pathname.length).charAt(0).toUpperCase() + location.pathname.slice(2)
+
+  const headerTitle = location.pathname === "/" ? "Home" : location.pathname.substring(1, location.pathname.length).charAt(0).toUpperCase() + location.pathname.slice(2)
+
 
   return (
     <div className={classes.root}>
@@ -87,50 +89,49 @@ const NavBar = props => {
           <Typography variant="h6" className={classes.title}>
             {headerTitle}
           </Typography>
-            <>
-              <IconButton
-                edge="start"
-                className={classes.menuButton}
-                color="inherit"
-                aria-label="menu"
-                onClick={handleMenu}
-                className={classes.rightToolbar}
-              >
+          <>
+            <IconButton
+              edge="start"
+              color="inherit"
+              aria-label="menu"
+              onClick={handleMenu}
+              className={classes.rightToolbar}
+            >
               <MenuIcon />
-              </IconButton>
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorEl}
-                anchorOrigin={{
-                  vertical: "top",
-                  horizontal: "right"
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: "top",
-                  horizontal: "right"
-                }}
-                open={open}
-                onClose={() => setAnchorEl(null)}
-              >
-                {menuItems.map(menuItem => {
-                  const { menuTitle, pageURL, id } = menuItem;
-                  return (
-                    <MenuItem key={id} onClick={() => handleMenuClick(menuTitle, pageURL)}>
-                      {menuTitle}
-                    </MenuItem>
-                  );
-                })}
-                <MenuItem onClick={() => handleLogOut()}>
-                      Log Out
-                </MenuItem>
-              </Menu>
-            </>
+            </IconButton>
+            <Menu
+              id="menu-appbar"
+              anchorEl={anchorEl}
+              anchorOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              open={open}
+              onClose={() => setAnchorEl(null)}
+            >
+              {menuItems.map((menuItem) => {
+                const { menuTitle, pageURL, id } = menuItem;
+                return (
+                  <MenuItem
+                    key={id}
+                    onClick={() => handleMenuClick(menuTitle, pageURL)}
+                  >
+                    {menuTitle}
+                  </MenuItem>
+                );
+              })}
+              <MenuItem onClick={() => handleLogOut()}>Log Out</MenuItem>
+            </Menu>
+          </>
         </Toolbar>
       </AppBar>
     </div>
   );
 };
 
-
-export default withRouter(NavBar)
+export default withRouter(NavBar);
