@@ -19,6 +19,20 @@ const useStyles = makeStyles({
 
 export default function FoodTrackCard() {
   const classes = useStyles();
+
+  // function openInput() {
+  //   render() {
+  //     return (
+  //       <form onSubmit={this.handleSubmit}>
+  //         <label>
+  //           Set Calories Goal:
+  //           <input type="text" value={this.state.value} onChange={this.handleChange} />
+  //         </label>
+  //         <input type="submit" value="Submit" />
+  //       </form>
+  //     );
+  //   }
+  // }
   return (
     <Card className={classes.root}>
       <CardActionArea>
@@ -37,13 +51,15 @@ export default function FoodTrackCard() {
             Carbs today:<span>0</span> mg
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            My goal is:<span>1800</span>cal and <span>200</span> carb grams
+            My goal is:<span id="kCal">1800</span>cal and{" "}
+            <span id="Carbs">200</span> Carbs grams
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
         <Button size="small" color="primary">
           Set Calories Goal
+          {/* // onClick={openInput}>  */}
           {/* add function and an input that will allow to set a number-goal  */}
         </Button>
         <Button size="small" color="primary">
