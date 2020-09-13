@@ -13,9 +13,9 @@ const measurementController = require("../../controllers/measurementController")
 //   .get(measurementController.findById)
 //   .put(measurementController.update)
 //   .delete(measurementController.remove);
+
 Router.route("/api/measurements")
   .post(measurementController.createNew)
   .get(measurementController.findAll);
-
 // .get(userController.getAllUsers)
 module.exports = router;

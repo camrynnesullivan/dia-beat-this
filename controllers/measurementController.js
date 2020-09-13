@@ -36,12 +36,12 @@ module.exports = {
       enteredGlucose: enteredGlucose,
       afterMeal: afterMeal,
     });
-
     res.json(newMeasurement);
   },
-  findAll: function (req, res) {
+  findAll: function(req, res) {
     db.Glycemia.find(req.query)
-      .then((dbGlycemia) => res.json(dbGlycemia))
-      .catch((err) => res.status(422).json(err));
+      .then(dbGlycemia => res.json(dbGlycemia))
+      .catch(err => res.status(422).json(err));
   },
+
 };
