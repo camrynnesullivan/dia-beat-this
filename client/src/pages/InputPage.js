@@ -39,13 +39,18 @@ function InputPage(props) {
   };
 
   const logBloodSugar = async () => {
-    console.log(radioBS, measurement);
-    let glucoseData = {
+    const { data } = await axios.post("/api/measurements", {
       enteredGlucose: parseInt(measurement.measurement),
       afterMeal: radioBS.valueOf(),
-    };
-    console.log(glucoseData);
-    API.saveGlycemia(glucoseData).then((res) => console.log(res.data));
+    });
+    console.log(data);
+    // console.log(radioBS, measurement);
+    // let glucoseData = {
+    //   enteredGlucose: parseInt(measurement.measurement),
+    //   afterMeal: radioBS.valueOf(),
+    // };
+    // console.log(glucoseData);
+    // API.saveGlycemia(glucoseData).then((res) => console.log(res.data));
   };
 
   const logA1C = () => {

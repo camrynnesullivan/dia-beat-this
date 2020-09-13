@@ -12,7 +12,17 @@ import { treatingHBS, treatingLBS } from "../research";
 import { symptomsLBS, symptomsHBS } from "../research";
 import SymptomsCard from "../components/WarningComponents/SymptomsCard";
 
+import axios from "axios";
+
+
 function ProgressPage(props) {
+  let lastLog;
+  function getLoggedData() {
+    const { data } = axios.get("api/measurements").then(function (res) {
+      console.log(res.data[0]);
+    });
+  }
+  getLoggedData();
   const low = {
     warning: "low",
     research: treatingLBS,
@@ -51,6 +61,9 @@ setLevels(res))
   // setBloodSugar(res.data[res.data.length - 1].enteredGlucose)
   // setAfterMeal(res.data[res.data.length - 1].afterMeal)
 
+  useEffect(() => {});
+
+
   // This will update whenever blooSugar or afterMeal changes. The states ("high", "low", "normal") have to be included as dependecies after the array to resolve error in console, even though we know they will not change.
   useEffect(() => {
     if (!afterMeal) {
@@ -60,6 +73,7 @@ setLevels(res))
         setLevel(high);
       } else {
         setLevel(normal);
+
       }
     } else {
       if (bloodSugar < 130) {
@@ -69,6 +83,7 @@ setLevels(res))
       } else {
         setLevel(normal);
       }
+
     }
   }, [afterMeal, bloodSugar, high, low, normal]);
 
@@ -76,7 +91,9 @@ setLevels(res))
     <CardGrid>
       {/* // Play with these values to see how they render appropriately! Delete this entire div once information is successfully being retrieved from database */}
       <BloodSugarCard bloodSugar={bloodSugar} afterMeal={afterMeal} />
+
       <ChartCard />
+
       {level.warning !== "normal" && (
         <WarningCard
           level={level.warning}
