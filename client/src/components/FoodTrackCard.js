@@ -57,8 +57,9 @@ export default function FoodTrackCard() {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary" onClick={openInput}>
+        <Button size="small" color="primary">
           Set Calories Goal
+          {/* // onClick={openInput}>  */}
           {/* add function and an input that will allow to set a number-goal  */}
         </Button>
         <Button size="small" color="primary">
