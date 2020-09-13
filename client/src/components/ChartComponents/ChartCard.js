@@ -3,8 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
-import ChartApp from "./ChartApp";
-import Typography from "@material-ui/core/Typography";
+import Chart from "./Chart";
 
 const useStyles = makeStyles({
   root: {
@@ -21,9 +20,7 @@ export default function ChartCard() {
     <Card className={classes.root}>
       <CardActionArea>
         <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            <ChartApp />
-          </Typography>
+          <Chart />
         </CardContent>
       </CardActionArea>
     </Card>
