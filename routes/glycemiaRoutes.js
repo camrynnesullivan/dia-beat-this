@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const Glycemia = require("../models/BloodSugar");
 
-router.post("/api/glycemia", ({ body }, res) => {
+router.post("/", ({ body }, res) => {
   Glycemia.create(body)
     .then((dbGlycemia) => {
       res.json(dbGlycemia);
@@ -11,7 +11,7 @@ router.post("/api/glycemia", ({ body }, res) => {
     });
 });
 
-router.get("/api/glycemia", (req, res) => {
+router.get("/", (req, res) => {
   Glycemia.find({})
     .sort({ date: -1 })
     .then((dbGlycemia) => {

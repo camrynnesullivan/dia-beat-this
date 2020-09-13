@@ -6,10 +6,14 @@ import CardGrid from "../components/CardGrid";
 import WarningCard from "../components/WarningComponents/WarningCard";
 import CareScheduleAccordion from "../components/CareScheduleComponents/CareSchedule";
 import FoodTrackCard from "../components/FoodTrackCard";
+//import API from "../utils/API";
+import ChartCard from "../components/ChartComponents/ChartCard";
 import { treatingHBS, treatingLBS } from "../research";
 import { symptomsLBS, symptomsHBS } from "../research";
 import SymptomsCard from "../components/WarningComponents/SymptomsCard";
+
 import axios from "axios";
+
 
 function ProgressPage(props) {
   let lastLog;
@@ -42,7 +46,9 @@ function ProgressPage(props) {
   // These values must be set afer the database is reached.
   // setBloodSugar(data.enteredGlucose)
   // setAfterMeal(data.afterMeal)
+
   useEffect(() => {});
+
 
   // This will update whenever blooSugar or afterMeal changes. The states ("high", "low", "normal") have to be included as dependecies after the array to resolve error in console, even though we know they will not change.
   useEffect(() => {
@@ -53,6 +59,7 @@ function ProgressPage(props) {
         setLevel(high);
       } else {
         setLevel(normal);
+
       }
     } else {
       if (bloodSugar < 130) {
@@ -62,6 +69,7 @@ function ProgressPage(props) {
       } else {
         setLevel(normal);
       }
+
     }
   }, [afterMeal, bloodSugar, high, low, normal]);
 
@@ -69,6 +77,9 @@ function ProgressPage(props) {
     <CardGrid>
       {/* // Play with these values to see how they render appropriately! Delete this entire div once information is successfully being retrieved from database */}
       <BloodSugarCard bloodSugar={bloodSugar} afterMeal={afterMeal} />
+
+      <ChartCard />
+
       {level.warning !== "normal" && (
         <WarningCard
           level={level.warning}
@@ -88,7 +99,7 @@ function ProgressPage(props) {
         />
       )}
       <FoodTrackCard />
-      {/* <ChartCard /> */}
+
       <CareScheduleAccordion />
     </CardGrid>
   );
