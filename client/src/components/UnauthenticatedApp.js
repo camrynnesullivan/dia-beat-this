@@ -4,12 +4,11 @@ import { LOGIN } from "../context/actions";
 import axios from "axios";
 import SignInCard from "./SignInCard";
 import SignUpCard from "./SignUpCard";
-import { useHistory } from "react-router-dom";
-import HomePage from "../pages/HomePage";
+// import { useHistory } from "react-router-dom";
 const UnauthenticatedApp = () => {
   const [state, dispatch] = useGlobalContext();
   const [signedUp, setSignedUp] = useState(true);
-  const history = useHistory();
+  // const history = useHistory();
   const emailRef = useRef();
   const passwordRef = useRef();
   const regEmailRef = useRef();
@@ -29,17 +28,12 @@ const UnauthenticatedApp = () => {
   };
 
   const doSignup = async () => {
-
     const { data } = await axios.post("/auth/register", {
       email: regEmailRef.current.value,
       password: regPasswordRef.current.value,
     });
     localStorage.setItem("authUser", JSON.stringify(data));
     console.log(data);
-    // dispatch({
-    //   type: LOGIN,
-    //   user: data
-    // })
   };
 
   const handleSubmit = (e) => {

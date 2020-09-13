@@ -3,9 +3,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Typography from "@material-ui/core/Typography";
-import LBSTodo from "./LowSugarTodo";
+import WarningTodo from "./WarningTodo";
 
 const useStyles = makeStyles({
   root: {
@@ -16,20 +15,18 @@ const useStyles = makeStyles({
   },
 });
 
-export default function LowLevelCard() {
+export default function WarningCard(props) {
   const classes = useStyles();
   return (
     <Card className={classes.root}>
-
         <CardContent>
-        <Typography variant="h6" component="h6"  color="secondary">
+          <Typography gutterBottom variant="h6" component="h6"  color="secondary">
             Warning!
           </Typography>
-          <Typography gutterBottom variant="h5" component="h2"></Typography>
-          <Typography variant="h4">Your blood sugar is low!</Typography>
+          <Typography variant="h5"> Your blood sugar is {props.level}!</Typography>
           </CardContent>
           <CardActionArea>
-          <LBSTodo />
+          <WarningTodo title={props.title}  subtitle={props.subtitle} todos={props.todos} warning={props.warning}       className={classes.toDo}/>
           </CardActionArea>
     </Card>
   );

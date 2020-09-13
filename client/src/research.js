@@ -1,3 +1,18 @@
+import {
+  faMeh,
+  faGlassWhiskey,
+  faBed,
+  faDizzy,
+  faToilet,
+  faAngry,
+  faTired,
+  faTemperatureLow,
+  faHeartbeat,
+  faPizzaSlice,
+  faLowVision,
+  faQuestion,
+} from "@fortawesome/free-solid-svg-icons";
+
 // This is where we will export all of the research on type 2 diabetes.  We can style it in the files where we import it.
 
 const normalLevels = {
@@ -41,33 +56,38 @@ const causesLBS = {
   ],
 };
 
+
+
+
 const symptomsHBS = {
   title: "Signs of High Blood Sugar",
   subtitle:
     "Diabetes causes your blood sugar to be too high, but once you start treatment, it can also get too low.  Work with your doctor so that you know the signs and how to treat them.",
   symptoms: [
     {
-      fontAwesomeClassname: "faMeh",
+      icon: faMeh,
       symptomName: "Headaches",
     },
     {
-      fontAwesomeClassname: "faEyeSlash",
+      icon: faLowVision,
       symptomName: "Blurred vision",
     },
     {
-      fontAwesomeClassname: "faGlassWhiskey",
+      icon: faGlassWhiskey,
       symptomName: "Being thirsty",
     },
     {
-      fontAwesomeClassname: "faBed",
+      icon: faBed,
       symptomName: "Feeling tired",
     },
     {
-      fontAwesomeClassname: "faToilet",
+      icon: faToilet,
       symptomName: "Urinating more often",
     },
   ],
 };
+
+
 
 const symptomsLBS = {
   title: "Signs of Low Blood Sugar",
@@ -75,70 +95,70 @@ const symptomsLBS = {
     "Diabetes causes your blood sugar to be too high, but once you start treatment, it can also get too low.  Work with your doctor so that you know the signs and how to treat them.",
   symptoms: [
     {
-      fontAwesomeClassname: "faQuestion",
+      icon: faQuestion,
       symptomName: "Confusion",
     },
     {
-      fontAwesomeClassname: "faDizzy",
+      icon: faDizzy,
       symptomName: "Lightheadedness or dizziness",
     },
     {
-      fontAwesomeClassname: "faLowVision",
+      icon: faLowVision,
       symptomName: "Blurred vision",
     },
     {
-      fontAwesomeClassname: "faPizzaSlice",
+      icon: faPizzaSlice,
       symptomName: "Hunger or nausea",
     },
     {
-      fontAwesomeClassname: "faHeartbeat",
+      icon: faHeartbeat,
       symptomName: "Fast heartbeat",
     },
     {
-      fontAwesomeClassname: "faTemperatureLow",
+      icon: faTemperatureLow,
       symptomName: "Shakiness, sweating, or chills",
     },
     {
-      fontAwesomeClassname: "faBed",
+      icon: faBed,
       symptomName: "Feeling tired",
     },
     {
-      fontAwesomeClassname: "faAngry",
+      icon: faAngry,
       symptomName: "Being irritable or impatient",
     },
     {
-      fontAwesomeClassname: "faTired",
+      icon: faTired,
       symptomName: "Feeling nervous or anxious",
     },
   ],
 };
 
 const treatingHBS = {
-  title: "How to Lower Your Blood Sugar",
+  title: "How to Raise Your Blood Sugar",
   subtitle:
     "High blood sugar, also known as 'hyperglycemia', can be lowered by doing some of these steps",
-  todos: {
-    1: "Insulin: Take your insulin to reduce your blood sugar levels.  Be careful, as insulin can take 4 hours to be fully absorbed.",
-    2: "Walking: Exercise can help to lower blood sugar and walking is a good way of achieve this.",
-    3: "Drink Water: When your blood sugar levels are running high, your body will try to flush excess sugar our of your blood through the urine.  Drinking water helps!",
-  },
+  todos: [
+    "Insulin: Take your insulin to reduce your blood sugar levels.  Be careful, as insulin can take 4 hours to be fully absorbed.",
+    "Walking: Exercise can help to lower blood sugar and walking is a good way of achieve this.",
+    "Drink Water: When your blood sugar levels are running high, your body will try to flush excess sugar our of your blood through the urine.  Drinking water helps!",
+  ],
   warning:
     "Always consult with your doctor when your blood sugar levels fluctuate.",
 };
 
 const treatingLBS = {
-  title: "How to Raise Your Blood Sugar",
+  title: "How to Lower Your Blood Sugar",
   subtitle:
     "Low blood sugar, also known as 'hypoglycemia', can be raised by doing some of these steps",
 
-  todos: {
-    1: "The 15-15 Rule: Have 15 grams of carbohydrates to raise your blood sugar and check it after 15 minutes. If it still low -repeat!",
-    2: "Take 4 glucose tablets.",
-    3: "Drink 4 ounces of regular soda, not diet soda.",
-    4: "Eat 4 pieces of hard candy.",
-    5: "Eat 1/2 of the banana",
-    6: "Eat small apple or small orange",
-  },
+  todos: [
+    "The 15-15 Rule: Have 15 grams of carbohydrates to raise your blood sugar and check it after 15 minutes. If it still low -repeat!",
+    "Take 4 glucose tablets.",
+    "Drink 4 ounces of regular soda, not diet soda.",
+    "Eat 4 pieces of hard candy.",
+    "Eat 1/2 of the banana",
+    "Eat small apple or small orange",
+  ],
   warning:
     "Always consult with your doctor when your blood sugar levels fluctuate.",
 };

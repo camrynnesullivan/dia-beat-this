@@ -1,17 +1,14 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
-import axios from "axios";
 import FormLabel from "@material-ui/core/FormLabel";
 import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
-import Button from "@material-ui/core/Button";
-
 import InputFormGrid from "./InputFormGrid";
-import API from "../../utils/API";
+// import API from "../../utils/API";
 
 const useStyles = makeStyles((theme) => ({
   formElements: {
@@ -24,32 +21,15 @@ const useStyles = makeStyles((theme) => ({
 
 export default function InputFoodCard(props) {
   const classes = useStyles();
-  const [radio, setRadio] = React.useState(false);
-  const [measurement, setMeasurement] = React.useState("");
-
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setMeasurement({
-      [name]: value,
-    });
-  };
-
-  const logMeasurement = () => {
-    console.log(radio, measurement);
-    const glucoseData = { measurement, radio };
-    API.saveGlucose(glucoseData).then((res) => console.log(res.data));
-  };
-
-  const handleFormSubmit = (event) => {
-    event.preventDefault();
-    logMeasurement();
-  };
-
-  const handleRadio = (e) => {
-    setRadio(!radio);
-  };
 
   return (
+    <div
+    role="tabpanel"
+    hidden={props.value !== props.index}
+    id={`simple-tabpanel-${props.index}`}
+    aria-labelledby={`simple-tab-${props.index}`}
+    {...props.other}
+  >
     <InputFormGrid>
       <FormGroup className={classes.formElements}>
         <FormLabel component="legend">When are you measuring?</FormLabel>
@@ -58,7 +38,7 @@ export default function InputFoodCard(props) {
           aria-label="position"
           name="position"
           defaultValue="before"
-          onChange={handleRadio}
+          onChange={props.handleRadio}
         >
           <FormControlLabel
             value="before"
@@ -82,21 +62,16 @@ export default function InputFoodCard(props) {
           name="measurement"
           label="Ex. 180"
           variant="filled"
-          onChange={handleInputChange}
+          onChange={props.handleInputChange}
           InputProps={{
             endAdornment: <InputAdornment position="end">mg/dL</InputAdornment>,
           }}
         />
-        <Button
-          className={classes.button}
-          type="submit"
-          variant="contained"
-          color="secondary"
-          onClick={handleFormSubmit}
-        >
-          Submit
-        </Button>
       </FormGroup>
+
     </InputFormGrid>
+
+    </div>
+    
   );
 }
