@@ -12,6 +12,7 @@ import HighLevelCard from "../components/WarningsComponents/HighLevelCard";
 import CareScheduleAccordion from "../components/CareScheduleComponents/CareSchedule";
 import FoodTrackCard from "../components/FoodTrackCard";
 import API from "../utils/API";
+import ChartCard from "../components/ChartComponents/ChartCard";
 
 function ProgressPage(props) {
   const [bloodSugar, setBloodSugar] = useState(180);
@@ -56,7 +57,7 @@ function ProgressPage(props) {
       {warning === "high" && <HighLevelCard />}
       {warning === "high" && <HBSSymptomsCard />}
       <FoodTrackCard />
-      {/* <ChartCard /> */}
+      <ChartCard />
       <CareScheduleAccordion />
     </CardGrid>
   );
