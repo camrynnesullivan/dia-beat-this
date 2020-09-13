@@ -38,7 +38,6 @@ function ProgressPage(props) {
   // Last Measurement from database
   const [bloodSugar, setBloodSugar] = useState(180);
   const [afterMeal, setAfterMeal] = useState(true);
-  const [page, setPage] = useState(1);
 
   // Hooks rendering the appropiate cards based on blood sugar range
   const [level, setLevel] = useState(normal);
@@ -53,7 +52,6 @@ function ProgressPage(props) {
         setLevel(high);
       } else {
         setLevel(normal);
-
       }
     } else {
       if (bloodSugar < 130) {
@@ -69,10 +67,10 @@ function ProgressPage(props) {
   // These values must be set afer the database is reached.
   useEffect(()=>{
         API.getSavedGlycemia()
-        .then(res => 
-    setLevels(res))
+        .then(res => setLevels(res))
         .catch(err => console.log(err));
-  }, [page])
+  }, [afterMeal, bloodSugar])
+
 
   return (
     <CardGrid>
