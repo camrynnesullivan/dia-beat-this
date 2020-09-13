@@ -39,4 +39,9 @@ module.exports = {
 
     res.json(newMeasurement);
   },
+  findAll: function (req, res) {
+    db.Glycemia.find(req.query)
+      .then((dbGlycemia) => res.json(dbGlycemia))
+      .catch((err) => res.status(422).json(err));
+  },
 };
