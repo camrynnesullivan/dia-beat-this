@@ -6,7 +6,7 @@ export default {
   //   return axios.get("/api/google", { params: { q: "title:" + q } });
   // },
   // Gets all saved books
-  getGlycemia: function() {
+  getSavedGlycemia: function() {
     return axios.get("/api/measurements");
   },
   // Deletes the saved book with the given id

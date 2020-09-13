@@ -6,7 +6,7 @@ import CardGrid from "../components/CardGrid";
 import WarningCard from "../components/WarningComponents/WarningCard";
 import CareScheduleAccordion from "../components/CareScheduleComponents/CareSchedule";
 import FoodTrackCard from "../components/FoodTrackCard";
-//import API from "../utils/API";
+import API from "../utils/API";
 import ChartCard from "../components/ChartComponents/ChartCard";
 import { treatingHBS, treatingLBS } from "../research";
 import { symptomsLBS, symptomsHBS } from "../research";
@@ -33,9 +33,23 @@ function ProgressPage(props) {
   // Hooks rendering the appropiate cards based on blood sugar range
   const [level, setLevel] = useState(normal);
 
+  const setLevels = (res)=> {
+    setBloodSugar(res.data[res.data.length - 1].enteredGlucose);
+    setAfterMeal(res.data[res.data.length - 1].afterMeal)
+  }
+
   // These values must be set afer the database is reached.
-  // setBloodSugar(data.enteredGlucose)
-  // setAfterMeal(data.afterMeal)
+  useEffect(() =>{
+    API.getSavedGlycemia()
+    .then(res => 
+setLevels(res))
+    .catch(err => console.log(err));
+  })
+
+
+
+  // setBloodSugar(res.data[res.data.length - 1].enteredGlucose)
+  // setAfterMeal(res.data[res.data.length - 1].afterMeal)
 
   // This will update whenever blooSugar or afterMeal changes. The states ("high", "low", "normal") have to be included as dependecies after the array to resolve error in console, even though we know they will not change.
   useEffect(() => {

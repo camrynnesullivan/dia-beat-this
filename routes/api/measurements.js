@@ -14,5 +14,7 @@ router
 //   .put(measurementController.update)
 //   .delete(measurementController.remove);
 Router.route("/api/measurements").post(measurementController.createNew);
+// Router.route("/api/measurements").get(measurementController.findById);
+// Router.route("/api/measurements").get(measurementController.findAll);
 // .get(userController.getAllUsers)
 module.exports = router;
