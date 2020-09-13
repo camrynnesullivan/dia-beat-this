@@ -34,30 +34,39 @@ function ProgressPage(props) {
     warning: "normal",
   };
   // Last Measurement from database
+
   const [bloodSugar, setBloodSugar] = useState(180);
   const [afterMeal, setAfterMeal] = useState(true);
   const [storedData, setStoredData] = useState({
-    labels: ["8:00", "10:00", "12:00", "15:00", "17:00", "22:00"],
-    data: [90, 98, 100, 98, 115, 105],
+    labels: [],
+    data: [],
   });
+  const [times, setTimes] = useState([]);
+  const [measurements, setMeasurements] = useState([]);
   // Hooks rendering the appropiate cards based on blood sugar range
   const [level, setLevel] = useState(normal);
 
   const setLevels = (res) => {
-    const times = [];
+    const timesArray = [];
     const measurements = [];
     setBloodSugar(res.data[res.data.length - 1].enteredGlucose);
     setAfterMeal(res.data[res.data.length - 1].afterMeal);
     for (let index = 0; index < res.data.length; index++) {
       if (res.data[index].date) {
-        times.push(res.data[index].date.substr(11, 5));
+        timesArray.push(res.data[index].date.substr(11, 5));
         // const date = res.data[index].date.substr(5, 5);
       }
       if (res.data[index].enteredGlucose) {
         measurements.push(res.data[index].enteredGlucose);
       }
     }
-
+    setTimes(timesArray);
+    console.log(timesArray);
+    console.log(bloodSugar);
+    // setStoredData({
+    //   labels: times,
+    //   data: measurements,
+    // });
     // const labels = res.data.date;
     // const data = res.data.enteredGlucose;
     console.log(measurements);
