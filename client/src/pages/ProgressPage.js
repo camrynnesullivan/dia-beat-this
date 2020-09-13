@@ -8,62 +8,85 @@ import CareScheduleAccordion from "../components/CareScheduleComponents/CareSche
 import FoodTrackCard from "../components/FoodTrackCard";
 import { treatingHBS, treatingLBS } from "../research";
 import { symptomsLBS, symptomsHBS } from "../research";
-import SymptomsCard from "../components/WarningComponents/SymptomsCard"
+import SymptomsCard from "../components/WarningComponents/SymptomsCard";
+import axios from "axios";
 
 function ProgressPage(props) {
+  let lastLog;
+  function getLoggedData() {
+    const { data } = axios.get("api/measurements").then(function (res) {
+      console.log(res.data[0]);
+    });
+  }
+  getLoggedData();
   const low = {
     warning: "low",
     research: treatingLBS,
-    symptoms: symptomsLBS
-  }
+    symptoms: symptomsLBS,
+  };
   const high = {
     warning: "high",
     research: treatingHBS,
-    symptoms: symptomsHBS
-  }
+    symptoms: symptomsHBS,
+  };
   const normal = {
-    warning: "normal"
-  }
+    warning: "normal",
+  };
   // Last Measurement from database
-  const [bloodSugar, setBloodSugar] = useState(180)
-  const [afterMeal, setAfterMeal] = useState(true)
+  const [bloodSugar, setBloodSugar] = useState(180);
+  const [afterMeal, setAfterMeal] = useState(true);
 
   // Hooks rendering the appropiate cards based on blood sugar range
-  const [level, setLevel] = useState(normal)
+  const [level, setLevel] = useState(normal);
 
   // These values must be set afer the database is reached.
   // setBloodSugar(data.enteredGlucose)
   // setAfterMeal(data.afterMeal)
-  useEffect(()=>{
-    
-  })
-
-
+  useEffect(() => {});
 
   // This will update whenever blooSugar or afterMeal changes. The states ("high", "low", "normal") have to be included as dependecies after the array to resolve error in console, even though we know they will not change.
-useEffect(() => {
+  useEffect(() => {
     if (!afterMeal) {
-         if (bloodSugar < 80){
-          setLevel(low)
-        } else if (bloodSugar > 130) {
-          setLevel(high)
-        } else {
-          setLevel(normal)}
-        } else {
-          if (bloodSugar < 130){
-          setLevel(low)
-        } else if (bloodSugar > 180){
-          setLevel(high)
-        } else {setLevel(normal)}
+      if (bloodSugar < 80) {
+        setLevel(low);
+      } else if (bloodSugar > 130) {
+        setLevel(high);
+      } else {
+        setLevel(normal);
       }
-}, [afterMeal, bloodSugar, high, low, normal])
+    } else {
+      if (bloodSugar < 130) {
+        setLevel(low);
+      } else if (bloodSugar > 180) {
+        setLevel(high);
+      } else {
+        setLevel(normal);
+      }
+    }
+  }, [afterMeal, bloodSugar, high, low, normal]);
 
   return (
     <CardGrid>
       {/* // Play with these values to see how they render appropriately! Delete this entire div once information is successfully being retrieved from database */}
-      <BloodSugarCard bloodSugar={bloodSugar} afterMeal={afterMeal}/>
-      {level.warning !== "normal" && <WarningCard level={level.warning} title={level.research.title} subtitle={level.research.subtitle}  warning={level.research.warning} todos={level.research.todos} />}
-      {level.warning !== "normal" && <SymptomsCard level={level.warning} title={level.symptoms.title} subtitle={level.symptoms.subtitle} summary={level.symptoms.summary} symptoms={level.symptoms.symptoms}/>}
+      <BloodSugarCard bloodSugar={bloodSugar} afterMeal={afterMeal} />
+      {level.warning !== "normal" && (
+        <WarningCard
+          level={level.warning}
+          title={level.research.title}
+          subtitle={level.research.subtitle}
+          warning={level.research.warning}
+          todos={level.research.todos}
+        />
+      )}
+      {level.warning !== "normal" && (
+        <SymptomsCard
+          level={level.warning}
+          title={level.symptoms.title}
+          subtitle={level.symptoms.subtitle}
+          summary={level.symptoms.summary}
+          symptoms={level.symptoms.symptoms}
+        />
+      )}
       <FoodTrackCard />
       {/* <ChartCard /> */}
       <CareScheduleAccordion />

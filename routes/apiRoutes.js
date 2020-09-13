@@ -6,7 +6,9 @@ Router.get("/welcome", (req, res) => {
   res.send("Welcome to DiaBeatThis!");
 });
 
-Router.route("/measurements").post(measurementController.createNew);
+Router.route("/measurements")
+  .post(measurementController.createNew)
+  .get(measurementController.findAll);
 // .get(userController.getAllUsers)
 
 module.exports = Router;
