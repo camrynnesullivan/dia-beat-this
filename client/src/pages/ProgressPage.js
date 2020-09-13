@@ -44,16 +44,24 @@ function ProgressPage(props) {
   const [level, setLevel] = useState(normal);
 
   const setLevels = (res) => {
+    const times = [];
+    const measurements = [];
     setBloodSugar(res.data[res.data.length - 1].enteredGlucose);
     setAfterMeal(res.data[res.data.length - 1].afterMeal);
-    setStoredData(res.data);
-    // setChart({
-    //   labels: res.data.date,
-    //   data: res.data.enteredGlucose,
+    for (let index = 0; index < res.data.length; index++) {
+      if (res.data[index].date) {
+        times.push(res.data[index].date.substr(11, 5));
+        // const date = res.data[index].date.substr(5, 5);
+      }
+      if (res.data[index].enteredGlucose) {
+        measurements.push(res.data[index].enteredGlucose);
+      }
+    }
 
-    // });
-
-    console.log(storedData);
+    // const labels = res.data.date;
+    // const data = res.data.enteredGlucose;
+    console.log(measurements);
+    console.log(times);
 
     if (!afterMeal) {
       if (bloodSugar < 80) {
