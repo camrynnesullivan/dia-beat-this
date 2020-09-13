@@ -38,10 +38,10 @@ function ProgressPage(props) {
   // Last Measurement from database
   const [bloodSugar, setBloodSugar] = useState(180);
   const [afterMeal, setAfterMeal] = useState(true);
-  const [page, setPage] = useState(1);
 
   // Hooks rendering the appropiate cards based on blood sugar range
   const [level, setLevel] = useState(normal);
+
 
   const setLevels = (res)=> {
     setBloodSugar(res.data[res.data.length - 1].enteredGlucose);
@@ -53,7 +53,6 @@ function ProgressPage(props) {
         setLevel(high);
       } else {
         setLevel(normal);
-
       }
     } else {
       if (bloodSugar < 130) {
@@ -72,7 +71,7 @@ function ProgressPage(props) {
         .then(res => 
     setLevels(res))
         .catch(err => console.log(err));
-  }, [page])
+  }, [])
 
   return (
     <CardGrid>
