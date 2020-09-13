@@ -11,9 +11,7 @@ import ChartCard from "../components/ChartComponents/ChartCard";
 import { treatingHBS, treatingLBS } from "../research";
 import { symptomsLBS, symptomsHBS } from "../research";
 import SymptomsCard from "../components/WarningComponents/SymptomsCard";
-
 import axios from "axios";
-
 
 function ProgressPage(props) {
   let lastLog;
@@ -38,13 +36,25 @@ function ProgressPage(props) {
   // Last Measurement from database
   const [bloodSugar, setBloodSugar] = useState(180);
   const [afterMeal, setAfterMeal] = useState(true);
-
+  const [storedData, setStoredData] = useState({
+    labels: ["8:00", "10:00", "12:00", "15:00", "17:00", "22:00"],
+    data: [90, 98, 100, 98, 115, 105],
+  });
   // Hooks rendering the appropiate cards based on blood sugar range
   const [level, setLevel] = useState(normal);
 
-  const setLevels = (res)=> {
+  const setLevels = (res) => {
     setBloodSugar(res.data[res.data.length - 1].enteredGlucose);
-    setAfterMeal(res.data[res.data.length - 1].afterMeal)
+    setAfterMeal(res.data[res.data.length - 1].afterMeal);
+    setStoredData(res.data);
+    // setChart({
+    //   labels: res.data.date,
+    //   data: res.data.enteredGlucose,
+
+    // });
+
+    console.log(storedData);
+
     if (!afterMeal) {
       if (bloodSugar < 80) {
         setLevel(low);
@@ -62,22 +72,21 @@ function ProgressPage(props) {
         setLevel(normal);
       }
     }
-  }
+  };
 
   // These values must be set afer the database is reached.
-  useEffect(()=>{
-        API.getSavedGlycemia()
-        .then(res => setLevels(res))
-        .catch(err => console.log(err));
-  }, [afterMeal, bloodSugar])
-
+  useEffect(() => {
+    API.getSavedGlycemia()
+      .then((res) => setLevels(res))
+      .catch((err) => console.log(err));
+  }, [afterMeal, bloodSugar]);
 
   return (
     <CardGrid>
       {/* // Play with these values to see how they render appropriately! Delete this entire div once information is successfully being retrieved from database */}
       <BloodSugarCard bloodSugar={bloodSugar} afterMeal={afterMeal} />
 
-      <ChartCard />
+      <ChartCard labels={storedData.labels} data={storedData.data} />
 
       {level.warning !== "normal" && (
         <WarningCard
