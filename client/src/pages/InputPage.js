@@ -7,12 +7,9 @@ import InputFoodCard from "../components/InputComponents/InputFoodCard";
 import InputBloodSugarCard from "../components/InputComponents/InputBloodSugarCard";
 import InputA1CCard from "../components/InputComponents/InputA1CCard";
 import InputPageGrid from "../components/InputComponents/InputPageGrid";
-import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
-import Grid from "@material-ui/core/Grid";
-import API from "../utils/API";
 import axios from "axios";
 
 const useStyles = makeStyles({
@@ -44,29 +41,24 @@ function InputPage(props) {
       afterMeal: radioBS.valueOf(),
     });
     console.log(data);
-    // console.log(radioBS, measurement);
-    // let glucoseData = {
-    //   enteredGlucose: parseInt(measurement.measurement),
-    //   afterMeal: radioBS.valueOf(),
-    // };
-    // console.log(glucoseData);
-    // API.saveGlycemia(glucoseData).then((res) => console.log(res.data));
   };
 
-  const logA1C = () => {
-    console.log(radioA1C, measurement);
-    // const glucoseData = { measurement, radio };
-    // API.saveGlycemia(glucoseData).then((res) => console.log(res.data));
+  const logA1C = async () => {
+    console.log(measurement.measurement);
+    const { data } = await axios.post("/api/A1Cmeasurements", {
+      enteredA1C: parseInt(measurement.measurement)
+    });
+    console.log(data);
   };
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    if (tab === 0) {
-      // logFood():
+    if (tab === 2) {
+      logA1C();
     } else if (tab === 1) {
       logBloodSugar();
     } else {
-      logA1C();
+      // logA1C();
     }
   };
 

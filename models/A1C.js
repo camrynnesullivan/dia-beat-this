@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const AC1Schema = new Schema({
-  enteredAC1: {
+const A1CSchema = new Schema({
+  enteredA1C: {
     type: Number,
     trim: true,
   },
@@ -12,6 +12,6 @@ const AC1Schema = new Schema({
   },
 });
 
-const AC1 = mongoose.model("AC1", AC1Schema);
+const A1C = mongoose.model("A1C", A1CSchema);
 
-module.exports = AC1;
+module.exports = A1C;
