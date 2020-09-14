@@ -7,6 +7,7 @@ import InputFoodCard from "../components/InputComponents/InputFoodCard";
 import InputBloodSugarCard from "../components/InputComponents/InputBloodSugarCard";
 import InputA1CCard from "../components/InputComponents/InputA1CCard";
 import InputPageGrid from "../components/InputComponents/InputPageGrid";
+import SubmitDialog from "../components/InputComponents/SubmitDialog"
 import CardContent from "@material-ui/core/CardContent";
 import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
@@ -23,10 +24,11 @@ const useStyles = makeStyles({
 function InputPage(props) {
   const classes = useStyles();
   const [tab, setTab] = useState(0);
+  const [openDialog, setOpenDialog] = useState(false);
 
-  const [radioBS, setRadioBS] = React.useState(false);
-  const [radioA1C, setRadioA1C] = React.useState(true);
-  const [measurement, setMeasurement] = React.useState("");
+  const [radioBS, setRadioBS] = useState(false);
+  const [radioA1C, setRadioA1C] = useState(true);
+  const [measurement, setMeasurement] = useState("");
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -53,6 +55,7 @@ function InputPage(props) {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
+    setOpenDialog(true);
     if (tab === 2) {
       logA1C();
     } else if (tab === 1) {
@@ -60,6 +63,7 @@ function InputPage(props) {
     } else {
       // logA1C();
     }
+ 
   };
 
   const handleRadio = (e) => {
@@ -74,6 +78,11 @@ function InputPage(props) {
 
   const handleChange = (event, newTabValue) => {
     setTab(newTabValue);
+  };
+
+
+  const handleDialogClose = () => {
+    setOpenDialog(false);
   };
 
   return (
@@ -123,6 +132,7 @@ function InputPage(props) {
       >
         Submit
       </Button>
+      <SubmitDialog openDialog={openDialog} handleDialogClose={handleDialogClose}/>
     </InputPageGrid>
   );
 }
