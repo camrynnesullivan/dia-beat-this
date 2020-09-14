@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function InputFoodCard(props) {
+export default function InputBloodSugar(props) {
   const classes = useStyles();
 
   return (

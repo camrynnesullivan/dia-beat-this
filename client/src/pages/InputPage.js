@@ -102,13 +102,14 @@ function InputPage(props) {
         <InputBloodSugarCard
           value={tab}
           index={1}
+          radio={props.radio}
           handleRadio={handleRadio}
           handleInputChange={handleInputChange}
         />
         <InputA1CCard
           value={tab}
           index={2}
-          radio={props.radio}
+          radio={props.radioA1C}
           handleRadio={handleRadio}
           handleInputChange={handleInputChange}
         />
