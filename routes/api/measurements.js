@@ -22,4 +22,11 @@ Router.route("/api/measurements")
   .post(measurementController.createNew)
   .get(measurementController.findAll);
 // .get(userController.getAllUsers)
+
+Router.route("/api/FoodGoal")
+  .post(measurementController.createNewFoodGoal)
+  .get(measurementController.findAllFoodGoal);
+
+
+
 module.exports = router;
