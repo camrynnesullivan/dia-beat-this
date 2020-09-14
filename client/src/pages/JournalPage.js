@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import CardGrid from "../components/CardGrid";
+// import CardGrid from "../components/CardGrid";
 
 function JournalPage(props) {
     return (
-      <CardGrid>
+      <div>
         {/* <JournalComponent /> */}
-      </CardGrid>
+      </div>
     );
   }
   
