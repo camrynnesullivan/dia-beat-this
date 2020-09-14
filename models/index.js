@@ -3,4 +3,5 @@ module.exports = {
   Glycemia: require("./Glycemia"),
   A1C: require("./A1C"),
   FoodGoal: require("./FoodGoal"),
+  Journal: require("./Journal"),
 };
