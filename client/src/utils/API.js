@@ -13,6 +13,9 @@ export default {
   getSavedA1C: function() {
     return axios.get("/api/A1Cmeasurements");
   },
+  getSavedFoodGoal: function() {
+    return axios.get("/api/FoodGoal");
+  },
   // Deletes the saved book with the given id
   deleteGlycemia: function(id) {
     return axios.delete("/api/measurements/" + id);
@@ -24,5 +27,8 @@ export default {
   // Saves an A1C Measurement to the database
   saveA1C: function(measurementData) {
     return axios.post("/api/A1Cmeasurements", measurementData);
+  },
+  saveFoodGoal: function(measurementData) {
+    return axios.post("/api/FoodGoal", measurementData);
   }
 };

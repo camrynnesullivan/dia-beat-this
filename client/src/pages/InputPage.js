@@ -53,6 +53,14 @@ function InputPage(props) {
     console.log(data);
   };
 
+  const logFoodGoal = async () => {
+    console.log("working!");
+    const { data } = await axios.post("/api/FoodGoal", {
+      enteredA1C: parseInt(measurement.measurement)
+    });
+    console.log(data);
+  };
+
   const handleFormSubmit = (event) => {
     event.preventDefault();
     setOpenDialog(true);
@@ -61,15 +69,13 @@ function InputPage(props) {
     } else if (tab === 1) {
       logBloodSugar();
     } else {
-      // logA1C();
+      logFoodGoal();
     }
  
   };
 
   const handleRadio = (e) => {
-    if (tab === 0) {
-      // logFood():
-    } else if (tab === 1) {
+  if (tab === 1) {
       setRadioBS(!radioBS);
     } else {
       setRadioA1C(!radioA1C);
@@ -107,7 +113,7 @@ function InputPage(props) {
           <Tab label="Blood Sugar" />
           <Tab label="A1C" />
         </Tabs>
-        <InputGoalCard value={tab} index={0} />
+        <InputGoalCard value={tab} index={0} handleInputChange={handleInputChange}/>
         <InputBloodSugarCard
           value={tab}
           index={1}

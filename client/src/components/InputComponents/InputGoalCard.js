@@ -6,6 +6,9 @@ import Button from '@material-ui/core/Button';
 import FormLabel from '@material-ui/core/FormLabel';
 import FormGroup from '@material-ui/core/FormGroup';
 import InputFormGrid from './InputFormGrid';
+import InputAdornment from '@material-ui/core/InputAdornment';
+
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -44,9 +47,28 @@ export default function InputGoalCard(props) {
           >
           <InputFormGrid>
                 <FormGroup className={classes.formElements} noValidate autoComplete="off" >
-                      <FormLabel>What did you eat?</FormLabel>
-                        <TextField onChange={handleInputChange} value={state.q} id="filled-basic" label="Food" variant="filled"/>
-
+                <FormLabel>Calorie Goal:</FormLabel>
+          <TextField 
+            id="filled-basic" 
+            name="measurement"
+            onChange={props.handleInputChange}
+            label="2000" 
+            variant="filled"          
+            // InputProps={{
+            //   endAdornment: <InputAdornment position="end">%</InputAdornment>,
+            // }}
+          />
+                   <FormLabel>Carb Goal:</FormLabel>
+          <TextField 
+            id="filled-basic" 
+            name="measurement"
+            onChange={props.handleInputChange}
+            label="250" 
+            variant="filled"          
+            // InputProps={{
+            //   endAdornment: <InputAdornment position="end">%</InputAdornment>,
+            // }}
+          />
                     </FormGroup>
                   <FormGroup>
                 </FormGroup>

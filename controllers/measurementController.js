@@ -56,4 +56,17 @@ module.exports = {
       .then(dbA1C => res.json(dbA1C))
       .catch(err => res.status(422).json(err));
   },
+  createFoodGoal: async (req, res) => {
+    console.log(req.body)
+    const { enteredFoodGoal } = req.body;
+    const newFoodGOal = await db.FoodGoal.create({
+      enteredFoodGoal: enteredFoodGoal,
+    });
+    res.json(newMeasurement);
+  },
+  findAllFoodGoal: function(req, res) {
+    db.FoodGoal.find(req.query)
+      .then(dbFoodGoal => res.json(dbFoodGoal))
+      .catch(err => res.status(422).json(err));
+  },
 };
