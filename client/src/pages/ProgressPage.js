@@ -50,17 +50,19 @@ function ProgressPage(props) {
     const timesArray = [];
     const measurements = [];
     const AC1measurements = [];
-
     setBloodSugar(res.data[res.data.length - 1].enteredGlucose);
     setAfterMeal(res.data[res.data.length - 1].afterMeal);
     for (let index = 0; index < res.data.length; index++) {
       if (res.data[index].date) {
-        const date = res.data[index].date.substr(5, 5);
-        const dateTime = date + " - " + res.data[index].date.substr(11, 5);
-        timesArray.push(dateTime);
+        // const date = res.data[index].date.substr(5, 5);
+        // const dateTime = date + " - " + res.data[index].date.substr(11, 5);
+        // timesArray.push(dateTime);
       }
       if (res.data[index].enteredGlucose) {
         measurements.push(res.data[index].enteredGlucose);
+        const date = res.data[index].date.substr(5, 5);
+        const dateTime = date + " - " + res.data[index].date.substr(11, 5);
+        timesArray.push(dateTime);
       }
       // if (res.data[index].enteredA1C) {
       //   AC1measurements.push(res.data[index].enteredA1C);
