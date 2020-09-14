@@ -7,6 +7,7 @@ import InputPage from "../pages/InputPage";
 import ResourcesPage from "../pages/ResourcesPage";
 import JournalPage from "../pages/JournalPage";
 import ProgressPage from "../pages/ProgressPage";
+import Detail from "../pages/Detail";
 import { Route, Switch } from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import axios from "axios";
@@ -64,6 +65,11 @@ const AuthenticatedApp = () => {
             exact
             path="/journal"
             render={(props) => <JournalPage {...props} />}
+          />
+          <Route
+            exact
+            path="/api/:id"
+            render={(props) => <Detail {...props} />}
           />
         </Switch>
         <BottomNav />

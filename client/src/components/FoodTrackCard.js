@@ -17,10 +17,8 @@ const useStyles = makeStyles({
   },
 });
 
-export default function FoodTrackCard() {
+export default function FoodTrackCard(props) {
   const classes = useStyles();
-  const [calories, setCalories] = useState(200);
-  const [carbs, setCarbs] = useState(80);
 
   return (
     <Card className={classes.root}>
@@ -40,20 +38,10 @@ export default function FoodTrackCard() {
             Carbs today:<span>0</span> mg
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            My goal is:<span id="kCal">{calories}</span>cal and{" "}
-            <span id="Carbs">{carbs}</span> Carbs grams
+            My goal is: {props.foodGoal.calorieGoal} calories and {props.foodGoal.carbGoal} g Carbs / day
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary">
-          Set Calories Goal
-          {/* // onClick toggle display of th input */}
-        </Button>
-        <Button size="small" color="primary">
-          Set Carbs Goal
-        </Button>
-      </CardActions>
     </Card>
   );
 }

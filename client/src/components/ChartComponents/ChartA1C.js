@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { Line } from "react-chartjs-2";
-
-function ChartAC1(props) {
+function ChartA1C(props) {
   const chartData = {
     labels: props.labels,
     datasets: [
       {
-        label: "AC1",
+        label: "A1C",
         data: props.data,
         backgroundColor: "orange",
       },
@@ -14,7 +13,7 @@ function ChartAC1(props) {
     options: {
       title: {
         display: true,
-        text: "AC1 level",
+        text: "A1C level",
       },
     },
   };
@@ -26,5 +25,4 @@ function ChartAC1(props) {
     </div>
   );
 }
-
-export default ChartAC1;
+export default ChartA1C;
