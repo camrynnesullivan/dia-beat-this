@@ -16,16 +16,15 @@ export default function SubmitDialog(props) {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">{"Use Google's location service?"}</DialogTitle>
+        <DialogTitle id="alert-dialog-title">{"Your measurement has been recorded!"}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            Let Google help apps determine location. This means sending anonymous location data to
-            Google, even when no apps are running.
+            You
           </DialogContentText>
         </DialogContent>
         <DialogActions>
           <Button onClick={props.handleDialogClose} color="primary" autoFocus>
-            Agree
+            Complete
           </Button>
         </DialogActions>
       </Dialog>
