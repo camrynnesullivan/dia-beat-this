@@ -26,11 +26,12 @@ function InputPage(props) {
   const [tab, setTab] = useState(0);
   const [openDialog, setOpenDialog] = useState(false);
 
-  const [radioBS, setRadioBS] = useState(false);
-  const [radioA1C, setRadioA1C] = useState(true);
-  const [measurement, setMeasurement] = useState("");
+  const [radioBS, setRadioBS] = React.useState(false);
+  const [radioA1C, setRadioA1C] = React.useState(true);
+  const [measurement, setMeasurement] = React.useState("");
   const [carbsGoal, setCarbsGoal] = useState("");
   const [calorieGoal, setCalorieGoal] = useState("");
+
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -39,19 +40,19 @@ function InputPage(props) {
     });
   };
 
-  const handleCarbsGoalInputChange = (event) => {
-    const { name, value } = event.target;
-    setCarbsGoal({
-      [name]: value,
-    });
-  };
+  // const handleCarbsGoalInputChange = (event) => {
+  //   const { name, value } = event.target;
+  //   setCarbsGoal({
+  //     [name]: value,
+  //   });
+  // };
 
-  const handleCalorieGoalInputChange = (event) => {
-    const { name, value } = event.target;
-    setCalorieGoal({
-      [name]: value,
-    });
-  };
+  // const handleCalorieGoalInputChange = (event) => {
+  //   const { name, value } = event.target;
+  //   setCalorieGoal({
+  //     [name]: value,
+  //   });
+  // };
 
   const logBloodSugar = async () => {
     const { data } = await axios.post("/api/measurements", {
@@ -69,34 +70,36 @@ function InputPage(props) {
     console.log(data);
   };
 
-  const logFoodGoal = async () => {
-    console.log(carbsGoal, calorieGoal);
-    // const { data } = await axios.post("/api/FoodGoal", {
-    //   enteredA1C: parseInt(measurement.measurement)
-    // });
-    // console.log(data);
-  };
+  // const logFoodGoal = async () => {
+  //   console.log(carbsGoal, calorieGoal);
+  //   // const { data } = await axios.post("/api/FoodGoal", {
+  //   //   enteredA1C: parseInt(measurement.measurement)
+  //   // });
+  //   // console.log(data);
+  // };
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    setOpenDialog(true);
     if (tab === 2) {
       logA1C();
     } else if (tab === 1) {
       logBloodSugar();
     } else {
-      logFoodGoal();
+      // logA1C();
     }
- 
+    setOpenDialog(true);
   };
 
   const handleRadio = (e) => {
-  if (tab === 1) {
+    if (tab === 0) {
+      // logFood():
+    } else if (tab === 1) {
       setRadioBS(!radioBS);
     } else {
       setRadioA1C(!radioA1C);
     }
   };
+
 
   const handleChange = (event, newTabValue) => {
     setTab(newTabValue);
@@ -125,22 +128,21 @@ function InputPage(props) {
           textColor="primary"
           centered
         >
-          <Tab label="Food Goal" />
+          <Tab label="Food" />
           <Tab label="Blood Sugar" />
           <Tab label="A1C" />
         </Tabs>
-        <InputGoalCard value={tab} index={0} handleCarbsGoalInputChange={handleCarbsGoalInputChange} handleCalorieGoalInputChange={handleCalorieGoalInputChange}/>
+        <InputGoalCard value={tab} index={0} />
         <InputBloodSugarCard
           value={tab}
           index={1}
-          radio={props.radio}
           handleRadio={handleRadio}
           handleInputChange={handleInputChange}
         />
         <InputA1CCard
           value={tab}
           index={2}
-          radio={props.radioA1C}
+          radio={props.radio}
           handleRadio={handleRadio}
           handleInputChange={handleInputChange}
         />
