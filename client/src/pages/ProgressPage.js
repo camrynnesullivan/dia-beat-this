@@ -8,7 +8,7 @@ import FoodTrackCard from "../components/FoodTrackCard";
 import A1CCard from "../components/A1CCard";
 import API from "../utils/API";
 import ChartCard from "../components/ChartComponents/ChartCard";
-import ChartCardAC1 from "../components/ChartComponents/ChartA1C";
+import ChartCardA1C from "../components/ChartComponents/ChartA1C";
 import { treatingHBS, treatingLBS } from "../research";
 import { symptomsLBS, symptomsHBS } from "../research";
 import SymptomsCard from "../components/WarningComponents/SymptomsCard";
@@ -20,7 +20,7 @@ function ProgressPage(props) {
       console.log(res.data[0]);
     });
     const { dataA1c } = axios.get("/api/A1Cmeasurements").then(function (res) {
-      console.log(res.AC1data[0]);
+      console.log(res.A1Cdata[0]);
     });
   }
   const low = {
@@ -79,10 +79,10 @@ function ProgressPage(props) {
 
     for (let index = 0; index < res.dataA1c.length; index++) {
       if (res.dataA1c[index].date) {
-        const day = res.dataAc1[index].date.substr(5, 5);
+        const day = res.dataA1c[index].date.substr(5, 5);
         A1Cdays.push(day);
       }
-      if (res.dataAc1[index].enteredA1C) {
+      if (res.dataA1c[index].enteredA1C) {
         A1Cmeasurements.push(res.dataA1c[index].enteredA1C);
       }
     }
@@ -169,8 +169,7 @@ function ProgressPage(props) {
         />
       )}
       <A1CCard A1C={A1C} />
-      <ChartCard labels={A1CData.labels} data={A1CData.data} />
-      <FoodTrackCard />
+      <ChartCardA1C labels={A1CData.labels} data={A1CData.data} />
       <FoodTrackCard foodGoal={foodGoal} />
 
       <CareScheduleAccordion />

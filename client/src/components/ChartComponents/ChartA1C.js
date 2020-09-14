@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Line } from "react-chartjs-2";
 
-function ChartAC1(props) {
+function ChartA1C(props) {
   const chartData = {
     labels: props.labels,
     datasets: [
@@ -27,4 +27,4 @@ function ChartAC1(props) {
   );
 }
 
-export default ChartAC1;
+export default ChartA1C;
