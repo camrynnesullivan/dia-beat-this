@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-
 import BloodSugarCard from "../components/BloodSugarCard";
 import CardGrid from "../components/CardGrid";
 import WarningCard from "../components/WarningComponents/WarningCard";
@@ -8,11 +7,10 @@ import FoodTrackCard from "../components/FoodTrackCard";
 import A1CCard from "../components/A1CCard";
 import API from "../utils/API";
 import ChartCard from "../components/ChartComponents/ChartCard";
-import ChartCardAC1 from "../components/ChartComponents/ChartAC1";
+import ChartCardAC1 from "../components/ChartComponents/ChartA1C";
 import { treatingHBS, treatingLBS } from "../research";
 import { symptomsLBS, symptomsHBS } from "../research";
 import SymptomsCard from "../components/WarningComponents/SymptomsCard";
-import axios from "axios";
 
 function ProgressPage(props) {
   let lastLog;
@@ -20,7 +18,7 @@ function ProgressPage(props) {
     const { data } = axios.get("api/measurements").then(function (res) {
       console.log(res.data[0]);
     });
-    const { dataAc1 } = axios.get("/api/A1Cmeasurements").then(function (res) {
+    const { dataA1c } = axios.get("/api/A1Cmeasurements").then(function (res) {
       console.log(res.AC1data[0]);
     });
   }
@@ -41,7 +39,11 @@ function ProgressPage(props) {
 
   const [bloodSugar, setBloodSugar] = useState(180);
   const [afterMeal, setAfterMeal] = useState(true);
-  const [AC1Data, setAC1Data] = useState({
+  const [foodGoal, setFoodGoal] = useState({
+    calorieGoal: 2000,
+    carbGoal: 180,
+  });
+  const [A1CData, setA1CData] = useState({
     labels: [],
     data: [],
   });
@@ -57,8 +59,8 @@ function ProgressPage(props) {
   const setLevels = (res) => {
     const timesArray = [];
     const measurements = [];
-    const AC1days = [];
-    const AC1measurements = [];
+    const A1Cdays = [];
+    const A1Cmeasurements = [];
 
     setBloodSugar(res.data[res.data.length - 1].enteredGlucose);
     setAfterMeal(res.data[res.data.length - 1].afterMeal);
@@ -73,13 +75,13 @@ function ProgressPage(props) {
       }
     }
 
-    for (let index = 0; index < res.dataAc1.length; index++) {
-      if (res.dataAc1[index].date) {
+    for (let index = 0; index < res.dataA1c.length; index++) {
+      if (res.dataA1c[index].date) {
         const day = res.dataAc1[index].date.substr(5, 5);
-        AC1days.push(day);
+        A1Cdays.push(day);
       }
       if (res.dataAc1[index].enteredA1C) {
-        AC1measurements.push(res.dataAc1[index].enteredA1C);
+        A1Cmeasurements.push(res.dataA1c[index].enteredA1C);
       }
     }
     setTimes(timesArray);
@@ -88,12 +90,12 @@ function ProgressPage(props) {
       labels: timesArray,
       data: measurements,
     });
-    setAC1Data({
-      labels: AC1days,
-      data: AC1measurements,
+    setA1CData({
+      labels: A1Cdays,
+      data: A1Cmeasurements,
     });
-    console.log(AC1days);
-    console.log(AC1measurements);
+    console.log(A1Cdays);
+    console.log(A1Cmeasurements);
     console.log(measurements);
     console.log(times);
 
@@ -129,6 +131,17 @@ function ProgressPage(props) {
       .catch((err) => console.log(err));
   }, [A1C]);
 
+  useEffect(() => {
+    API.getSavedFoodGoal()
+      .then((res) =>
+        setFoodGoal({
+          calorieGoal: res.data[res.data.length - 1].calorieGoal,
+          carbGoal: res.data[res.data.length - 1].carbGoal,
+        })
+      )
+      .catch((err) => console.log(err));
+  }, [foodGoal]);
+
   return (
     <CardGrid>
       {/* // Play with these values to see how they render appropriately! Delete this entire div once information is successfully being retrieved from database */}
@@ -154,8 +167,9 @@ function ProgressPage(props) {
         />
       )}
       <A1CCard A1C={A1C} />
-      <ChartCard labels={AC1Data.labels} data={AC1Data.data} />
+      <ChartCard labels={A1CData.labels} data={A1CData.data} />
       <FoodTrackCard />
+      <FoodTrackCard foodGoal={foodGoal} />
 
       <CareScheduleAccordion />
     </CardGrid>

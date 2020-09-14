@@ -6,7 +6,7 @@ function ChartAC1(props) {
     labels: props.labels,
     datasets: [
       {
-        label: "AC1",
+        label: "A1C",
         data: props.data,
         backgroundColor: "orange",
       },
@@ -14,7 +14,7 @@ function ChartAC1(props) {
     options: {
       title: {
         display: true,
-        text: "AC1 level",
+        text: "A1C level",
       },
     },
   };
