@@ -1,3 +1,4 @@
+
 import React from "react";
 import JournalComponent from "../components/Journal/JournalComponent";
 import PostsList from "../components/Journal/PostsList";
@@ -19,3 +20,4 @@ function JournalPage(props) {
 }
 
 export default JournalPage;
+
