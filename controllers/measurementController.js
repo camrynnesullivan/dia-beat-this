@@ -44,9 +44,10 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   createNewA1C: async (req, res) => {
-    const { enteredAC1 } = req.body;
+    console.log(req.body)
+    const { enteredA1C } = req.body;
     const newMeasurement = await db.A1C.create({
-      enteredAC1: enteredAC1,
+      enteredA1C: enteredA1C,
     });
     res.json(newMeasurement);
   },

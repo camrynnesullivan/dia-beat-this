@@ -52,6 +52,7 @@ export default function InputA1CCard(props) {
          <FormLabel>What is your A1C number?</FormLabel>
           <TextField 
             id="filled-basic" 
+            name="measurement"
             onChange={props.handleInputChange}
             label="A1C number" 
             variant="filled"          

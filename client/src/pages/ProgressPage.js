@@ -35,7 +35,7 @@ function ProgressPage(props) {
   };
   // Last Measurement from database
 
-  const [bloodSugar, setBloodSugar] = useState(180);
+  const [bloodSugar, setBloodSugar] = useState(190);
   const [afterMeal, setAfterMeal] = useState(true);
   const [storedData, setStoredData] = useState({
     labels: [],
@@ -62,16 +62,16 @@ function ProgressPage(props) {
       }
     }
     setTimes(timesArray);
-    console.log(timesArray);
-    console.log(bloodSugar);
-    // setStoredData({
-    //   labels: times,
-    //   data: measurements,
-    // });
-    // const labels = res.data.date;
-    // const data = res.data.enteredGlucose;
-    console.log(measurements);
-    console.log(times);
+    // console.log(timesArray);
+    // console.log(bloodSugar);
+    // // setStoredData({
+    // //   labels: times,
+    // //   data: measurements,
+    // // });
+    // // const labels = res.data.date;
+    // // const data = res.data.enteredGlucose;
+    // console.log(measurements);
+    // console.log(times);
 
     if (!afterMeal) {
       if (bloodSugar < 80) {
@@ -101,7 +101,7 @@ function ProgressPage(props) {
 
   useEffect(() => {
     API.getSavedA1C()
-      .then((res) => console.log(res.data))
+      .then((res) => setA1C(res.data[res.data.length - 1].enteredA1C))
       .catch((err) => console.log(err));
   }, [A1C]);
 

@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const A1CSchema = new Schema({
-  enteredAC1: {
+  enteredA1C: {
     type: Number,
     trim: true,
   },

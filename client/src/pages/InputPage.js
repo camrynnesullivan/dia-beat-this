@@ -44,21 +44,21 @@ function InputPage(props) {
   };
 
   const logA1C = async () => {
-    console.log(measurement);
+    console.log(measurement.measurement);
     const { data } = await axios.post("/api/A1Cmeasurements", {
-      enteredAC1: parseInt(measurement.measurement),
+      enteredA1C: parseInt(measurement.measurement)
     });
     console.log(data);
   };
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    if (tab === 0) {
-      // logFood():
+    if (tab === 2) {
+      logA1C();
     } else if (tab === 1) {
       logBloodSugar();
     } else {
-      logA1C();
+      // logA1C();
     }
   };
 
