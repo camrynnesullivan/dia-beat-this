@@ -1,8 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
+
 import JournalComponent from "../components/Journal/JournalComponent";
 
 function JournalPage(props) {
-  return <JournalComponent />;
+  return (
+    <div>
+      <JournalComponent />
+    </div>
+  );
 }
 
 export default JournalPage;
