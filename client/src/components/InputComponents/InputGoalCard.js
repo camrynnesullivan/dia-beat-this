@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-import axios from 'axios';
 import Button from '@material-ui/core/Button';
 import FormLabel from '@material-ui/core/FormLabel';
 import FormGroup from '@material-ui/core/FormGroup';
@@ -12,6 +11,9 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 
 const useStyles = makeStyles((theme) => ({
   root: {
+  },
+  formElements: {
+    padding: 10,
   },
 }));
 
@@ -46,32 +48,29 @@ export default function InputGoalCard(props) {
             {...props.other}
           >
           <InputFormGrid>
-                <FormGroup className={classes.formElements} noValidate autoComplete="off" >
+              <FormGroup className={classes.formElements} noValidate autoComplete="off" >
                 <FormLabel>Calorie Goal:</FormLabel>
-          <TextField 
-            id="filled-basic" 
-            name="calorieGoal"
-            onChange={props.handleCalorieInputChange}
-            label="2000" 
-            variant="filled"          
-            // InputProps={{
-            //   endAdornment: <InputAdornment position="end">%</InputAdornment>,
-            // }}
-          />
+                <TextField 
+                  id="filled-basic" 
+                  name="calorieGoal"
+                  onChange={props.handleCalorieInputChange}
+                  label="2000" 
+                  variant="filled"          
+                />
+              </FormGroup>
+              <FormGroup className={classes.formElements} noValidate autoComplete="off" >
                    <FormLabel>Carb Goal:</FormLabel>
-          <TextField 
-            id="filled-basic" 
-            name="carbGoal"
-            onChange={props.handleCarbInputChange}
-            label="250" 
-            variant="filled"          
-            // InputProps={{
-            //   endAdornment: <InputAdornment position="end">%</InputAdornment>,
-            // }}
-          />
-                    </FormGroup>
-                  <FormGroup>
-                </FormGroup>
+                    <TextField 
+                      id="filled-basic" 
+                      name="carbGoal"
+                      onChange={props.handleCarbInputChange}
+                      label="250" 
+                      variant="filled"          
+                      InputProps={{
+                        endAdornment: <InputAdornment position="end">g</InputAdornment>,
+                      }}
+                    />
+              </FormGroup>
           </InputFormGrid>
 </div>
 )
