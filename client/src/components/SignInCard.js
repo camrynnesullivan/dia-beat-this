@@ -7,6 +7,7 @@ import Grid from '@material-ui/core/Grid';
 // import { faUnlockAlt } from '@fortawesome/free-solid-svg-icons';
 // import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import AuthCardGrid from "./AuthCardGrid"
+import LandingCard from './LandingCard';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,7 +22,8 @@ export default function SignInCard(props) {
   const classes = useStyles();
 
   return (
-<AuthCardGrid header={props.header} handle={props.handle}>
+  <AuthCardGrid header={props.header} handle={props.handle}>
+      <LandingCard />
       <TextField
             variant="outlined"
             margin="normal"

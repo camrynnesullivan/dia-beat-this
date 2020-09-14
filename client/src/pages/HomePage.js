@@ -3,6 +3,8 @@ import Hero from "../components/Hero"
 import WelcomeCard from "../components/WelcomeCard"
 import InsulinTimeline from "../components/InsulinTimeline"
 import { Typography } from "@material-ui/core"
+import BottomNav from "../components/BottomNav"
+import LandingCard from "../components/LandingCard"
 
 
 function HomePage(props) {
@@ -24,7 +26,7 @@ function HomePage(props) {
       </div>
       <InsulinTimeline />
     </div>
-  )
+  );
 }
 
-export default HomePage
+export default HomePage;

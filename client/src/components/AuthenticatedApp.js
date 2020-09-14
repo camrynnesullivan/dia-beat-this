@@ -5,10 +5,12 @@ import NavBar from "./NavBar";
 import HomePage from "../pages/HomePage";
 import InputPage from "../pages/InputPage";
 import ResourcesPage from "../pages/ResourcesPage";
+import JournalPage from "../pages/JournalPage";
 import ProgressPage from "../pages/ProgressPage";
 import { Route, Switch } from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import axios from "axios";
+import BottomNav from "./BottomNav";
 
 const AuthenticatedApp = () => {
   const [state, dispatch] = useGlobalContext();
@@ -53,12 +55,18 @@ const AuthenticatedApp = () => {
             path="/progress"
             render={(props) => <ProgressPage {...props} />}
           />
-                    <Route
+          <Route
             exact
             path="/resources"
             render={(props) => <ResourcesPage {...props} />}
           />
+          <Route
+            exact
+            path="/journal"
+            render={(props) => <JournalPage {...props} />}
+          />
         </Switch>
+        <BottomNav />
       </Router>
     </div>
   );

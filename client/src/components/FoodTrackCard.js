@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
@@ -19,6 +19,9 @@ const useStyles = makeStyles({
 
 export default function FoodTrackCard() {
   const classes = useStyles();
+  const [calories, setCalories] = useState(200);
+  const [carbs, setCarbs] = useState(80);
+
   return (
     <Card className={classes.root}>
       <CardActionArea>
@@ -37,14 +40,15 @@ export default function FoodTrackCard() {
             Carbs today:<span>0</span> mg
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            My goal is:<span>1800</span>cal and <span>200</span> carb grams
+            My goal is:<span id="kCal">{calories}</span>cal and{" "}
+            <span id="Carbs">{carbs}</span> Carbs grams
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
         <Button size="small" color="primary">
           Set Calories Goal
-          {/* add function and an input that will allow to set a number-goal  */}
+          {/* // onClick toggle display of th input */}
         </Button>
         <Button size="small" color="primary">
           Set Carbs Goal

@@ -134,7 +134,7 @@ const symptomsLBS = {
 };
 
 const treatingHBS = {
-  title: "How to Raise Your Blood Sugar",
+  title: "How to Adjust Your Blood Sugar",
   subtitle:
     "High blood sugar, also known as 'hyperglycemia', can be lowered by doing some of these steps",
   todos: [
@@ -147,7 +147,7 @@ const treatingHBS = {
 };
 
 const treatingLBS = {
-  title: "How to Lower Your Blood Sugar",
+  title: "How to Adjust Your Blood Sugar",
   subtitle:
     "Low blood sugar, also known as 'hypoglycemia', can be raised by doing some of these steps",
 
