@@ -4,7 +4,8 @@ import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 import Chart from "./Chart";
-
+import Chart2 from "./Chart2";
+import ChartAC1 from "./ChartAC1";
 const useStyles = makeStyles({
   root: {
     width: 450,
@@ -14,13 +15,15 @@ const useStyles = makeStyles({
   },
 });
 
-export default function ChartCard() {
+export default function ChartCard(props) {
   const classes = useStyles();
   return (
     <Card className={classes.root}>
       <CardActionArea>
         <CardContent>
           <Chart />
+          <Chart2 labels={props.labels} data={props.data} />
+          <ChartAC1 />
         </CardContent>
       </CardActionArea>
     </Card>
