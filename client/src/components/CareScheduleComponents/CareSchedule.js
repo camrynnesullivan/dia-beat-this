@@ -37,8 +37,41 @@ export default function CareScheduleAccordion() {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
+  const storedCheckbox = localStorage.getItem("checkbox1") ? JSON.parse(localStorage.getItem("checkbox1")) : false
+
+  const [checkbox1, setCheckbox1] = React.useState(storedCheckbox);
+  console.log(JSON.parse(storedCheckbox))
+
+  const storedCheckbox2 = localStorage.getItem("checkbox2") ? JSON.parse(localStorage.getItem("checkbox2")) : false
+
+  const [checkbox2, setCheckbox2] = React.useState(storedCheckbox2);
+  console.log(JSON.parse(storedCheckbox2))
+
+  const storedCheckbox3 = localStorage.getItem("checkbox3") ? JSON.parse(localStorage.getItem("checkbox3")) : false
+
+  const [checkbox3, setCheckbox3] = React.useState(storedCheckbox3);
+  console.log(JSON.parse(storedCheckbox3))
+
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
+  };
+
+  function handleCheckbox(checkbox){
+    checkbox = !checkbox
+    setCheckbox1(checkbox)
+    localStorage.setItem("checkbox1", checkbox)
+  };
+
+  function handleCheckbox2(checkbox){
+    checkbox = !checkbox
+    setCheckbox2(checkbox)
+    localStorage.setItem("checkbox2", checkbox)
+  };
+
+  function handleCheckbox3(checkbox){
+    checkbox = !checkbox
+    setCheckbox3(checkbox)
+    localStorage.setItem("checkbox3", checkbox)
   };
 
   return (
@@ -83,7 +116,9 @@ export default function CareScheduleAccordion() {
               >
                 <FormControlLabel
                   aria-label="Acknowledge"
-                  onClick={(event) => event.stopPropagation()}
+                  type="checkbox"
+                  onClick={(event) => {event.stopPropagation(); handleCheckbox(checkbox1)}}
+                  checked={checkbox1}
                   onFocus={(event) => event.stopPropagation()}
                   control={<Checkbox />}
                   label={careSchedule.daily[0].title}
@@ -105,8 +140,9 @@ export default function CareScheduleAccordion() {
               >
                 <FormControlLabel
                   aria-label="Acknowledge"
-                  onClick={(event) => event.stopPropagation()}
-                  onFocus={(event) => event.stopPropagation()}
+                  type="checkbox"
+                  onClick={(event) => {event.stopPropagation(); handleCheckbox2(checkbox2)}}
+                  checked={checkbox2}                  onFocus={(event) => event.stopPropagation()}
                   control={<Checkbox />}
                   label={careSchedule.daily[1].title}
                 />
@@ -127,8 +163,9 @@ export default function CareScheduleAccordion() {
               >
                 <FormControlLabel
                   aria-label="Acknowledge"
-                  onClick={(event) => event.stopPropagation()}
-                  onFocus={(event) => event.stopPropagation()}
+                  type="checkbox"
+                  onClick={(event) => {event.stopPropagation(); handleCheckbox3(checkbox3)}}
+                  checked={checkbox3}                    onFocus={(event) => event.stopPropagation()}
                   control={<Checkbox />}
                   label={careSchedule.daily[2].title}
                 />
@@ -149,6 +186,7 @@ export default function CareScheduleAccordion() {
               >
                 <FormControlLabel
                   aria-label="Acknowledge"
+                  type="checkbox"
                   onClick={(event) => event.stopPropagation()}
                   onFocus={(event) => event.stopPropagation()}
                   control={<Checkbox />}
@@ -171,6 +209,7 @@ export default function CareScheduleAccordion() {
               >
                 <FormControlLabel
                   aria-label="Acknowledge"
+                  type="checkbox"
                   onClick={(event) => event.stopPropagation()}
                   onFocus={(event) => event.stopPropagation()}
                   control={<Checkbox />}
@@ -215,6 +254,7 @@ export default function CareScheduleAccordion() {
               >
                 <FormControlLabel
                   aria-label="Acknowledge"
+                  type="checkbox"
                   onClick={(event) => event.stopPropagation()}
                   onFocus={(event) => event.stopPropagation()}
                   control={<Checkbox />}
@@ -237,6 +277,7 @@ export default function CareScheduleAccordion() {
               >
                 <FormControlLabel
                   aria-label="Acknowledge"
+                  type="checkbox"
                   onClick={(event) => event.stopPropagation()}
                   onFocus={(event) => event.stopPropagation()}
                   control={<Checkbox />}
@@ -281,6 +322,7 @@ export default function CareScheduleAccordion() {
               >
                 <FormControlLabel
                   aria-label="Acknowledge"
+                  type="checkbox"
                   onClick={(event) => event.stopPropagation()}
                   onFocus={(event) => event.stopPropagation()}
                   control={<Checkbox />}
@@ -303,6 +345,7 @@ export default function CareScheduleAccordion() {
               >
                 <FormControlLabel
                   aria-label="Acknowledge"
+                  type="checkbox"
                   onClick={(event) => event.stopPropagation()}
                   onFocus={(event) => event.stopPropagation()}
                   control={<Checkbox />}
@@ -325,6 +368,7 @@ export default function CareScheduleAccordion() {
               >
                 <FormControlLabel
                   aria-label="Acknowledge"
+                  type="checkbox"
                   onClick={(event) => event.stopPropagation()}
                   onFocus={(event) => event.stopPropagation()}
                   control={<Checkbox />}
@@ -369,6 +413,7 @@ export default function CareScheduleAccordion() {
               >
                 <FormControlLabel
                   aria-label="Acknowledge"
+                  type="checkbox"
                   onClick={(event) => event.stopPropagation()}
                   onFocus={(event) => event.stopPropagation()}
                   control={<Checkbox />}
@@ -391,6 +436,7 @@ export default function CareScheduleAccordion() {
               >
                 <FormControlLabel
                   aria-label="Acknowledge"
+                  type="checkbox"
                   onClick={(event) => event.stopPropagation()}
                   onFocus={(event) => event.stopPropagation()}
                   control={<Checkbox />}
@@ -413,6 +459,7 @@ export default function CareScheduleAccordion() {
               >
                 <FormControlLabel
                   aria-label="Acknowledge"
+                  type="checkbox"
                   onClick={(event) => event.stopPropagation()}
                   onFocus={(event) => event.stopPropagation()}
                   control={<Checkbox />}
@@ -435,6 +482,7 @@ export default function CareScheduleAccordion() {
               >
                 <FormControlLabel
                   aria-label="Acknowledge"
+                  type="checkbox"
                   onClick={(event) => event.stopPropagation()}
                   onFocus={(event) => event.stopPropagation()}
                   control={<Checkbox />}
@@ -457,6 +505,7 @@ export default function CareScheduleAccordion() {
               >
                 <FormControlLabel
                   aria-label="Acknowledge"
+                  type="checkbox"
                   onClick={(event) => event.stopPropagation()}
                   onFocus={(event) => event.stopPropagation()}
                   control={<Checkbox />}
@@ -501,6 +550,7 @@ export default function CareScheduleAccordion() {
               >
                 <FormControlLabel
                   aria-label="Acknowledge"
+                  type="checkbox"
                   onClick={(event) => event.stopPropagation()}
                   onFocus={(event) => event.stopPropagation()}
                   control={<Checkbox />}
@@ -523,6 +573,7 @@ export default function CareScheduleAccordion() {
               >
                 <FormControlLabel
                   aria-label="Acknowledge"
+                  type="checkbox"
                   onClick={(event) => event.stopPropagation()}
                   onFocus={(event) => event.stopPropagation()}
                   control={<Checkbox />}
@@ -567,6 +618,7 @@ export default function CareScheduleAccordion() {
               >
                 <FormControlLabel
                   aria-label="Acknowledge"
+                  type="checkbox"
                   onClick={(event) => event.stopPropagation()}
                   onFocus={(event) => event.stopPropagation()}
                   control={<Checkbox />}
@@ -589,6 +641,7 @@ export default function CareScheduleAccordion() {
               >
                 <FormControlLabel
                   aria-label="Acknowledge"
+                  type="checkbox"
                   onClick={(event) => event.stopPropagation()}
                   onFocus={(event) => event.stopPropagation()}
                   control={<Checkbox />}
