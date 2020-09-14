@@ -3,16 +3,14 @@ import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Tab from "@material-ui/core/Tab";
 import Tabs from "@material-ui/core/Tabs";
-import InputFoodCard from "../components/InputComponents/InputFoodCard";
+import InputGoalCard from "../components/InputComponents/InputGoalCard";
 import InputBloodSugarCard from "../components/InputComponents/InputBloodSugarCard";
 import InputA1CCard from "../components/InputComponents/InputA1CCard";
 import InputPageGrid from "../components/InputComponents/InputPageGrid";
-import Card from "@material-ui/core/Card";
+import SubmitDialog from "../components/InputComponents/SubmitDialog"
 import CardContent from "@material-ui/core/CardContent";
 import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
-import Grid from "@material-ui/core/Grid";
-import API from "../utils/API";
 import axios from "axios";
 
 const useStyles = makeStyles({
@@ -26,10 +24,14 @@ const useStyles = makeStyles({
 function InputPage(props) {
   const classes = useStyles();
   const [tab, setTab] = useState(0);
+  const [openDialog, setOpenDialog] = useState(false);
 
   const [radioBS, setRadioBS] = React.useState(false);
   const [radioA1C, setRadioA1C] = React.useState(true);
   const [measurement, setMeasurement] = React.useState("");
+  const [carbGoal, setCarbGoal] = useState("");
+  const [calorieGoal, setCalorieGoal] = useState("");
+
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -38,42 +40,55 @@ function InputPage(props) {
     });
   };
 
+  const handleCarbInputChange = (event) => {
+    const { name, value } = event.target;
+    setCarbGoal(value);
+  };
+
+  const handleCalorieInputChange = (event) => {
+    const { name, value } = event.target;
+    setCalorieGoal(value);
+  };
+
   const logBloodSugar = async () => {
     const { data } = await axios.post("/api/measurements", {
       enteredGlucose: parseInt(measurement.measurement),
       afterMeal: radioBS.valueOf(),
     });
     console.log(data);
-    // console.log(radioBS, measurement);
-    // let glucoseData = {
-    //   enteredGlucose: parseInt(measurement.measurement),
-    //   afterMeal: radioBS.valueOf(),
-    // };
-    // console.log(glucoseData);
-    // API.saveGlycemia(glucoseData).then((res) => console.log(res.data));
   };
 
-  const logA1C = () => {
-    console.log(radioA1C, measurement);
-    // const glucoseData = { measurement, radio };
-    // API.saveGlycemia(glucoseData).then((res) => console.log(res.data));
+  const logA1C = async () => {
+    console.log(measurement.measurement);
+    const { data } = await axios.post("/api/A1Cmeasurements", {
+      enteredA1C: parseInt(measurement.measurement)
+    });
+    console.log(data);
+  };
+
+  const logFoodGoal = async () => {
+    console.log(carbGoal, calorieGoal);
+    const { data } = await axios.post("/api/FoodGoal", {
+      calorieGoal: carbGoal,
+      carbGoal: calorieGoal,
+    });
+    console.log(data);
   };
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    if (tab === 0) {
-      // logFood():
+    if (tab === 2) {
+      logA1C();
     } else if (tab === 1) {
       logBloodSugar();
     } else {
-      logA1C();
+      logFoodGoal();
     }
+    setOpenDialog(true);
   };
 
   const handleRadio = (e) => {
-    if (tab === 0) {
-      // logFood():
-    } else if (tab === 1) {
+if (tab === 1) {
       setRadioBS(!radioBS);
     } else {
       setRadioA1C(!radioA1C);
@@ -82,6 +97,10 @@ function InputPage(props) {
 
   const handleChange = (event, newTabValue) => {
     setTab(newTabValue);
+  };
+
+  const handleDialogClose = () => {
+    setOpenDialog(false);
   };
 
   return (
@@ -106,7 +125,7 @@ function InputPage(props) {
           <Tab label="Blood Sugar" />
           <Tab label="A1C" />
         </Tabs>
-        <InputFoodCard value={tab} index={0} />
+        <InputGoalCard value={tab} index={0} handleCarbInputChange={handleCarbInputChange} handleCalorieInputChange={handleCalorieInputChange}/>
         <InputBloodSugarCard
           value={tab}
           index={1}
@@ -130,6 +149,7 @@ function InputPage(props) {
       >
         Submit
       </Button>
+      <SubmitDialog tab={tab} measurement={measurement} carbGoal={carbGoal} calorieGoal={calorieGoal} openDialog={openDialog} handleDialogClose={handleDialogClose}/>
     </InputPageGrid>
   );
 }

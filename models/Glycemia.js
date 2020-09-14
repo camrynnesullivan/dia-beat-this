@@ -1,13 +1,15 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const glycemiaSchema = new Schema({
+const GlycemiaSchema = new Schema({
   enteredGlucose: {
     type: Number,
     trim: true,
+    required: true
   },
   afterMeal: {
     type: Boolean,
+    required: true
   },
   date: {
     type: Date,
@@ -15,6 +17,6 @@ const glycemiaSchema = new Schema({
   },
 });
 
-const Glycemia = mongoose.model("Glycemia", glycemiaSchema);
+const Glycemia = mongoose.model("Glycemia", GlycemiaSchema);
 
 module.exports = Glycemia;

@@ -1,4 +1,7 @@
 module.exports = {
   User: require("./User"),
-  Glycemia: require("./BloodSugar"),
+  Glycemia: require("./Glycemia"),
+  A1C: require("./A1C"),
+  FoodGoal: require("./FoodGoal"),
+  Journal: require("./Journal"),
 };

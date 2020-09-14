@@ -1,26 +1,25 @@
 import React, { useState } from "react";
 import { Line } from "react-chartjs-2";
 
-function Chart2(props) {
+function ChartAC1(props) {
   const chartData = {
     labels: props.labels,
     datasets: [
       {
-        label: "Glucose",
+        label: "AC1",
         data: props.data,
-        backgroundColor: "red",
+        backgroundColor: "orange",
       },
     ],
     options: {
       title: {
         display: true,
-        text: "Glucose level",
+        text: "AC1 level",
       },
     },
   };
   console.log(props.labels);
   console.log(props.data);
-
   return (
     <div className="chart">
       <Line data={chartData} options={{}} />
@@ -28,4 +27,4 @@ function Chart2(props) {
   );
 }
 
-export default Chart2;
+export default ChartAC1;
