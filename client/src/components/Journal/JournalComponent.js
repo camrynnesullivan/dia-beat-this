@@ -1,117 +1,20 @@
-// import React, { useRef } from "react";
-// import { useStoreContext } from "../../context/GlobalState";
-// import { ADD_POST, LOADING } from "../../context/actions";
-// import Journal from "../../utils/JournalUtil";
-
-// import Card from "@material-ui/core/Card";
-// import { makeStyles } from "@material-ui/core/styles";
-// import TextField from "@material-ui/core/TextField";
-
-// const useStyles = makeStyles((theme) => ({
-//   root: {
-//     "& .MuiTextField-root": {
-//       margin: theme.spacing(1),
-//       width: "25ch",
-//     },
-//   },
-// }));
-
-// function JournalComponent() {
-//   const classes = useStyles();
-//   // const [value, setValue] = React.useState("Controlled");
-//   // const handleChange = (event) => {
-//   //   setValue(event.target.value);
-//   // };
-
-//   // const bodyRef = useRef();
-
-//   // const [state, dispatch] = useStoreContext();
-
-//   // const handleSubmit = (e) => {
-//   //   e.preventDefault();
-//   //   dispatch({ type: LOADING });
-//   //   Journal.savePost({
-//   //     body: bodyRef.current.value,
-//   //   })
-//   //     .then((result) => {
-//   //       dispatch({
-//   //         type: ADD_POST,
-//   //         post: result.data,
-//   //       });
-//   //     })
-//   //     .catch((err) => console.log(err));
-
-//   //   bodyRef.current.value = "";
-//   // };
-
-//   return (
-//     // <Card>
-//     //   <form className={classes.container} noValidate>
-//     //     <TextField
-//     //       id="datetime-local"
-//     //       label="Enter the Date and Time"
-//     //       type="datetime-local"
-//     //       defaultValue="2017-05-24T10:30"
-//     //       className={classes.textField}
-//     //       InputLabelProps={{
-//     //         shrink: true,
-//     //       }}
-//     //     />
-
-//     //     <TextField
-//     //       id="outlined-multiline-static"
-//     //       // inputRef={props.bodyRef}
-//     //       label="Multiline"
-//     //       multiline
-//     //       rows={4}
-//     //       defaultValue="Default Value"
-//     //       variant="outlined"
-//     //     />
-//     //   </form>
-//     <div>
-//       <h1>Create a blog post</h1>
-//       <form onSubmit={handleSubmit}>
-//         {/* <input className="form-control mb-5" required ref={titleRef} placeholder="Title" /> */}
-//         <textarea
-//           className="form-control mb-5"
-//           required
-//           ref={bodyRef}
-//           placeholder="Body"
-//         />
-//         {/* <input className="form-control mb-5" ref={authorRef} placeholder="Screen name" /> */}
-//         <button
-//           className="btn btn-success mt-3 mb-5"
-//           disabled={state.loading}
-//           type="submit"
-//         >
-//           Save Post
-//         </button>
-//       </form>
-//     </div>
-//     // </Card>
-//   );
-// }
-
-// export default JournalComponent;
-
 import React, { useRef } from "react";
-import { useStoreContext } from "../../context/GlobalState";
+import { useGlobalContext } from "../../context/GlobalContext";
 import { ADD_POST, LOADING } from "../../context/actions";
-import JournalUtil from "../../utils/JournalUtil";
+import API from "../../utils/API";
 
 function JournalComponent() {
-  const titleRef = useRef();
+  const dateRef = useRef();
   const bodyRef = useRef();
-  const authorRef = useRef();
-  const [state, dispatch] = useStoreContext();
+
+  const [state, dispatch] = useGlobalContext();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch({ type: LOADING });
-    JournalUtil.savePost({
-      title: titleRef.current.value,
+    API.savePost({
+      date: dateRef.current.value,
       body: bodyRef.current.value,
-      author: authorRef.current.value,
     })
       .then((result) => {
         dispatch({
@@ -121,37 +24,45 @@ function JournalComponent() {
       })
       .catch((err) => console.log(err));
 
-    titleRef.current.value = "";
     bodyRef.current.value = "";
   };
 
+  let newDate = new Date();
+  let date = newDate.getDate();
+  let month = newDate.getMonth() + 1;
+  let year = newDate.getFullYear();
+
+  const fullDate = month + "-" + date + "-" + year;
   return (
     <div>
-      <h1>Create a blog post</h1>
+      <div className="jumbotron">
+        <img
+          className="img-fluid img-thumbnail"
+          src="https://images.pexels.com/photos/459688/pexels-photo-459688.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+        />
+      </div>
+      <h1>How are you feeling today?</h1>
       <form className="form-group mt-5 mb-5" onSubmit={handleSubmit}>
         <input
           className="form-control mb-5"
           required
-          ref={titleRef}
-          placeholder="Title"
+          ref={dateRef}
+          placeholder={fullDate}
+          readOnly
         />
         <textarea
           className="form-control mb-5"
           required
           ref={bodyRef}
-          placeholder="Body"
+          placeholder="Report how you are feeling today here"
         />
-        <input
-          className="form-control mb-5"
-          ref={authorRef}
-          placeholder="Screen name"
-        />
+
         <button
           className="btn btn-success mt-3 mb-5"
           disabled={state.loading}
           type="submit"
         >
-          Save Post
+          Save
         </button>
       </form>
     </div>
