@@ -27,6 +27,4 @@ Router.route("/api/FoodGoal")
   .post(measurementController.createNewFoodGoal)
   .get(measurementController.findAllFoodGoal);
 
-
-
 module.exports = router;
