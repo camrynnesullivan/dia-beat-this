@@ -32,7 +32,7 @@ export default {
   },
   // Gets the post with the given id
   getPost: function (id) {
-    return axios.get("/api" + id);
+    return axios.get("/api/" + id);
   },
   // Deletes the post with the given id
   deletePost: function (id) {
