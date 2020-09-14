@@ -50,4 +50,9 @@ module.exports = {
     });
     res.json(newMeasurement);
   },
+  findAllA1C: function(req, res) {
+    db.A1C.find(req.query)
+      .then(dbA1C => res.json(dbA1C))
+      .catch(err => res.status(422).json(err));
+  },
 };

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, componentDidMount } from "react";
 
 import BloodSugarCard from "../components/BloodSugarCard";
-
+import A1CCard from "../components/A1CCard";
 import CardGrid from "../components/CardGrid";
 import WarningCard from "../components/WarningComponents/WarningCard";
 import CareScheduleAccordion from "../components/CareScheduleComponents/CareSchedule";
@@ -41,6 +41,7 @@ function ProgressPage(props) {
     labels: [],
     data: [],
   });
+  const [A1C, setA1C] = useState(9);
   const [times, setTimes] = useState([]);
   const [measurements, setMeasurements] = useState([]);
   // Hooks rendering the appropiate cards based on blood sugar range
@@ -98,6 +99,12 @@ function ProgressPage(props) {
       .catch((err) => console.log(err));
   }, [afterMeal, bloodSugar]);
 
+  useEffect(() => {
+    API.getSavedA1C()
+      .then((res) => console.log(res.data))
+      .catch((err) => console.log(err));
+  }, [A1C]);
+
   return (
     <CardGrid>
       {/* // Play with these values to see how they render appropriately! Delete this entire div once information is successfully being retrieved from database */}
@@ -123,6 +130,7 @@ function ProgressPage(props) {
           symptoms={level.symptoms.symptoms}
         />
       )}
+      <A1CCard A1C={A1C} />
       <FoodTrackCard />
 
       <CareScheduleAccordion />

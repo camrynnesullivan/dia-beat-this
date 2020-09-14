@@ -14,6 +14,10 @@ const measurementController = require("../../controllers/measurementController")
 //   .put(measurementController.update)
 //   .delete(measurementController.remove);
 
+Router.route("/api/A1Cmeasurements")
+  .post(measurementController.createNewA1C)
+  .get(measurementController.findAllA1C);
+
 Router.route("/api/measurements")
   .post(measurementController.createNew)
   .get(measurementController.findAll);
