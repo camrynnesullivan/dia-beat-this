@@ -14,14 +14,16 @@ Router.route("/journal")
   .post(journalController.createNew)
   .get(journalController.findAll);
 
+Router.route("/:id").get(journalController.findById);
+// .put(journalController.update)
+// .delete(journalController.remove);
+
 Router.route("/A1Cmeasurements")
   .post(measurementController.createNewA1C)
   .get(measurementController.findAllA1C);
 
-
-Router.route("/FoodGoal").post(measurementController.createNewFoodGoal)
-.get(measurementController.findAllFoodGoal)
-
+Router.route("/FoodGoal")
+  .post(measurementController.createNewFoodGoal)
+  .get(measurementController.findAllFoodGoal);
 
 module.exports = Router;
-
