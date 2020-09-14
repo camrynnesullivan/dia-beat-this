@@ -9,7 +9,7 @@ export default {
   getSavedA1C: function () {
     return axios.get("/api/A1Cmeasurements");
   },
-  getSavedFoodGoal: function() {
+  getSavedFoodGoal: function () {
     return axios.get("/api/FoodGoal");
   },
   // Deletes the saved book with the given id
@@ -24,12 +24,13 @@ export default {
   saveA1C: function (measurementData) {
     return axios.post("/api/A1Cmeasurements", measurementData);
   },
-saveFoodGoal: function(measurementData) {
-    return axios.post("/api/FoodGoal", measurementData);},
+  saveFoodGoal: function (measurementData) {
+    return axios.post("/api/FoodGoal", measurementData);
+  },
 
   // Gets all posts
   getPosts: function () {
-    return axios.get("/journal/posts");
+    return axios.get("/api/journal");
   },
   // Gets the post with the given id
   getPost: function (id) {
@@ -41,8 +42,6 @@ saveFoodGoal: function(measurementData) {
   },
   // Saves a post to the database
   savePost: function (postData) {
-    return axios.post("/journal/posts", postData);
+    return axios.post("/api/journal", postData);
   },
-  
-
 };

@@ -10,7 +10,9 @@ function JournalPage(props) {
         <Col size="md-6">
           <JournalComponent />
         </Col>
-        <Col size="md-6 sm-12">{/* <PostsList /> */}</Col>
+        <Col size="md-6 sm-12">
+          <PostsList />
+        </Col>
       </Row>
     </Container>
   );
