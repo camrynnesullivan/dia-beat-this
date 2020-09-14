@@ -5,6 +5,7 @@ const A1CSchema = new Schema({
   enteredA1C: {
     type: Number,
     trim: true,
+    required: true
   },
   date: {
     type: Date,

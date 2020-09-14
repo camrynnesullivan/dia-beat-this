@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-
 import BloodSugarCard from "../components/BloodSugarCard";
 import CardGrid from "../components/CardGrid";
 import WarningCard from "../components/WarningComponents/WarningCard";
@@ -11,15 +10,8 @@ import ChartCard from "../components/ChartComponents/ChartCard";
 import { treatingHBS, treatingLBS } from "../research";
 import { symptomsLBS, symptomsHBS } from "../research";
 import SymptomsCard from "../components/WarningComponents/SymptomsCard";
-import axios from "axios";
 
 function ProgressPage(props) {
-  let lastLog;
-  function getLoggedData() {
-    const { data } = axios.get("api/measurements").then(function (res) {
-      console.log(res.data[0]);
-    });
-  }
   const low = {
     warning: "low",
     research: treatingLBS,
@@ -37,6 +29,10 @@ function ProgressPage(props) {
   const [A1C, setA1C] = useState(9);
   const [bloodSugar, setBloodSugar] = useState(180);
   const [afterMeal, setAfterMeal] = useState(true);
+  const [foodGoal, setFoodGoal] = useState({
+    calorieGoal: 2000,
+    carbGoal: 180,
+  });
   const [AC1Data, setAC1Data] = useState({
     labels: [],
     data: [],
@@ -76,14 +72,6 @@ function ProgressPage(props) {
       labels: timesArray,
       data: measurements,
     });
-    // setAC1Data({
-    //   labels:timesArray,
-    //   data:AC1measurements
-    // })
-    // const labels = res.data.date;
-    // const data = res.data.enteredGlucose;
-    console.log(measurements);
-    console.log(times);
 
     if (!afterMeal) {
       if (bloodSugar < 80) {
@@ -117,6 +105,13 @@ function ProgressPage(props) {
       .catch((err) => console.log(err));
   }, [A1C]);
 
+  useEffect(() => {
+    API.getSavedFoodGoal()
+      .then((res) => setFoodGoal({
+        calorieGoal: res.data[res.data.length - 1].calorieGoal,
+        carbGoal: res.data[res.data.length - 1].carbGoal}))
+      .catch((err) => console.log(err));
+  }, [foodGoal]);
 
   return (
     <CardGrid>
@@ -143,7 +138,7 @@ function ProgressPage(props) {
         />
       )}
       <A1CCard A1C={A1C} />
-      <FoodTrackCard />
+      <FoodTrackCard foodGoal={foodGoal}/>
 
       <CareScheduleAccordion />
     </CardGrid>
