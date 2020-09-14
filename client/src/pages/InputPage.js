@@ -132,7 +132,7 @@ function InputPage(props) {
       >
         Submit
       </Button>
-      <SubmitDialog openDialog={openDialog} handleDialogClose={handleDialogClose}/>
+      <SubmitDialog tab={tab} measurement={measurement} openDialog={openDialog} handleDialogClose={handleDialogClose}/>
     </InputPageGrid>
   );
 }

@@ -19,7 +19,7 @@ export default function SubmitDialog(props) {
         <DialogTitle id="alert-dialog-title">{"Your measurement has been recorded!"}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            You
+            {props.tab === 1 ? "BloodSugar: " + props.measurement.measurement + "mg/dL" : "A1C: " + props.measurement.measurement + "%" }
           </DialogContentText>
         </DialogContent>
         <DialogActions>
