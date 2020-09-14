@@ -1,4 +1,4 @@
-mport React, { useState, useEffect, componentDidMount } from "react";
+import React, { useState, useEffect, componentDidMount } from "react";
 
 import BloodSugarCard from "../components/BloodSugarCard";
 
