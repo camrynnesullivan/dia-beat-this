@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import BloodSugarCard from "../components/BloodSugarCard";
 import CardGrid from "../components/CardGrid";
 import WarningCard from "../components/WarningComponents/WarningCard";
@@ -8,21 +7,11 @@ import FoodTrackCard from "../components/FoodTrackCard";
 import A1CCard from "../components/A1CCard";
 import API from "../utils/API";
 import ChartCard from "../components/ChartComponents/ChartCard";
-import ChartCardA1C from "../components/ChartComponents/ChartA1C";
 import { treatingHBS, treatingLBS } from "../research";
 import { symptomsLBS, symptomsHBS } from "../research";
 import SymptomsCard from "../components/WarningComponents/SymptomsCard";
 
 function ProgressPage(props) {
-  let lastLog;
-  function getLoggedData() {
-    const { data } = axios.get("api/measurements").then(function (res) {
-      console.log(res.data[0]);
-    });
-    const { dataA1c } = axios.get("/api/A1Cmeasurements").then(function (res) {
-      console.log(res.A1Cdata[0]);
-    });
-  }
   const low = {
     warning: "low",
     research: treatingLBS,
@@ -37,15 +26,14 @@ function ProgressPage(props) {
     warning: "normal",
   };
   // Last Measurement from database
-
+  const [A1C, setA1C] = useState(9);
   const [bloodSugar, setBloodSugar] = useState(180);
-  const [A1C, setA1C] = useState(6);
   const [afterMeal, setAfterMeal] = useState(true);
   const [foodGoal, setFoodGoal] = useState({
     calorieGoal: 2000,
     carbGoal: 180,
   });
-  const [A1CData, setA1CData] = useState({
+  const [AC1Data, setAC1Data] = useState({
     labels: [],
     data: [],
   });
@@ -54,15 +42,14 @@ function ProgressPage(props) {
     data: [],
   });
   const [times, setTimes] = useState([]);
-
+  const [measurements, setMeasurements] = useState([]);
   // Hooks rendering the appropiate cards based on blood sugar range
   const [level, setLevel] = useState(normal);
 
   const setLevels = (res) => {
     const timesArray = [];
     const measurements = [];
-    const A1Cdays = [];
-    const A1Cmeasurements = [];
+    const AC1measurements = [];
 
     setBloodSugar(res.data[res.data.length - 1].enteredGlucose);
     setAfterMeal(res.data[res.data.length - 1].afterMeal);
@@ -75,31 +62,16 @@ function ProgressPage(props) {
       if (res.data[index].enteredGlucose) {
         measurements.push(res.data[index].enteredGlucose);
       }
-    }
-
-    for (let index = 0; index < res.dataA1c.length; index++) {
-      if (res.dataA1c[index].date) {
-        const day = res.dataA1c[index].date.substr(5, 5);
-        A1Cdays.push(day);
-      }
-      if (res.dataA1c[index].enteredA1C) {
-        A1Cmeasurements.push(res.dataA1c[index].enteredA1C);
-      }
+      // if (res.data[index].enteredA1C) {
+      //   AC1measurements.push(res.data[index].enteredA1C);
     }
     setTimes(timesArray);
-
+    console.log(timesArray);
+    console.log(bloodSugar);
     setStoredData({
       labels: timesArray,
       data: measurements,
     });
-    setA1CData({
-      labels: A1Cdays,
-      data: A1Cmeasurements,
-    });
-    console.log(A1Cdays);
-    console.log(A1Cmeasurements);
-    console.log(measurements);
-    console.log(times);
 
     if (!afterMeal) {
       if (bloodSugar < 80) {
@@ -129,7 +101,7 @@ function ProgressPage(props) {
 
   useEffect(() => {
     API.getSavedA1C()
-      .then((res) => setA1CData(res.data[res.data.length - 1].enteredA1C))
+      .then((res) => setA1C(res.data[res.data.length - 1].enteredA1C))
       .catch((err) => console.log(err));
   }, [A1C]);
 
@@ -169,7 +141,6 @@ function ProgressPage(props) {
         />
       )}
       <A1CCard A1C={A1C} />
-      <ChartCardA1C labels={A1CData.labels} data={A1CData.data} />
       <FoodTrackCard foodGoal={foodGoal} />
 
       <CareScheduleAccordion />
