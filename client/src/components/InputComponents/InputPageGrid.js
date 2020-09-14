@@ -7,8 +7,10 @@ const useStyles = makeStyles({
   root: {
 
     justifyContent: 'center',
-    paddingBottom: 10
+    paddingBottom: 10,
+    
   },
+
 });
 
 

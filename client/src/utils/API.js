@@ -24,9 +24,9 @@ export default {
   saveA1C: function (measurementData) {
     return axios.post("/api/A1Cmeasurements", measurementData);
   },
-  saveFoodGoal: function (measurementData) {
-    return axios.post("/api/FoodGoal", measurementData);
-  },
+
+  saveFoodGoal: function(measurementData) {
+    return axios.post("/api/FoodGoal", measurementData);},
 
   // Gets all posts
   getPosts: function () {

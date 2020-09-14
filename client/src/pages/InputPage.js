@@ -106,9 +106,6 @@ if (tab === 1) {
   return (
     <InputPageGrid>
       <CardContent>
-        <Typography variant="subtitle" color="textSecondary" gutterBottom>
-          Let's figure out your insulin!
-        </Typography>
         <Typography variant="h5" component="h5">
           What would you like to track?
         </Typography>
@@ -121,7 +118,7 @@ if (tab === 1) {
           textColor="primary"
           centered
         >
-          <Tab label="Food" />
+          <Tab label="Food Goal" />
           <Tab label="Blood Sugar" />
           <Tab label="A1C" />
         </Tabs>
