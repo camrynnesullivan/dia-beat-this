@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Tab from "@material-ui/core/Tab";
 import Tabs from "@material-ui/core/Tabs";
-import InputFoodCard from "../components/InputComponents/InputFoodCard";
+import InputGoalCard from "../components/InputComponents/InputGoalCard";
 import InputBloodSugarCard from "../components/InputComponents/InputBloodSugarCard";
 import InputA1CCard from "../components/InputComponents/InputA1CCard";
 import InputPageGrid from "../components/InputComponents/InputPageGrid";
@@ -103,11 +103,11 @@ function InputPage(props) {
           textColor="primary"
           centered
         >
-          <Tab label="Food" />
+          <Tab label="Food Goal" />
           <Tab label="Blood Sugar" />
           <Tab label="A1C" />
         </Tabs>
-        <InputFoodCard value={tab} index={0} />
+        <InputGoalCard value={tab} index={0} />
         <InputBloodSugarCard
           value={tab}
           index={1}
