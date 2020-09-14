@@ -1,11 +1,11 @@
-import React, { useState, useEffect, componentDidMount } from "react";
+import React, { useState, useEffect } from "react";
 
 import BloodSugarCard from "../components/BloodSugarCard";
-import A1CCard from "../components/A1CCard";
 import CardGrid from "../components/CardGrid";
 import WarningCard from "../components/WarningComponents/WarningCard";
 import CareScheduleAccordion from "../components/CareScheduleComponents/CareSchedule";
 import FoodTrackCard from "../components/FoodTrackCard";
+import A1CCard from "../components/A1CCard";
 import API from "../utils/API";
 import ChartCard from "../components/ChartComponents/ChartCard";
 import { treatingHBS, treatingLBS } from "../research";
@@ -34,14 +34,17 @@ function ProgressPage(props) {
     warning: "normal",
   };
   // Last Measurement from database
-
-  const [bloodSugar, setBloodSugar] = useState(190);
+  const [A1C, setA1C] = useState(9);
+  const [bloodSugar, setBloodSugar] = useState(180);
   const [afterMeal, setAfterMeal] = useState(true);
+  const [AC1Data, setAC1Data] = useState({
+    labels: [],
+    data: [],
+  });
   const [storedData, setStoredData] = useState({
     labels: [],
     data: [],
   });
-  const [A1C, setA1C] = useState(9);
   const [times, setTimes] = useState([]);
   const [measurements, setMeasurements] = useState([]);
   // Hooks rendering the appropiate cards based on blood sugar range
@@ -50,28 +53,37 @@ function ProgressPage(props) {
   const setLevels = (res) => {
     const timesArray = [];
     const measurements = [];
+    const AC1measurements = [];
+
     setBloodSugar(res.data[res.data.length - 1].enteredGlucose);
     setAfterMeal(res.data[res.data.length - 1].afterMeal);
     for (let index = 0; index < res.data.length; index++) {
       if (res.data[index].date) {
-        timesArray.push(res.data[index].date.substr(11, 5));
-        // const date = res.data[index].date.substr(5, 5);
+        const date = res.data[index].date.substr(5, 5);
+        const dateTime = date + " - " + res.data[index].date.substr(11, 5);
+        timesArray.push(dateTime);
       }
       if (res.data[index].enteredGlucose) {
         measurements.push(res.data[index].enteredGlucose);
       }
+      // if (res.data[index].enteredA1C) {
+      //   AC1measurements.push(res.data[index].enteredA1C);
     }
     setTimes(timesArray);
-    // console.log(timesArray);
-    // console.log(bloodSugar);
-    // // setStoredData({
-    // //   labels: times,
-    // //   data: measurements,
-    // // });
-    // // const labels = res.data.date;
-    // // const data = res.data.enteredGlucose;
-    // console.log(measurements);
-    // console.log(times);
+    console.log(timesArray);
+    console.log(bloodSugar);
+    setStoredData({
+      labels: timesArray,
+      data: measurements,
+    });
+    // setAC1Data({
+    //   labels:timesArray,
+    //   data:AC1measurements
+    // })
+    // const labels = res.data.date;
+    // const data = res.data.enteredGlucose;
+    console.log(measurements);
+    console.log(times);
 
     if (!afterMeal) {
       if (bloodSugar < 80) {
@@ -105,11 +117,11 @@ function ProgressPage(props) {
       .catch((err) => console.log(err));
   }, [A1C]);
 
+
   return (
     <CardGrid>
       {/* // Play with these values to see how they render appropriately! Delete this entire div once information is successfully being retrieved from database */}
       <BloodSugarCard bloodSugar={bloodSugar} afterMeal={afterMeal} />
-
       <ChartCard labels={storedData.labels} data={storedData.data} />
 
       {level.warning !== "normal" && (

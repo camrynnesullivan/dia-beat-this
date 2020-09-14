@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
@@ -19,20 +19,9 @@ const useStyles = makeStyles({
 
 export default function FoodTrackCard() {
   const classes = useStyles();
+  const [calories, setCalories] = useState(200);
+  const [carbs, setCarbs] = useState(80);
 
-  // function openInput() {
-  //   render() {
-  //     return (
-  //       <form onSubmit={this.handleSubmit}>
-  //         <label>
-  //           Set Calories Goal:
-  //           <input type="text" value={this.state.value} onChange={this.handleChange} />
-  //         </label>
-  //         <input type="submit" value="Submit" />
-  //       </form>
-  //     );
-  //   }
-  // }
   return (
     <Card className={classes.root}>
       <CardActionArea>
@@ -51,16 +40,15 @@ export default function FoodTrackCard() {
             Carbs today:<span>0</span> mg
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            My goal is:<span id="kCal">1800</span>cal and{" "}
-            <span id="Carbs">200</span> Carbs grams
+            My goal is:<span id="kCal">{calories}</span>cal and{" "}
+            <span id="Carbs">{carbs}</span> Carbs grams
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
         <Button size="small" color="primary">
           Set Calories Goal
-          {/* // onClick={openInput}>  */}
-          {/* add function and an input that will allow to set a number-goal  */}
+          {/* // onClick toggle display of th input */}
         </Button>
         <Button size="small" color="primary">
           Set Carbs Goal

@@ -2,27 +2,28 @@ import React, { useState } from "react";
 import { Line } from "react-chartjs-2";
 
 function Chart2(props) {
-  const [data, setData] = useState({
-    chartData: {
-      labels: props.labels,
-      datasets: [
-        {
-          label: "Glucose",
-          data: props.data,
-          backgroundColor: "red",
-        },
-      ],
-    },
+  const chartData = {
+    labels: props.labels,
+    datasets: [
+      {
+        label: "Glucose",
+        data: props.data,
+        backgroundColor: "red",
+      },
+    ],
     options: {
       title: {
         display: true,
         text: "Glucose level",
       },
     },
-  });
+  };
+  console.log(props.labels);
+  console.log(props.data);
+
   return (
     <div className="chart">
-      <Line data={data.chartData} options={{}} />
+      <Line data={chartData} options={{}} />
     </div>
   );
 }
