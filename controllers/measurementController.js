@@ -42,5 +42,12 @@ module.exports = {
     db.Glycemia.find(req.query)
       .then(dbGlycemia => res.json(dbGlycemia))
       .catch(err => res.status(422).json(err));
-  }
+  },
+  createNewA1C: async (req, res) => {
+    const { enteredAC1 } = req.body;
+    const newMeasurement = await db.A1C.create({
+      enteredAC1: enteredAC1,
+    });
+    res.json(newMeasurement);
+  },
 };

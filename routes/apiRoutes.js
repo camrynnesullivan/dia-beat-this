@@ -9,5 +9,8 @@ Router.get("/welcome", (req, res) => {
 Router.route("/measurements").post(measurementController.createNew)
 .get(measurementController.findAll)
 
+Router.route("/A1Cmeasurements").post(measurementController.createNew)
+.get(measurementController.findAll)
+
 
 module.exports = Router;

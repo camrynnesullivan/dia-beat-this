@@ -8,7 +8,6 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import InputFormGrid from "./InputFormGrid";
-// import API from "../../utils/API";
 
 const useStyles = makeStyles((theme) => ({
   formElements: {
