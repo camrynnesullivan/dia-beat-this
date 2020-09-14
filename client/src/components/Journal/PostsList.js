@@ -38,8 +38,8 @@ function PostsList() {
 
   return (
     <div>
-      <h1>All Journal Entries</h1>
-      <h3 className="mb-5 mt-5">Click on a journal entry to view it.</h3>
+      <h1>Health Journal Entries</h1>
+      <h3 className="mb-5 mt-5">Click to view journal entries.</h3>
       {state.posts.length ? (
         <List>
           {state.posts.map((post) => (

@@ -43,10 +43,11 @@ function JournalComponent() {
       <div className="jumbotron">
         <img
           className="img-fluid img-thumbnail"
-          src="https://images.pexels.com/photos/459688/pexels-photo-459688.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+          src="https://images.pexels.com/photos/544115/pexels-photo-544115.jpeg?cs=srgb&dl=pexels-tirachard-kumtanom-544115.jpg&fm=jpg"
+          alt="journal"
         />
       </div>
-      <h1>How are you feeling today?</h1>
+      <h1>Health Journal</h1>
       <form className="form-group mt-5 mb-5" onSubmit={handleSubmit}>
         <input
           className="form-control mb-5"
@@ -59,7 +60,7 @@ function JournalComponent() {
           className="form-control mb-5"
           required
           ref={bodyRef}
-          placeholder="Report how you are feeling today here"
+          placeholder="How are you feeling today?"
         />
 
         <button

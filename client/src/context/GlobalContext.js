@@ -6,9 +6,6 @@ import {
   REMOVE_POST,
   UPDATE_POSTS,
   ADD_POST,
-  ADD_FAVORITE,
-  UPDATE_FAVORITES,
-  REMOVE_FAVORITE,
   LOADING,
 } from "./actions";
 
