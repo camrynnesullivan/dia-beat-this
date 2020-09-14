@@ -21,7 +21,6 @@ export default function ChartCard(props) {
     <Card className={classes.root}>
       <CardActionArea>
         <CardContent>
-          <Chart />
           <Chart2 labels={props.labels} data={props.data} />
           <ChartAC1 />
         </CardContent>
