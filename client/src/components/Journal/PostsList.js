@@ -44,7 +44,7 @@ function PostsList() {
         <List>
           {state.posts.map((post) => (
             <ListItem key={post._id}>
-              <Link to={"/posts/" + post._id}>
+              <Link to={"/api/" + post._id}>
                 <strong>{post.date}</strong>
               </Link>
               <DeleteBtn onClick={() => removePost(post._id)} />
