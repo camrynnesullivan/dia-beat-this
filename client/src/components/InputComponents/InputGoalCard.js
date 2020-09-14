@@ -50,8 +50,8 @@ export default function InputGoalCard(props) {
                 <FormLabel>Calorie Goal:</FormLabel>
           <TextField 
             id="filled-basic" 
-            name="measurement"
-            onChange={props.handleInputChange}
+            name="calorieGoal"
+            onChange={props.handleCalorieGoalInputChange}
             label="2000" 
             variant="filled"          
             // InputProps={{
@@ -61,8 +61,8 @@ export default function InputGoalCard(props) {
                    <FormLabel>Carb Goal:</FormLabel>
           <TextField 
             id="filled-basic" 
-            name="measurement"
-            onChange={props.handleInputChange}
+            name="carbGoal"
+            onChange={props.handleCarbsGoalInputChange}
             label="250" 
             variant="filled"          
             // InputProps={{

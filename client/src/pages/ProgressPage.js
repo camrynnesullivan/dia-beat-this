@@ -1,4 +1,4 @@
-mport React, { useState, useEffect, componentDidMount } from "react";
+import React, { useState, useEffect } from "react";
 
 import BloodSugarCard from "../components/BloodSugarCard";
 
@@ -6,6 +6,7 @@ import CardGrid from "../components/CardGrid";
 import WarningCard from "../components/WarningComponents/WarningCard";
 import CareScheduleAccordion from "../components/CareScheduleComponents/CareSchedule";
 import FoodTrackCard from "../components/FoodTrackCard";
+import A1CCard from "../components/A1CCard";
 import API from "../utils/API";
 import ChartCard from "../components/ChartComponents/ChartCard";
 import { treatingHBS, treatingLBS } from "../research";
@@ -34,7 +35,7 @@ function ProgressPage(props) {
     warning: "normal",
   };
   // Last Measurement from database
-
+  const [A1C, setA1C] = useState(9);
   const [bloodSugar, setBloodSugar] = useState(180);
   const [afterMeal, setAfterMeal] = useState(true);
   const [storedData, setStoredData] = useState({
@@ -99,11 +100,16 @@ function ProgressPage(props) {
       .catch((err) => console.log(err));
   }, [afterMeal, bloodSugar]);
 
+  useEffect(() => {		
+    API.getSavedA1C()		
+      .then((res) => setA1C(res.data[res.data.length - 1].enteredA1C))		
+      .catch((err) => console.log(err));		
+  }, [A1C]);
+
   return (
     <CardGrid>
       {/* // Play with these values to see how they render appropriately! Delete this entire div once information is successfully being retrieved from database */}
       <BloodSugarCard bloodSugar={bloodSugar} afterMeal={afterMeal} />
-
       <ChartCard labels={storedData.labels} data={storedData.data} />
 
       {level.warning !== "normal" && (
@@ -124,6 +130,7 @@ function ProgressPage(props) {
           symptoms={level.symptoms.symptoms}
         />
       )}
+      <A1CCard A1C={A1C} />
       <FoodTrackCard />
 
       <CareScheduleAccordion />
