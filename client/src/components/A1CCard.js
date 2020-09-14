@@ -31,7 +31,7 @@ export default function A1CCard(props) {
             {props.A1C} %
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            Here's some more relevent text!
+          {((28.7 * props.A1C) - 46.7).toString().substring(0, 6)} eAG 
             {/* {props.afterMeal ? "You just ate!" : "You are about to eat, measure again after."} */}
           </Typography>
         </CardContent>
