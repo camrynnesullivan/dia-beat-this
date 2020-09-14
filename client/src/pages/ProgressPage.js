@@ -44,7 +44,7 @@ function ProgressPage(props) {
     data: [],
   });
   const [times, setTimes] = useState([]);
-  const [measurements, setMeasurements] = useState([]);
+
   // Hooks rendering the appropiate cards based on blood sugar range
   const [level, setLevel] = useState(normal);
 
@@ -64,8 +64,9 @@ function ProgressPage(props) {
       if (res.data[index].enteredGlucose) {
         measurements.push(res.data[index].enteredGlucose);
       }
-      // if (res.data[index].enteredA1C) {
-      //   AC1measurements.push(res.data[index].enteredA1C);
+      if (res.data[index].enteredA1C) {
+        AC1measurements.push(res.data[index].enteredA1C);
+      }
     }
     setTimes(timesArray);
     console.log(timesArray);
