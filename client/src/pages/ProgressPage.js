@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-
 import BloodSugarCard from "../components/BloodSugarCard";
 import CardGrid from "../components/CardGrid";
 import WarningCard from "../components/WarningComponents/WarningCard";
@@ -37,6 +36,10 @@ function ProgressPage(props) {
   const [A1C, setA1C] = useState(9);
   const [bloodSugar, setBloodSugar] = useState(180);
   const [afterMeal, setAfterMeal] = useState(true);
+  const [foodGoal, setFoodGoal] = useState({
+    calorieGoal: 2000,
+    carbGoal: 180,
+  });
   const [AC1Data, setAC1Data] = useState({
     labels: [],
     data: [],
@@ -76,14 +79,6 @@ function ProgressPage(props) {
       labels: timesArray,
       data: measurements,
     });
-    // setAC1Data({
-    //   labels:timesArray,
-    //   data:AC1measurements
-    // })
-    // const labels = res.data.date;
-    // const data = res.data.enteredGlucose;
-    console.log(measurements);
-    console.log(times);
 
     if (!afterMeal) {
       if (bloodSugar < 80) {
@@ -117,6 +112,11 @@ function ProgressPage(props) {
       .catch((err) => console.log(err));
   }, [A1C]);
 
+  // useEffect(() => {
+  //   API.getSavedA1C()
+  //     .then((res) => setA1C(res.data[res.data.length - 1].enteredA1C))
+  //     .catch((err) => console.log(err));
+  // }, [carbGoal, calorieGoal]);
 
   return (
     <CardGrid>
@@ -143,7 +143,7 @@ function ProgressPage(props) {
         />
       )}
       <A1CCard A1C={A1C} />
-      <FoodTrackCard />
+      <FoodTrackCard foodGoal={foodGoal}/>
 
       <CareScheduleAccordion />
     </CardGrid>

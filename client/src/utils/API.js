@@ -1,10 +1,6 @@
 import axios from "axios";
 
 export default {
-  // // Gets books from the Google API
-  // getGlycemia: function(q) {
-  //   return axios.get("/api/google", { params: { q: "title:" + q } });
-  // },
   // Gets all saved Glycemia Measurements
   getSavedGlycemia: function() {
     return axios.get("/api/measurements");
