@@ -1,7 +1,5 @@
-mport React, { useState, useEffect, componentDidMount } from "react";
-
+import React, { useState, useEffect, componentDidMount } from "react";
 import BloodSugarCard from "../components/BloodSugarCard";
-
 import CardGrid from "../components/CardGrid";
 import WarningCard from "../components/WarningComponents/WarningCard";
 import CareScheduleAccordion from "../components/CareScheduleComponents/CareSchedule";
@@ -37,6 +35,10 @@ function ProgressPage(props) {
 
   const [bloodSugar, setBloodSugar] = useState(180);
   const [afterMeal, setAfterMeal] = useState(true);
+  const [AC1Data, setAC1Data] = useState({
+    labels: [],
+    data: [],
+  });
   const [storedData, setStoredData] = useState({
     labels: [],
     data: [],
@@ -49,6 +51,8 @@ function ProgressPage(props) {
   const setLevels = (res) => {
     const timesArray = [];
     const measurements = [];
+    const AC1measurements = [];
+
     setBloodSugar(res.data[res.data.length - 1].enteredGlucose);
     setAfterMeal(res.data[res.data.length - 1].afterMeal);
     for (let index = 0; index < res.data.length; index++) {
@@ -60,6 +64,8 @@ function ProgressPage(props) {
       if (res.data[index].enteredGlucose) {
         measurements.push(res.data[index].enteredGlucose);
       }
+      // if (res.data[index].enteredA1C) {
+      //   AC1measurements.push(res.data[index].enteredA1C);
     }
     setTimes(timesArray);
     console.log(timesArray);
@@ -68,6 +74,10 @@ function ProgressPage(props) {
       labels: timesArray,
       data: measurements,
     });
+    // setAC1Data({
+    //   labels:timesArray,
+    //   data:AC1measurements
+    // })
     // const labels = res.data.date;
     // const data = res.data.enteredGlucose;
     console.log(measurements);
