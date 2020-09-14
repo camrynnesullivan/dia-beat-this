@@ -12,7 +12,5 @@ Router.route("/measurements").post(measurementController.createNew)
 Router.route("/A1Cmeasurements").post(measurementController.createNewA1C)
 .get(measurementController.findAllA1C)
 
-Router.route("/FoodGoal").post(measurementController.createNewFoodGoal)
-.get(measurementController.findAllFoodGoal)
 
 module.exports = Router;
