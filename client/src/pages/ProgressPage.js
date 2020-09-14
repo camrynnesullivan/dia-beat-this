@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import BloodSugarCard from "../components/BloodSugarCard";
 import CardGrid from "../components/CardGrid";
 import WarningCard from "../components/WarningComponents/WarningCard";
@@ -38,6 +39,7 @@ function ProgressPage(props) {
   // Last Measurement from database
 
   const [bloodSugar, setBloodSugar] = useState(180);
+  const [A1C, setA1C] = useState(6);
   const [afterMeal, setAfterMeal] = useState(true);
   const [foodGoal, setFoodGoal] = useState({
     calorieGoal: 2000,
@@ -127,7 +129,7 @@ function ProgressPage(props) {
 
   useEffect(() => {
     API.getSavedA1C()
-      .then((res) => setAC1Data(res.data[res.data.length - 1].enteredA1C))
+      .then((res) => setA1CData(res.data[res.data.length - 1].enteredA1C))
       .catch((err) => console.log(err));
   }, [A1C]);
 
