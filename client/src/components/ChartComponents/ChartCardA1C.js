@@ -3,8 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
-import Chart2 from "./Chart2";
-
+import ChartA1C from "./ChartA1C";
 const useStyles = makeStyles({
   root: {
     width: 450,
@@ -13,14 +12,13 @@ const useStyles = makeStyles({
     height: 140,
   },
 });
-
-export default function ChartCard(props) {
+export default function ChartCardA1C(props) {
   const classes = useStyles();
   return (
     <Card className={classes.root}>
       <CardActionArea>
         <CardContent>
-          <Chart2 labels={props.labels} data={props.data} />
+          <ChartA1C labels={props.labels} data={props.data} />
         </CardContent>
       </CardActionArea>
     </Card>
