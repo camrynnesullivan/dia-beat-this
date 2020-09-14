@@ -7,6 +7,7 @@ import Grid from "@material-ui/core/Grid";
 // import { faUnlockAlt } from '@fortawesome/free-solid-svg-icons';
 // import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import AuthCardGrid from "./AuthCardGrid";
+import LandingCard from "../components/LandingCard"
 
 const useStyles = makeStyles((theme) => ({
   margin: {
@@ -19,6 +20,7 @@ export default function SignUpCard(props) {
 
   return (
     <AuthCardGrid header={props.header}>
+      <LandingCard />
       <TextField
         variant="outlined"
         margin="normal"
