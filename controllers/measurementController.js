@@ -28,9 +28,10 @@ module.exports = {
   },
   createNewFoodGoal: async (req, res) => {
     console.log(req.body)
-    const { foodGoal } = req.body;
+    const { carbGoal, calorieGoal } = req.body;
     const newFoodGoal = await db.FoodGoal.create({
-      foodGoal: foodGoal,
+      calorieGoal: carbGoal,
+      carbGoal: calorieGoal,
     });
     res.json(newFoodGoal);
   },

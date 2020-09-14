@@ -29,7 +29,7 @@ function InputPage(props) {
   const [radioBS, setRadioBS] = React.useState(false);
   const [radioA1C, setRadioA1C] = React.useState(true);
   const [measurement, setMeasurement] = React.useState("");
-  const [carbsGoal, setCarbsGoal] = useState("");
+  const [carbGoal, setCarbGoal] = useState("");
   const [calorieGoal, setCalorieGoal] = useState("");
 
 
@@ -40,19 +40,15 @@ function InputPage(props) {
     });
   };
 
-  // const handleCarbsGoalInputChange = (event) => {
-  //   const { name, value } = event.target;
-  //   setCarbsGoal({
-  //     [name]: value,
-  //   });
-  // };
+  const handleCarbInputChange = (event) => {
+    const { name, value } = event.target;
+    setCarbGoal(value);
+  };
 
-  // const handleCalorieGoalInputChange = (event) => {
-  //   const { name, value } = event.target;
-  //   setCalorieGoal({
-  //     [name]: value,
-  //   });
-  // };
+  const handleCalorieInputChange = (event) => {
+    const { name, value } = event.target;
+    setCalorieGoal(value);
+  };
 
   const logBloodSugar = async () => {
     const { data } = await axios.post("/api/measurements", {
@@ -70,13 +66,14 @@ function InputPage(props) {
     console.log(data);
   };
 
-  // const logFoodGoal = async () => {
-  //   console.log(carbsGoal, calorieGoal);
-  //   // const { data } = await axios.post("/api/FoodGoal", {
-  //   //   enteredA1C: parseInt(measurement.measurement)
-  //   // });
-  //   // console.log(data);
-  // };
+  const logFoodGoal = async () => {
+    console.log(carbGoal, calorieGoal);
+    const { data } = await axios.post("/api/FoodGoal", {
+      calorieGoal: carbGoal,
+      carbGoal: calorieGoal,
+    });
+    console.log(data);
+  };
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
@@ -85,7 +82,7 @@ function InputPage(props) {
     } else if (tab === 1) {
       logBloodSugar();
     } else {
-      // logA1C();
+      logFoodGoal();
     }
     setOpenDialog(true);
   };
@@ -132,7 +129,7 @@ function InputPage(props) {
           <Tab label="Blood Sugar" />
           <Tab label="A1C" />
         </Tabs>
-        <InputGoalCard value={tab} index={0} />
+        <InputGoalCard value={tab} index={0} handleCarbInputChange={handleCarbInputChange} handleCalorieInputChange={handleCalorieInputChange}/>
         <InputBloodSugarCard
           value={tab}
           index={1}

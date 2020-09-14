@@ -10,15 +10,8 @@ import ChartCard from "../components/ChartComponents/ChartCard";
 import { treatingHBS, treatingLBS } from "../research";
 import { symptomsLBS, symptomsHBS } from "../research";
 import SymptomsCard from "../components/WarningComponents/SymptomsCard";
-import axios from "axios";
 
 function ProgressPage(props) {
-  let lastLog;
-  function getLoggedData() {
-    const { data } = axios.get("api/measurements").then(function (res) {
-      console.log(res.data[0]);
-    });
-  }
   const low = {
     warning: "low",
     research: treatingLBS,
@@ -112,11 +105,13 @@ function ProgressPage(props) {
       .catch((err) => console.log(err));
   }, [A1C]);
 
-  // useEffect(() => {
-  //   API.getSavedA1C()
-  //     .then((res) => setA1C(res.data[res.data.length - 1].enteredA1C))
-  //     .catch((err) => console.log(err));
-  // }, [carbGoal, calorieGoal]);
+  useEffect(() => {
+    API.getSavedFoodGoal()
+      .then((res) => setFoodGoal({
+        calorieGoal: res.data[res.data.length - 1].calorieGoal,
+        carbGoal: res.data[res.data.length - 1].carbGoal}))
+      .catch((err) => console.log(err));
+  }, [foodGoal]);
 
   return (
     <CardGrid>
