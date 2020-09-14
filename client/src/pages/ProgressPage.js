@@ -111,11 +111,12 @@ function ProgressPage(props) {
       .catch((err) => console.log(err));
   }, [afterMeal, bloodSugar]);
 
-  useEffect(() => {		
-    API.getSavedA1C()		
-      .then((res) => setA1C(res.data[res.data.length - 1].enteredA1C))		
-      .catch((err) => console.log(err));		
+  useEffect(() => {
+    API.getSavedA1C()
+      .then((res) => setA1C(res.data[res.data.length - 1].enteredA1C))
+      .catch((err) => console.log(err));
   }, [A1C]);
+
 
   return (
     <CardGrid>
