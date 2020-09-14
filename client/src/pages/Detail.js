@@ -5,15 +5,15 @@ import Jumbotron from "../components/Journal/Jumbotron/index";
 import API from "../utils/API";
 import { useGlobalContext } from "../context/GlobalContext";
 import { SET_CURRENT_POST } from "../context/actions";
+import CardGrid from "../components/CardGrid";
 
 const Detail = (props) => {
   const [state, dispatch] = useGlobalContext();
-
+  console.log(props.match.params.id);
   useEffect(() => {
     API.getPost(props.match.params.id)
       .then((res) => {
         dispatch({ type: SET_CURRENT_POST, post: res.data });
-        console.log(res);
       })
 
       .catch((err) => console.log(err));
@@ -22,7 +22,7 @@ const Detail = (props) => {
   return (
     <>
       {state.currentPost ? (
-        <Container fluid>
+        <CardGrid>
           <Row>
             <Col size="md-12">
               <Jumbotron>
@@ -43,7 +43,7 @@ const Detail = (props) => {
               <Link to="/">← Back to Posts</Link>
             </Col>
           </Row>
-        </Container>
+        </CardGrid>
       ) : (
         <div>loading...</div>
       )}
