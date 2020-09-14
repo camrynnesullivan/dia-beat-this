@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { useGlobalContext } from "../../context/GlobalContext";
 import { ADD_POST, LOADING } from "../../context/actions";
 import API from "../../utils/API";
+import axios from "axios";
 
 function JournalComponent() {
   const dateRef = useRef();
@@ -9,13 +10,17 @@ function JournalComponent() {
 
   const [state, dispatch] = useGlobalContext();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     dispatch({ type: LOADING });
-    API.savePost({
-      date: dateRef.current.value,
-      body: bodyRef.current.value,
-    })
+    // API.savePost({
+    //   date: dateRef.current.value,
+    //   body: bodyRef.current.value,
+    // })
+    const data = await axios
+      .post("/api/journal", {
+        body: bodyRef.current.value,
+      })
       .then((result) => {
         dispatch({
           type: ADD_POST,

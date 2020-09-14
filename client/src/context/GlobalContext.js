@@ -72,6 +72,12 @@ const reducer = (state, action) => {
 const GlobalProvider = ({ value = [], ...props }) => {
   const [state, dispatch] = useReducer(reducer, {
     user: {},
+    posts: [],
+    currentPost: {
+      _id: 0,
+      date: "",
+      body: "",
+    },
   });
   return <Provider value={[state, dispatch]} {...props} />;
 };
@@ -81,3 +87,22 @@ const useGlobalContext = () => {
 };
 
 export { useGlobalContext, GlobalProvider };
+
+// const StoreProvider = ({ value = [], ...props }) => {
+//   const [state, dispatch] = useReducer(reducer, {
+//     posts: [],
+//     currentPost: {
+//       _id: 0,
+//       title: "",
+//       body: "",
+//       author: ""
+//     },
+//     favorites: [],
+//     loading: false
+//   });
+//   return <Provider value={[state, dispatch]} {...props} />;
+// };
+// const useStoreContext = () => {
+//   return useContext(StoreContext);
+// };
+// export { StoreProvider, useStoreContext };
