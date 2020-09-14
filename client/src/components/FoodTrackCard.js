@@ -42,15 +42,6 @@ export default function FoodTrackCard(props) {
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary">
-          Set Calories Goal
-          {/* // onClick toggle display of th input */}
-        </Button>
-        <Button size="small" color="primary">
-          Set Carbs Goal
-        </Button>
-      </CardActions>
     </Card>
   );
 }

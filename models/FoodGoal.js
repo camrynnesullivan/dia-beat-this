@@ -5,10 +5,12 @@ const FoodGoalSchema = new Schema({
   calorieGoal: {
     type: Number,
     trim: true,
+    required: true
   },
   carbGoal: {
     type: Number,
     trim: true,
+    required: true
   },
   date: {
     type: Date,
