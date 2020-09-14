@@ -88,20 +88,16 @@ function InputPage(props) {
   };
 
   const handleRadio = (e) => {
-    if (tab === 0) {
-      // logFood():
-    } else if (tab === 1) {
+if (tab === 1) {
       setRadioBS(!radioBS);
     } else {
       setRadioA1C(!radioA1C);
     }
   };
 
-
   const handleChange = (event, newTabValue) => {
     setTab(newTabValue);
   };
-
 
   const handleDialogClose = () => {
     setOpenDialog(false);
@@ -153,7 +149,7 @@ function InputPage(props) {
       >
         Submit
       </Button>
-      <SubmitDialog tab={tab} measurement={measurement} openDialog={openDialog} handleDialogClose={handleDialogClose}/>
+      <SubmitDialog tab={tab} measurement={measurement} carbGoal={carbGoal} calorieGoal={calorieGoal} openDialog={openDialog} handleDialogClose={handleDialogClose}/>
     </InputPageGrid>
   );
 }
