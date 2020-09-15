@@ -14,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
+    boxShadow: "none"
   },
   heroContent: {
     color: "#2f3676",
