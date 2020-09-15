@@ -100,6 +100,11 @@ export default function CustomizedTimeline() {
       </TimelineItem>
       {/* Item 3 */}
       <TimelineItem>
+      <TimelineOppositeContent>
+          <Typography variant="body2" color="primary">
+            After you work up a little sweat
+          </Typography>
+        </TimelineOppositeContent>
         <TimelineSeparator>
           <TimelineDot color="primary">
             <FitnessCenterIcon />
@@ -117,11 +122,6 @@ export default function CustomizedTimeline() {
       </TimelineItem>
       {/* Item 4 */}
       <TimelineItem>
-        <TimelineOppositeContent>
-          <Typography variant="body2" color="primary">
-            After you work up a little sweat
-          </Typography>
-        </TimelineOppositeContent>
         <TimelineSeparator>
           <TimelineDot color="secondary">
             <FontAwesomeIcon icon={ faSyringe } size="lg" />

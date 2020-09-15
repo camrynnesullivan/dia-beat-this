@@ -14,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
       width: 450,
       backgroundColor: 'rgba(0, 0, 0, .09)',
+      marginBottom: "50px"
     },
     expand: {
       transform: 'rotate(0deg)',
