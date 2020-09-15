@@ -19,6 +19,7 @@ import { faSyringe } from "@fortawesome/free-solid-svg-icons"
 const useStyles = makeStyles((theme) => ({
   paper: {
     padding: '6px 16px',
+    marginBottom: "50px"
   },
   secondaryTail: {
     backgroundColor: theme.palette.secondary.main,
