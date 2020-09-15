@@ -32,10 +32,10 @@ export default function FoodTrackCard(props) {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            Calories today:<span>0</span> Kcal
+            Calories today: {props.foodCount.calorieCount}  Kcal
           </Typography>
           <Typography gutterBottom variant="h5" component="h2">
-            Carbs today:<span>0</span> mg
+            Carbs today: {props.foodCount.carbCount}  mg
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
             My goal is: {props.foodGoal.calorieGoal} calories and {props.foodGoal.carbGoal} g Carbs / day
