@@ -10,11 +10,12 @@ Router.get("/welcome", (req, res) => {
 Router.route("/measurements")
   .post(measurementController.createNew)
   .get(measurementController.findAll);
+  
 Router.route("/journal")
   .post(journalController.createNew)
   .get(journalController.findAll);
 
-Router.route("/:id")
+Router.route("/journal/:id")
   .get(journalController.findById)
   .put(journalController.update)
   .delete(journalController.remove);

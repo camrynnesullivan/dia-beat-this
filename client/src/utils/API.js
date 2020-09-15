@@ -29,18 +29,18 @@ export default {
   },
   // Gets all posts
   getPosts: function () {
-    return axios.get("/api/journal");
+    return axios.get("/api/journal/");
   },
   // Gets the post with the given id
   getPost: function (id) {
-    return axios.get("/api/" + id);
+    return axios.get("/api/journal/" + id);
   },
   // Deletes the post with the given id
   deletePost: function (id) {
-    return axios.delete("/api/" + id);
+    return axios.delete("/api/journal/" + id);
   },
   // Saves a post to the database
   savePost: function (postData) {
-    return axios.post("/api/journal", postData);
+    return axios.post("/api/journal/", postData);
   },
 };
