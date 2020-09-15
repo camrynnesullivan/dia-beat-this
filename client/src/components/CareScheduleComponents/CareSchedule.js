@@ -18,7 +18,7 @@ import { faHospitalUser } from "@fortawesome/free-solid-svg-icons"
 const useStyles = makeStyles((theme) => ({
   root: {
     width: 450,
-    marginBottom: "50px"
+    marginBottom: "70px"
   },
   heading: {
     fontSize: theme.typography.pxToRem(15),
