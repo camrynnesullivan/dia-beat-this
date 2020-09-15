@@ -15,7 +15,7 @@
 
 - Use this app to track blood sugar levels, A1C numbers, daily carbohydrate and caloric goals, taking note of your emotions during the day, and learn more about how to take care of your bodies.
 
-#### User Story
+### User Story
 
 - As a person with Type 2 Diabetes, I want to track my blood sugar levels, my A1C, the amounts of carbs and calories that I eat, and how I feel day to day. 
 Our users also use this app to learn more about the role of diabetes in their lives (e.g. the kinds of complications diabetes has, when they should check their blood sugar levels, where to get more resources, etc).
@@ -52,5 +52,5 @@ Our users also use this app to learn more about the role of diabetes in their li
 
   to test features.
 #### Questions
--Please reach out if you have any questions!
+- Please reach out if you have any questions!
 
