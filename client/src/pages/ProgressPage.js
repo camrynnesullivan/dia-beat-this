@@ -135,7 +135,7 @@ function ProgressPage(props) {
       {/* // Play with these values to see how they render appropriately! Delete this entire div once information is successfully being retrieved from database */}
       <BloodSugarCard bloodSugar={bloodSugar} afterMeal={afterMeal} />
       <ChartCard labels={storedData.labels} data={storedData.data} />
-      <ChartCardA1C labels={A1CData.labels} data={A1CData.data} />
+     
 
       {level.warning !== "normal" && (
         <WarningCard
@@ -156,6 +156,7 @@ function ProgressPage(props) {
         />
       )}
       <A1CCard A1C={A1C} />
+      <ChartCardA1C labels={A1CData.labels} data={A1CData.data} />
       <FoodTrackCard foodGoal={foodGoal} foodCount={foodCount}/>
 
       <CareScheduleAccordion />
