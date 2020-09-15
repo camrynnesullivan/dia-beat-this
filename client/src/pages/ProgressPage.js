@@ -34,6 +34,11 @@ function ProgressPage(props) {
     calorieGoal: 2000,
     carbGoal: 180,
   });
+  const [foodCount, setFoodCount] = useState({
+    calorieCount: 1250,
+    carbCount: 80,
+  });
+
   const [A1CData, setA1CData] = useState({
     labels: [],
     data: [],
@@ -151,7 +156,7 @@ function ProgressPage(props) {
         />
       )}
       <A1CCard A1C={A1C} />
-      <FoodTrackCard foodGoal={foodGoal}/>
+      <FoodTrackCard foodGoal={foodGoal} foodCount={foodCount}/>
 
       <CareScheduleAccordion />
     </CardGrid>
