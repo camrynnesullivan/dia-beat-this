@@ -24,8 +24,9 @@ export default {
   saveA1C: function (measurementData) {
     return axios.post("/api/A1Cmeasurements", measurementData);
   },
-  saveFoodGoal: function(measurementData) {
-    return axios.post("/api/FoodGoal", measurementData);},
+  saveFoodGoal: function (measurementData) {
+    return axios.post("/api/FoodGoal", measurementData);
+  },
   // Gets all posts
   getPosts: function () {
     return axios.get("/api/journal");
@@ -36,7 +37,7 @@ export default {
   },
   // Deletes the post with the given id
   deletePost: function (id) {
-    return axios.delete("/api" + id);
+    return axios.delete("/api/" + id);
   },
   // Saves a post to the database
   savePost: function (postData) {
