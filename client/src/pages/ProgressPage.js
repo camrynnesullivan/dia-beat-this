@@ -34,6 +34,11 @@ function ProgressPage(props) {
     calorieGoal: 2000,
     carbGoal: 180,
   });
+  const [foodCount, setFoodCount] = useState({
+    calorieCount: 1250,
+    carbCount: 80,
+  });
+
   const [A1CData, setA1CData] = useState({
     labels: [],
     data: [],
@@ -130,7 +135,7 @@ function ProgressPage(props) {
       {/* // Play with these values to see how they render appropriately! Delete this entire div once information is successfully being retrieved from database */}
       <BloodSugarCard bloodSugar={bloodSugar} afterMeal={afterMeal} />
       <ChartCard labels={storedData.labels} data={storedData.data} />
-      <ChartCardA1C labels={A1CData.labels} data={A1CData.data} />
+     
 
       {level.warning !== "normal" && (
         <WarningCard
@@ -151,7 +156,8 @@ function ProgressPage(props) {
         />
       )}
       <A1CCard A1C={A1C} />
-      <FoodTrackCard foodGoal={foodGoal}/>
+      <ChartCardA1C labels={A1CData.labels} data={A1CData.data} />
+      <FoodTrackCard foodGoal={foodGoal} foodCount={foodCount}/>
 
       <CareScheduleAccordion />
     </CardGrid>

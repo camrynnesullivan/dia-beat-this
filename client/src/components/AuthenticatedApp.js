@@ -11,7 +11,11 @@ import Detail from "../pages/Detail";
 import { Route, Switch } from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import axios from "axios";
+<<<<<<< HEAD
 import Chat from "../pages/Chat";
+=======
+import BottomNav from "./BottomNav";
+>>>>>>> 5516ab12769a0d975f5db6749fe739ef403bc082
 
 const AuthenticatedApp = () => {
   const [state, dispatch] = useGlobalContext();
@@ -73,6 +77,7 @@ const AuthenticatedApp = () => {
           />
           <Route exact path="/chat" render={(props) => <Chat {...props} />} />
         </Switch>
+        <BottomNav />
       </Router>
     </div>
   );

@@ -6,6 +6,7 @@ import API from "../utils/API";
 import { useGlobalContext } from "../context/GlobalContext";
 import { SET_CURRENT_POST } from "../context/actions";
 import CardGrid from "../components/CardGrid";
+import moment from "moment";
 
 const Detail = (props) => {
   const [state, dispatch] = useGlobalContext();
@@ -26,21 +27,19 @@ const Detail = (props) => {
           <Row>
             <Col size="md-12">
               <Jumbotron>
-                <h1>{state.currentPost.date}</h1>
+                <h1>{moment(state.currentPost.date).format("LLL")}</h1>
+                <article>
+                  <h1>Journal Entry:</h1>
+                  <p>{state.currentPost.body}</p>
+                </article>
+                <Link to="/Journal">← Back to Posts</Link>
               </Jumbotron>
             </Col>
           </Row>
-          <Row>
-            <Col size="md-10 md-offset-1">
-              <article>
-                <h1>Content:</h1>
-                <p>{state.currentPost.body}</p>
-              </article>
-            </Col>
-          </Row>
+
           <Row>
             <Col size="md-2">
-              <Link to="/Journal">← Back to Posts</Link>
+              {/* <Link to="/Journal">← Back to Posts</Link> */}
             </Col>
           </Row>
         </CardGrid>

@@ -83,6 +83,7 @@ const NavBar = (props) => {
     },
   ];
 
+<<<<<<< HEAD
   const headerTitle =
     location.pathname === "/"
       ? "Home"
@@ -90,6 +91,27 @@ const NavBar = (props) => {
           .substring(1, location.pathname.length)
           .charAt(0)
           .toUpperCase() + location.pathname.slice(2);
+=======
+  let headerTitle;
+
+  switch (location.pathname) {
+    case "/":
+      headerTitle = "Home";
+      break;
+    case "/api":
+      headerTitle = "Entry";
+      console.log(location.pathname);
+      break;
+    default:
+      headerTitle =
+        location.pathname
+          .substring(1, location.pathname.length)
+          .charAt(0)
+          .toUpperCase() + location.pathname.slice(2);
+
+      break;
+  }
+>>>>>>> 5516ab12769a0d975f5db6749fe739ef403bc082
 
   return (
     <div className={classes.root}>
