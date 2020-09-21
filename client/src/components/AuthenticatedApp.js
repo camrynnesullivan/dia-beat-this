@@ -11,6 +11,7 @@ import Detail from "../pages/Detail";
 import { Route, Switch } from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import axios from "axios";
+import Chat from "../pages/Chat";
 
 const AuthenticatedApp = () => {
   const [state, dispatch] = useGlobalContext();
@@ -70,6 +71,7 @@ const AuthenticatedApp = () => {
             path="/api/:id"
             render={(props) => <Detail {...props} />}
           />
+          <Route exact path="/chat" render={(props) => <Chat {...props} />} />
         </Switch>
       </Router>
     </div>

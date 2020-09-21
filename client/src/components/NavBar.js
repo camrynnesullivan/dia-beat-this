@@ -76,11 +76,20 @@ const NavBar = (props) => {
       menuTitle: "Journal",
       pageURL: "/Journal",
     },
+    {
+      id: "6",
+      menuTitle: "Chat",
+      pageURL: "/Chat",
+    },
   ];
 
-
-  const headerTitle = location.pathname === "/" ? "Home" : location.pathname.substring(1, location.pathname.length).charAt(0).toUpperCase() + location.pathname.slice(2)
-
+  const headerTitle =
+    location.pathname === "/"
+      ? "Home"
+      : location.pathname
+          .substring(1, location.pathname.length)
+          .charAt(0)
+          .toUpperCase() + location.pathname.slice(2);
 
   return (
     <div className={classes.root}>

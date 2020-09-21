@@ -14,9 +14,10 @@ Router.route("/journal")
   .post(journalController.createNew)
   .get(journalController.findAll);
 
-// Router.route("/:id").get(journalController.findById);
-// .put(journalController.update)
-// .delete(journalController.remove);
+Router.route("/:id")
+  .get(journalController.findById)
+  // .put(journalController.update)
+  .delete(journalController.remove);
 
 Router.route("/A1Cmeasurements")
   .post(measurementController.createNewA1C)
