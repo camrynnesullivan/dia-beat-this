@@ -83,15 +83,6 @@ const NavBar = (props) => {
     },
   ];
 
-<<<<<<< HEAD
-  const headerTitle =
-    location.pathname === "/"
-      ? "Home"
-      : location.pathname
-          .substring(1, location.pathname.length)
-          .charAt(0)
-          .toUpperCase() + location.pathname.slice(2);
-=======
   let headerTitle;
 
   switch (location.pathname) {
@@ -111,7 +102,6 @@ const NavBar = (props) => {
 
       break;
   }
->>>>>>> 5516ab12769a0d975f5db6749fe739ef403bc082
 
   return (
     <div className={classes.root}>

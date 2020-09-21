@@ -25,14 +25,11 @@ module.exports = {
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
-<<<<<<< HEAD
-=======
   update: function (req, res) {
     db.Journal.findOneAndUpdate({ _id: req.params.id }, req.body)
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
->>>>>>> 5516ab12769a0d975f5db6749fe739ef403bc082
 };
 
 // findAll: function(req, res) {
