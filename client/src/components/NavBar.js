@@ -76,11 +76,6 @@ const NavBar = (props) => {
       menuTitle: "Journal",
       pageURL: "/Journal",
     },
-    {
-      id: "6",
-      menuTitle: "Chat",
-      pageURL: "/Chat",
-    },
   ];
 
   let headerTitle;
