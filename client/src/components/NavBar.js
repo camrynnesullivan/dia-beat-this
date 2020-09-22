@@ -158,15 +158,13 @@ import AppBar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import HomeIcon from "@material-ui/icons/Home";
-import FavoriteIcon from "@material-ui/icons/Favorite";
-import PersonPinIcon from "@material-ui/icons/PersonPin";
-import HelpIcon from "@material-ui/icons/Help";
-import ShoppingBasket from "@material-ui/icons/ShoppingBasket";
-import ThumbDown from "@material-ui/icons/ThumbDown";
-import ThumbUp from "@material-ui/icons/ThumbUp";
+import NoteAddOutlinedIcon from "@material-ui/icons/NoteAddOutlined";
+import AssessmentOutlinedIcon from "@material-ui/icons/AssessmentOutlined";
+import TrackChangesOutlinedIcon from "@material-ui/icons/TrackChangesOutlined";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import { useLocation, withRouter } from "react-router-dom";
+import ExitToAppOutlinedIcon from "@material-ui/icons/ExitToAppOutlined";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -269,7 +267,7 @@ function NavBar(props) {
               handleMenuClick("/Input");
             }}
             label="Input"
-            icon={<FavoriteIcon />}
+            icon={<TrackChangesOutlinedIcon />}
             {...a11yProps(1)}
           />
           <Tab
@@ -278,7 +276,7 @@ function NavBar(props) {
               handleMenuClick("/Progress");
             }}
             label="Progress"
-            icon={<PersonPinIcon />}
+            icon={<AssessmentOutlinedIcon />}
             {...a11yProps(2)}
           />
           <Tab
@@ -287,7 +285,7 @@ function NavBar(props) {
               handleMenuClick("/Journal");
             }}
             label="Journal"
-            icon={<HelpIcon />}
+            icon={<NoteAddOutlinedIcon />}
             {...a11yProps(3)}
           />
           <Tab
@@ -296,7 +294,7 @@ function NavBar(props) {
               props.handleLogout();
             }}
             label="Logout"
-            icon={<ShoppingBasket />}
+            icon={<ExitToAppOutlinedIcon />}
             {...a11yProps(4)}
           />
         </Tabs>
