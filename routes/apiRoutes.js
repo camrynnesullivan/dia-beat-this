@@ -10,7 +10,7 @@ Router.get("/welcome", (req, res) => {
 Router.route("/measurements")
   .post(measurementController.createNew)
   .get(measurementController.findAll);
-  
+
 Router.route("/journal")
   .post(journalController.createNew)
   .get(journalController.findAll);
