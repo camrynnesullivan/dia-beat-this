@@ -165,6 +165,7 @@ import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import { useLocation, withRouter } from "react-router-dom";
 import ExitToAppOutlinedIcon from "@material-ui/icons/ExitToAppOutlined";
+import LibraryBooksOutlinedIcon from "@material-ui/icons/LibraryBooksOutlined";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -278,6 +279,15 @@ function NavBar(props) {
             label="Progress"
             icon={<AssessmentOutlinedIcon />}
             {...a11yProps(2)}
+          />
+          <Tab
+            onClick={(e) => {
+              e.stopPropagation();
+              handleMenuClick("/Resources");
+            }}
+            label="Extras"
+            icon={<LibraryBooksOutlinedIcon />}
+            {...a11yProps(4)}
           />
           <Tab
             onClick={(e) => {
