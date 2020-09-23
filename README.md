@@ -34,15 +34,15 @@ Our users also use this app to learn more about the role of diabetes in their li
 ### Contributing
 
 - Ahmed Taleb Elemine
-  GitHub: @ahtiap
+[GitHub](https://github.com/ahtiap/)
 - Jonayah Marie Jackson
-  GitHub: @JonayahJ
+[GitHub](https://github.com/JonayahJ/)
 - Nathan Pecchia
-  GitHub: @SeptumPrince
+[GitHub](https://github.com/SeptumPrince/)
 - Natallia Stelmakh
-  GitHub: @nata-stelmakh
+[GitHub](https://github.com/nata-stelmakh/)
 - Camrynne Sullivan
-  GitHub: @camrynnesullivan
+[GitHub](https://github.com/camrynnesullivan/)
 
 ### Tests
 
