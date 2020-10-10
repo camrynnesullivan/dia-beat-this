@@ -9,7 +9,8 @@
 3. [License](#license)
 4. [Contributing](#contribution)
 5. [Tests](#testing)
-6. [Questions](#questions)
+6. [Look](#look)
+7. [Questions](#questions)
 
 ### Description
 
@@ -33,15 +34,15 @@ Our users also use this app to learn more about the role of diabetes in their li
 ### Contributing
 
 - Ahmed Taleb Elemine
-  GitHub: @ahtiap
+[GitHub](https://github.com/ahtiap/)
 - Jonayah Marie Jackson
-  GitHub: @JonayahJ
+[GitHub](https://github.com/JonayahJ/)
 - Nathan Pecchia
-  GitHub: @SeptumPrince
+[GitHub](https://github.com/SeptumPrince/)
 - Natallia Stelmakh
-  GitHub: @nata-stelmakh
+[GitHub](https://github.com/nata-stelmakh/)
 - Camrynne Sullivan
-  GitHub: @camrynnesullivan
+[GitHub](https://github.com/camrynnesullivan/)
 
 ### Tests
 
@@ -51,6 +52,20 @@ Our users also use this app to learn more about the role of diabetes in their li
   [GitHub ](https://github.com/camrynnesullivan/dia-beat-this)
 
   to test features.
+
+#### Look
+- Please reach out if you have any questions!
+
+![Screenshot1](./assets/screenshot1.png)
+
+![Screenshot2](./assets/screenshot2.png)
+
+![Screenshot3](./assets/screenshot3.png)
+
+![Screenshot4](./assets/screenshot4.png)
+
+![Screenshot5](./assets/screenshot5.png)
+
 #### Questions
 - Please reach out if you have any questions!
 
