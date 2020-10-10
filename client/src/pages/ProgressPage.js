@@ -7,6 +7,7 @@ import FoodTrackCard from "../components/FoodTrackCard";
 import A1CCard from "../components/A1CCard";
 import API from "../utils/API";
 import ChartCard from "../components/ChartComponents/ChartCard";
+import ChartCardA1C from "../components/ChartComponents/ChartCardA1C";
 import { treatingHBS, treatingLBS } from "../research";
 import { symptomsLBS, symptomsHBS } from "../research";
 import SymptomsCard from "../components/WarningComponents/SymptomsCard";
@@ -33,10 +34,11 @@ function ProgressPage(props) {
     calorieGoal: 2000,
     carbGoal: 180,
   });
-  const [AC1Data, setAC1Data] = useState({
+  const [A1CData, setA1CData] = useState({
     labels: [],
     data: [],
   });
+
   const [storedData, setStoredData] = useState({
     labels: [],
     data: [],
@@ -49,18 +51,17 @@ function ProgressPage(props) {
   const setLevels = (res) => {
     const timesArray = [];
     const measurements = [];
-    const AC1measurements = [];
+    const A1CDates = [];
+    const A1CMeasurements = [];
 
     setBloodSugar(res.data[res.data.length - 1].enteredGlucose);
     setAfterMeal(res.data[res.data.length - 1].afterMeal);
     for (let index = 0; index < res.data.length; index++) {
-      if (res.data[index].date) {
+      if (res.data[index].enteredGlucose) {
+        measurements.push(res.data[index].enteredGlucose);
         const date = res.data[index].date.substr(5, 5);
         const dateTime = date + " - " + res.data[index].date.substr(11, 5);
         timesArray.push(dateTime);
-      }
-      if (res.data[index].enteredGlucose) {
-        measurements.push(res.data[index].enteredGlucose);
       }
       // if (res.data[index].enteredA1C) {
       //   AC1measurements.push(res.data[index].enteredA1C);
@@ -141,6 +142,7 @@ function ProgressPage(props) {
         />
       )}
       <A1CCard A1C={A1C} />
+      <ChartCardA1C labels={A1CData.labels} data={A1CData.data} />
       <FoodTrackCard foodGoal={foodGoal} />
 
       <CareScheduleAccordion />
