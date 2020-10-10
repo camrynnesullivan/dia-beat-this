@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { useGlobalContext } from "../../context/GlobalContext";
 import { REMOVE_POST, UPDATE_POSTS, LOADING } from "../../context/actions";
 import API from "../../utils/API";
-
+import moment from "moment";
 function PostsList() {
   const [state, dispatch] = useGlobalContext();
 
@@ -38,14 +38,14 @@ function PostsList() {
 
   return (
     <div>
-      <h1>All Journal Entries</h1>
-      <h3 className="mb-5 mt-5">Click on a journal entry to view it.</h3>
+      <h1>Health Journal Entries</h1>
+      <h3 className="mb-5 mt-5">Click to view journal entries.</h3>
       {state.posts.length ? (
         <List>
           {state.posts.map((post) => (
             <ListItem key={post._id}>
               <Link to={"/api/" + post._id}>
-                <strong>{post.date}</strong>
+                <strong>{moment(post.date).format("LLL")}</strong>
               </Link>
               <DeleteBtn onClick={() => removePost(post._id)} />
             </ListItem>

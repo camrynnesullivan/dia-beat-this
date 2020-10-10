@@ -18,8 +18,6 @@ function ChartA1C(props) {
       },
     },
   };
-  console.log(props.labels);
-  console.log(props.data);
   return (
     <div className="chart">
       <Line data={chartData} options={{}} />

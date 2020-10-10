@@ -12,6 +12,8 @@ import { Route, Switch } from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import axios from "axios";
 
+import BottomNav from "./BottomNav";
+
 const AuthenticatedApp = () => {
   const [state, dispatch] = useGlobalContext();
   const getWelcome = async () => {
@@ -71,6 +73,7 @@ const AuthenticatedApp = () => {
             render={(props) => <Detail {...props} />}
           />
         </Switch>
+        <BottomNav />
       </Router>
     </div>
   );
